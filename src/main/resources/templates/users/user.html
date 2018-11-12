@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="partials :: head">
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body class="container">
+<div class="display-4">Hello, <span th:text="${user.username}"></span></div>
+<div class="card">
+    <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
+    <div th:text="${user.username}"></div>
+</div>
+<footer th:replace="partials :: footer"></footer>
+</body>
+</html>
