@@ -18,7 +18,7 @@ public class UserSvc {
         return usersRepo.findAll();
     }
 
-    public User findOne(int id) {
+    public User findOne(long id) {
         return usersRepo.findOne(id);
     }
 

@@ -16,7 +16,7 @@ public class CatSvc {
         return catRepo.findAll();
     }
 
-    public Category findOne(int id) {
+    public Category findOne(long id) {
         return catRepo.findOne(id);
     }
 

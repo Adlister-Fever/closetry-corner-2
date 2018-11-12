@@ -28,17 +28,16 @@ public class GarmentController {
     @GetMapping("/closet/index")
     public String showAllGarments(Model vModel){
         vModel.addAttribute("garments", garmentSvc.findAll());
-        return "closet/index";
+        return "/closet/show";
+
     }
 
     @GetMapping("closet/{id}")
-    public String showOneGarment(@PathVariable int id, Model vModel){
+    public String showOneGarment(@PathVariable long id, Model vModel){
         vModel.addAttribute("garment", garmentSvc.findOne(id));
         return "closet/show";
     }
 
-
-//           -----  THIS METHOD WORKS FOR FINDING ALL GARMENTS BY USER BUT NEEDS CORRECTED MAPPING AND RETURN------------------
 
     @GetMapping("/closet/user/{id}")
     public String showUserGarments(@PathVariable int id, Model vModel){
