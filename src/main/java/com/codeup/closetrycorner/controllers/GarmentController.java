@@ -52,7 +52,7 @@ public class GarmentController {
     public String showUploadForm(Model vModel){
         vModel.addAttribute("garment", new Garment());
         vModel.addAttribute("cats", catSvc.findAll());
-        return "closet/register";
+        return "closet/upload";
     }
     @PostMapping("/upload")
     public String garmentUploaded(@ModelAttribute Garment garment){
