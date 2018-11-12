@@ -25,6 +25,19 @@ public class Outfit {
         this.date = date;
     }
 
+    public Outfit() {
+    }
+
+    public Outfit(String description) {
+        this.description = description;
+    }
+
+    public Outfit(String description, String date, List<Garment> garments) {
+        this.description = description;
+        this.date = date;
+        this.garments = garments;
+    }
+
     public long getId() {
         return id;
     }

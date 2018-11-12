@@ -2,11 +2,13 @@ package com.codeup.closetrycorner.controllers;
 
 import com.codeup.closetrycorner.models.User;
 import com.codeup.closetrycorner.services.UserSvc;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -33,8 +35,14 @@ public class UserController {
         return "login";
     }
     @GetMapping("/closet/user")
-    public String showUser(@ModelAttribute User user, Model vmodel){
-        vmodel.addAttribute("user", user);
+    public String showProfile(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+//        if(!user.getUsername().equals(loggedInUser.getUsername())){
+//            return "redirect:/users/login";
+//        }
+
+        model.addAttribute("user", user);
         return "users/user";
     }
 
