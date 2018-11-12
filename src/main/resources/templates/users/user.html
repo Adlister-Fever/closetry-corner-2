@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="partials :: head">
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -9,7 +10,20 @@
 <div class="card">
     <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
     <div th:text="${user.username}"></div>
+
+    <div sec:authorize="isAuthenticated()">
+        This content is only shown to authenticated users.
+        <br/>
+
+        User ID: <span th:text="${#authentication.principal.id}"/>
+        <br/>
+        Username: <span th:text="${#authentication.principal.username}"/>
+        <br/>
+        Email: <span th:text="${#authentication.principal.email}"/>
+        <br/>
+    </div>
 </div>
+
 <footer th:replace="partials :: footer"></footer>
 </body>
 </html>
