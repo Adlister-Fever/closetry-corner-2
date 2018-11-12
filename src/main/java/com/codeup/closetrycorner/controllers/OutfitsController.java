@@ -24,7 +24,7 @@ public class OutfitsController {
     @GetMapping("/outfits")
     public String showAllOutfits(Model vModel){
         vModel.addAttribute("outfits", outfitsSvc.findAll());
-        return "/closet/outfits";
+        return "/outfits/show";
     }
 
     @GetMapping("/outfits/create")
