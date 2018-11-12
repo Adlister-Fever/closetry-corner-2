@@ -36,6 +36,9 @@ public class OutfitsController {
         return "outfits/show";
     }
 
+
+
+
     @GetMapping("/outfits/create")
     public String createOutfitForm(Model vModel){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
