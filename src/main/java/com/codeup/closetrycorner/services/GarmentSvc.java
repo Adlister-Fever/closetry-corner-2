@@ -12,7 +12,7 @@ public class GarmentSvc {
         return garmentRepo.findAll();
     }
 
-    public Garment findOne(int id) {
+    public Garment findOne(long id) {
         return garmentRepo.findOne(id);
     }
 

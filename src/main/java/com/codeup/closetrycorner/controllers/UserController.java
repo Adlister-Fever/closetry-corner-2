@@ -33,10 +33,15 @@ public class UserController {
         userSvc.save(user);
         return "redirect:/login";
     }
-    @GetMapping("/closet/user")
+    @GetMapping("/user")
     public String showProfile(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", user);
         return "users/user";
     }
+
+//    @GetMapping("/user/followers")
+//    public String showFollowers(Model model){
+//
+//    }
 }

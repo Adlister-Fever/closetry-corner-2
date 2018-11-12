@@ -6,7 +6,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     @Column(nullable = false)
     private String username;
@@ -54,11 +54,11 @@ public class User {
         this.open = open;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

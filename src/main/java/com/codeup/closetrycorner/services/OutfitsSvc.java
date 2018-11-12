@@ -8,7 +8,7 @@ public class OutfitsSvc {
 
     public Iterable<Outfit> findAll(){ return outfitsRepo.findAll();}
 
-    public Outfit findOne(int id) {return outfitsRepo.findOne(id);}
+    public Outfit findOne(long id) {return outfitsRepo.findOne(id);}
 
     public Outfit createOutfit (Outfit outfit) { return outfitsRepo.save(outfit);}
 
