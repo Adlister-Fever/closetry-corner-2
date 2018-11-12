@@ -5,30 +5,31 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
-<body class="container">
-<div class="display-4">Hello, <span th:text="${user.username}"></span></div>
-<div class="card">
-    <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
-    <div th:text="${user.username}"></div>
+<body>
+<!--<div class="display-4">Hello, <span th:text="${user.username}"></span></div>-->
+<!--<div class="card">-->
+    <!--&lt;!&ndash;<img th:src="${user.picture_large}" alt="profile_picture"/>&ndash;&gt;-->
+    <!--<div th:text="${user.username}"></div>-->
 
-    <div sec:authorize="isAuthenticated()">
-        This content is only shown to authenticated users.
-        <br/>
+    <!--<div sec:authorize="isAuthenticated()">-->
+        <!--This content is only shown to authenticated users.-->
+        <!--<br/>-->
 
-        User ID: <span th:text="${#authentication.principal.id}"/>
-        <br/>
-        Username: <span th:text="${#authentication.principal.username}"/>
-        <br/>
-        Email: <span th:text="${#authentication.principal.email}"/>
-        <br/>
-    </div>
-</div>
+        <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
+        <!--<br/>-->
+        <!--Username: <span th:text="${#authentication.principal.username}"/>-->
+        <!--<br/>-->
+        <!--Email: <span th:text="${#authentication.principal.email}"/>-->
+        <!--<br/>-->
+    <!--</div>-->
+<!--</div>-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Hello, User!</h1>
+        <div class="display-4">Hello, <span th:text="${user.username}"></span></div>
     </div>
 </div>
 <div class="container-fluid bg-light h-100">
+    <button type="button" class="btn btn-dark" id="open">Upload Here</button>
     <input type="search" class="form-control w-100" placeholder="Search..."/>
     <div class="row" style="height: 66vh;">
         <ul class="nav nav-tabs">
@@ -42,5 +43,22 @@
     </div>
 </div>
 <footer th:replace="partials :: footer"></footer>
+<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
+<script>
+
+
+    window.addEventListener('DOMContentLoaded', function () {
+        const apikey = '';
+        const client = filestack.init(apikey);
+        const options = {
+                maxFiles: 20,
+                uploadInBackground: false,
+                onOpen: () => console.log('opened!'),
+            onUploadDone: (res) => console.log(res),
+    };
+        $();
+        $('#open').click(()=>client.picker(options).open());
+    });
+</script>
 </body>
 </html>
