@@ -8,6 +8,7 @@
     </div>
 </div>
 <div class="container-fluid bg-light h-100">
+    <button id="open">Upload Item</button>
     <input type="search" class="form-control w-100" placeholder="Search..."/>
     <div class="row" style="height: 66vh;">
         <ul class="nav nav-tabs">
@@ -23,5 +24,21 @@
 <button type="button" class="btn btn-dark w-100">Register for Free</button>
 
 <div th:replace="fragments/partials :: footer"/>
+<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        const apikey = 'AtXT24mWXSGUvgcRzV7JQz';
+        const client = filestack.init(apikey);
+        const options = {
+                maxFiles: 20,
+                uploadInBackground: false,
+                onOpen: () => console.log('opened!'),
+            onUploadDone: (res) => console.log(res),
+    };
+        $();
+        $('#open').click(()=> client.picker(options).open());
+    });
+</script>
+
 </body>
 </html>
