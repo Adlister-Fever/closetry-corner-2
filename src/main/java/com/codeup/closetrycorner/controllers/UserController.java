@@ -30,7 +30,12 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userSvc.save(user);
-        return "redirect:/garments";
+        return "login";
+    }
+    @GetMapping("/closet/user")
+    public String showUser(@ModelAttribute User user, Model vmodel){
+        vmodel.addAttribute("user", user);
+        return "users/user";
     }
 
 }
