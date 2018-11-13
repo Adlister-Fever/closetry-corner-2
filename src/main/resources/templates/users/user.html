@@ -40,23 +40,23 @@
             </li>
         </ul>
     </div>
-    <!--<div class="card mx-auto my-5 w-25" th:each="garment:${garments}">-->
-        <!--<a th:href="@{/closet/{id}(id=${garment.id})}">-->
-            <!--<p class="card-img-top" th:text="${garment.image}"></p>-->
-        <!--</a>-->
-        <!--<div class="card-body">-->
-        <!--<span th:each="cat:${garment.categories}">-->
-        <!--<button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>-->
-        <!--</span>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">-->
-        <!--<a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>-->
-        <!--<p class="card-body" th:each="garment:${outfit.garments}"></p>-->
-        <!--<div class="card-footer">-->
-            <!--<p th:text="${outfit.date}"></p>-->
+    <div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
+        <a th:href="@{/closet/{id}(id=${garment.id})}">
+            <p class="card-img-top" th:text="${garment.image}"></p>
+        </a>
+        <div class="card-body">
+        <span th:each="cat:${garment.categories}">
+        <button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>
+        </span>
+        </div>
+    </div>
+    <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
+        <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>
+        <p class="card-body" th:each="garment:${outfit.garments}"></p>
+        <div class="card-footer">
+            <p th:text="${outfit.date}"></p>
 
-        <!--</div>-->
+        </div>
     </div>
     <footer th:replace="partials :: footer"></footer>
 </body>

@@ -5,7 +5,16 @@
     <title>Viewing Garments</title>
 </head>
 <body>
-<h1>This is a placeholder page for viewing all garments, user garments, or a single garment.</h1>
+<div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
+    <a th:href="@{/closet/{id}(id=${garment.id})}">
+        <p class="card-img-top" th:text="${garment.image}"></p>
+    </a>
+    <div class="card-body">
+        <span th:each="cat:${garment.categories}">
+        <button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>
+        </span>
+    </div>
+</div>
 
 </body>
 </html>

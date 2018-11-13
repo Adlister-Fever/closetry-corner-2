@@ -5,7 +5,23 @@
     <title>Create Outfit</title>
 </head>
 <body>
-<h1>This is the placeholder page for the outfit creation form.</h1>
+<div class="card bg-success mx-2 my-5 w-75">
+    <div class="card-header">
+        <h3>Enter new post below:</h3>
+    </div>
+    <form th:action="@{/outfits/create}" th:method="post" th:object="${outfit}">
+        <div class="card-body">
+            <input th:field="*{description}" class="ml-0" placeholder="Outfit Name"/>
+            <br/>
+            <!--I THINK EACH GARMENT CARD SHOULD BE A LINK THAT FIRES A MODAL DISPLAYING GARMENT CATEGORIES-->
+            <!--IF THAT'S A LITTLE TOO MUCH WE CAN ALWAYS LIST THE CATEGORIES IN A FOOTER UNDERNEATH THE IMAGE-->
+            <div th:each="garment:${garments}">
+                    <p class="card-img-top" th:text="${garment.image}"></p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-light btn-lg btn-block ml-auto">Submit Post</button>
+    </form>
+</div>
 
 </body>
 </html>

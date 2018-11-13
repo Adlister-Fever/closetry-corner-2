@@ -32,7 +32,7 @@ public class GarmentController {
 
     }
 
-    @GetMapping("closet/{id}")
+    @GetMapping("/closet/{id}")
     public String showOneGarment(@PathVariable long id, Model vModel){
         vModel.addAttribute("garment", garmentSvc.findOne(id));
         return "closet/show";
@@ -45,6 +45,11 @@ public class GarmentController {
         vModel.addAttribute("garments", garmentSvc.findAllForUser(currentUser));
         return "closet/show";
     }
+
+//    @GetMapping("/closet/search")
+//    public String showSearchResults(Model vModel){
+//        vModel.addAttribute("garments", findGarmentsByTerm)
+//    }
 
 
 
