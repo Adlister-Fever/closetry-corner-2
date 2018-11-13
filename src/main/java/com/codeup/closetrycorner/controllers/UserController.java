@@ -43,7 +43,7 @@ public class UserController {
     public String showProfile(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("garments", garmentSvc.findAllForUser(userSvc.findOne(user.getId())));
-//        model.addAttribute("outfits", outfitsSvc.findAllForUser(user));
+        model.addAttribute("outfits", outfitsSvc.findAllForUser(userSvc.findOne(user.getId())));
         return "users/user";
     }
 

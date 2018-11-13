@@ -12,6 +12,46 @@
     <title>Home</title>
 </head>
 <body>
+<nav class="nav border border-top-0 mb-4 p-3" th:fragment="nav">
+    <ul class="nav">
+        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-3 mr-2">
+            <th:block th:text="${'Welcome, ' + #authentication.principal.username}"/>
+        </li>
+        <li class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link active navy" href="/">Home</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link navy" href="/posts/create">Create</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link navy" href="/login">Login</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link navy" href="/user">Profile</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link navy" href="/closet/index">My Closet</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link navy" href="/outfits">Outfits</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link navy" href="/register">Register</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-2 mr-2">
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn navy my-auto" style="margin-top: 8px">Logout</button>
+            </form>
+        </li>
+        <li>
+            <!--<form class="form-inline">-->
+            <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+            <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            <!--</form>-->
+        </li>
+    </ul>
+
+</nav>
 index  page
 <div th:fragment="logout">
     <div sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-2 mr-2">
