@@ -9,7 +9,7 @@
 
 <p>Hello from Upload</p>
 <button type="button" class="btn btn-dark" id="open">Upload Picture</button>
-<span th:each="cats:${garment.categories}">
+<div th:each="cats:${garment.categories}">
 
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
@@ -23,7 +23,7 @@
             <!--Disabled checkbox-->
         <!--</label>-->
     <!--</div>-->
-</span>
+</div>
 
 
 <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
@@ -31,7 +31,7 @@
 
 
     window.addEventListener('DOMContentLoaded', function () {
-        const apikey = '';
+        const apikey = 'AtXT24mWXSGUvgcRzV7JQz';
         const client = filestack.init(apikey);
 
         const options = {
