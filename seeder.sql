@@ -91,23 +91,23 @@ insert into garments (date, image, user_id)
 values (
 '22 October 2018',
 'https://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw0b78138c/images/hi-res/27805_COI.jpg?sw=750&sh=750&sm=fit&sfrm=png',
-5
+1
 ),(
 '24 October 2018',
-'https://www.substation-safety.com/wp-content/uploads/2018/05/tranemo-5940-92-FR-T-shirt-Long-sleeves-750x750.jpg'
-5
+'https://www.substation-safety.com/wp-content/uploads/2018/05/tranemo-5940-92-FR-T-shirt-Long-sleeves-750x750.jpg',
+1
 ),(
 '22 October 2018',
 'https://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwe7863b74/images/hi-res/55910_MJVK.jpg?sw=750&sh=750&sm=fit&sfrm=png',
-5
+1
 ),(
 '22 October 2018',
 'https://www.larsmode.com/image/cache/catalog/LM4_6861-750x750.jpg',
-5
+1
 ),(
 '22 October 2018',
 'https://www.jubidubi.com/image/cache/wkseller/BEING%20353/style87/87-PRINTED-WHITE-750x750.jpg',
-5
+1
 );
 
 
@@ -134,10 +134,11 @@ values
 (5,21);
 
 
-insert into outfit (date, description)
+insert into outfit (date, description, user_id)
 values(
 '22 October 2018',
-'Sweet Threads'
+'Sweet Threads',
+1
 );
 
 

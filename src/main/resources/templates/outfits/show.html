@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/partials :: header">
+    <meta charset="UTF-8"/>
+    <title>Viewing Outfits</title>
+</head>
+<body>
+<div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
+    <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>
+    <p class="card-body" th:each="garment:${outfit.garments}"></p>
+    <div class="card-footer">
+        <p th:text="${outfit.date}"></p>
+
+    </div>
+</div>
+
+</body>
+</html>

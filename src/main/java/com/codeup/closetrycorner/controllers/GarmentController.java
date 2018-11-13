@@ -18,21 +18,21 @@ public class GarmentController {
     private UserSvc userSvc;
     private CatSvc catSvc;
 
-//    public GarmentController(GarmentSvc postsvc, UserSvc usersvc, CatSvc catSvc ){
-//        this.garmentSvc = garmentSvc;
-//        this.userSvc = userSvc;
-//        this.catSvc = catSvc;
-//    }
+    public GarmentController(GarmentSvc garmentSvc, UserSvc userSvc, CatSvc catSvc ){
+        this.garmentSvc = garmentSvc;
+        this.userSvc = userSvc;
+        this.catSvc = catSvc;
+    }
 
 
     @GetMapping("/closet/index")
     public String showAllGarments(Model vModel){
         vModel.addAttribute("garments", garmentSvc.findAll());
-        return "/closet/show";
+        return "closet/index";
 
     }
 
-    @GetMapping("closet/{id}")
+    @GetMapping("/closet/{id}")
     public String showOneGarment(@PathVariable long id, Model vModel){
         vModel.addAttribute("garment", garmentSvc.findOne(id));
         return "closet/show";
@@ -40,11 +40,16 @@ public class GarmentController {
 
 
     @GetMapping("/closet/user/{id}")
-    public String showUserGarments(@PathVariable int id, Model vModel){
+    public String showUserGarments(@PathVariable long id, Model vModel){
         User currentUser = userSvc.findOne(id);
         vModel.addAttribute("garments", garmentSvc.findAllForUser(currentUser));
-        return "closet/show";
+        return "closet/show-user";
     }
+
+//    @GetMapping("/closet/search")
+//    public String showSearchResults(Model vModel){
+//        vModel.addAttribute("garments", findGarmentsByTerm)
+//    }
 
 
 
@@ -52,7 +57,7 @@ public class GarmentController {
     public String showUploadForm(Model vModel){
         vModel.addAttribute("garment", new Garment());
         vModel.addAttribute("cats", catSvc.findAll());
-        return "closet/register";
+        return "closet/upload";
     }
     @PostMapping("/upload")
     public String garmentUploaded(@ModelAttribute Garment garment){

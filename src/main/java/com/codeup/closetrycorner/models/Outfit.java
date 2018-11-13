@@ -17,6 +17,10 @@ public class Outfit {
     @Column
     private String date;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @ManyToMany(mappedBy = "outfits")
     private List<Garment> garments;
 
@@ -60,5 +64,21 @@ public class Outfit {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Garment> getGarments() {
+        return garments;
+    }
+
+    public void setGarments(List<Garment> garments) {
+        this.garments = garments;
     }
 }
