@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/partials :: header">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Upload Garment</title>
 </head>
 <body>
 
 
+<p>Hello from Upload</p>
+<button type="button" class="btn btn-dark" id="open">Upload Picture</button>
+<span th:each="cat:${garment.categories}">
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+       <p th:text="${cat.name}"></p>
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+    <label class="form-check-label" for="defaultCheck2">
+        Disabled checkbox
+    </label>
+</div>
+    </span>
+
+
+<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
+<script>
+
+
+    window.addEventListener('DOMContentLoaded', function () {
+        const apikey = '';
+        const client = filestack.init(apikey);
+
+        const options = {
+                maxFiles: 1,
+                uploadInBackground: false,
+                onOpen: () => console.log('opened!'),
+            onUploadDone: (res) => {
+            console.log(res.filesUploaded[0].url)
+            $("#pic1").attr("src", res.filesUploaded[0].url);
+
+        },
+
+    };
+        $();
+
+        $('#open').click(()=>client.picker(options).open());
+
+
+    });
+</script>
 </body>
 </html>
