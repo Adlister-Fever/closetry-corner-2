@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/partials :: header">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="partials :: header">
     <meta charset="UTF-8"/>
     <title>Upload Garment</title>
 </head>
-<body>
-
+<body class="container">
+<nav th:replace="partials :: nav"></nav>
 
 <p>Hello from Upload</p>
 <button type="button" class="btn btn-dark" id="open">Upload Picture</button>
-<span th:each="cat:${garment.categories}">
+<div th:each="cat:${garment.categories}">
 
 <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
     <label class="form-check-label" for="defaultCheck1">
        <p th:text="${cat.name}"></p>
     </label>
 </div>
 <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
     <label class="form-check-label" for="defaultCheck2">
         Disabled checkbox
     </label>
 </div>
-    </span>
-
+    </div>
+<footer th:replace="partials :: footer"></footer>
 
 <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
 <script>
@@ -47,10 +47,13 @@
     };
         $();
 
-        $('#open').click(()=>client.picker(options).open());
+        $('#open').click(()=> {
+            return client.picker(options).open();
+        });
 
 
     });
 </script>
+
 </body>
 </html>
