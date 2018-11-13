@@ -5,30 +5,32 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
+
 <body class="container">
 <div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>
 <div class="card">
     <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
     <div th:text="${#authentication.principal.username}"></div>
 
-    <div sec:authorize="isAuthenticated()">
-        This content is only shown to authenticated users.
-        <br/>
+    <!--<div sec:authorize="isAuthenticated()">-->
+        <!--This content is only shown to authenticated users.-->
+        <!--<br/>-->
 
-        User ID: <span th:text="${#authentication.principal.id}"/>
-        <br/>
-        Username: <span th:text="${#authentication.principal.username}"/>
-        <br/>
-        Email: <span th:text="${#authentication.principal.email}"/>
-        <br/>
-    </div>
-</div>
+        <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
+        <!--<br/>-->
+        <!--Username: <span th:text="${#authentication.principal.username}"/>-->
+        <!--<br/>-->
+        <!--Email: <span th:text="${#authentication.principal.email}"/>-->
+        <!--<br/>-->
+    <!--</div>-->
+<!--</div>-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Hello, User!</h1>
+        <div class="display-4">Hello, <span th:text="${user.username}"></span></div>
     </div>
 </div>
 <div class="container-fluid bg-light h-100">
+    <button type="button" class="btn btn-dark" id="open">Upload Here</button>
     <input type="search" class="form-control w-100" placeholder="Search..."/>
     <div class="row" style="height: 66vh;">
         <ul class="nav nav-tabs">
@@ -40,6 +42,7 @@
             </li>
         </ul>
     </div>
+
     <div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
         <a th:href="@{/closet/{id}(id=${garment.id})}">
             <p class="card-img-top" th:text="${garment.image}"></p>
@@ -60,5 +63,10 @@
     <!--</div>-->
     </div>
     <footer th:replace="partials :: footer"></footer>
+    <script>
+
+
+        //use button to redirect to upload.html
+    </script>
 </body>
 </html>
