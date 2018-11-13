@@ -9,6 +9,7 @@
 
 <p>Hello from Upload</p>
 <button type="button" class="btn btn-dark" id="open">Upload Picture</button>
+
 <div th:each="cat:${garment.categories}">
 
 <div class="form-check">
@@ -31,7 +32,7 @@
 
 
     window.addEventListener('DOMContentLoaded', function () {
-        const apikey = '';
+        const apikey = 'AtXT24mWXSGUvgcRzV7JQz';
         const client = filestack.init(apikey);
 
         const options = {

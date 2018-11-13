@@ -7,6 +7,7 @@
 <nav th:replace="partials :: nav"></nav>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
+            <div id="duotone"></div>
             <h1 class="display-4">Closetry Corner</h1>
             <p class="lead"><em>Interesting Slogan Here.</em></p>
         </div>
@@ -18,7 +19,7 @@
         <div class="row" style="height: 66vh;">
             <div class="col bg-primary" id="col-1">column 1
                 <div class="card">
-                    <div class="card-img"><img src="/static/img/girl-in-dress.jpg"/>
+                    <div class="card-img"><img src="/img/girl-in-dress.jpg" style="max-width: 50%;"/>
                         </div>
                     <div class="card-img-overlay">Hello</div>
                 </div>
@@ -33,6 +34,7 @@
         </div>
     </div>
 <a href="/register"><button type="button" class="btn btn-dark w-100">Register for Free</button></a>
+
 
 
 <footer th:replace="partials :: footer"></footer>
