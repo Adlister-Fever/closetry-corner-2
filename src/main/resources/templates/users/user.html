@@ -6,11 +6,11 @@
     <title>Title</title>
 </head>
 
-<body class="container">
-<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>
-<div class="card">
-    <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
-    <div th:text="${#authentication.principal.username}"></div>
+<!--<body class="container">-->
+<!--<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>-->
+<!--<div class="card">-->
+    <!--&lt;!&ndash;<img th:src="${user.picture_large}" alt="profile_picture"/>&ndash;&gt;-->
+    <!--<div th:text="${#authentication.principal.username}"></div>-->
 
     <!--<div sec:authorize="isAuthenticated()">-->
         <!--This content is only shown to authenticated users.-->
@@ -24,35 +24,40 @@
         <!--<br/>-->
     <!--</div>-->
 <!--</div>-->
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <div class="display-4">Hello, <span th:text="${user.username}"></span></div>
-    </div>
-</div>
-<div class="container-fluid bg-light h-100">
-    <button type="button" class="btn btn-dark" id="open">Upload Here</button>
-    <input type="search" class="form-control w-100" placeholder="Search..."/>
-    <div class="row" style="height: 66vh;">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Closet</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Outfits</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
-        <a th:href="@{/closet/{id}(id=${garment.id})}">
-            <p class="card-img-top" th:text="${garment.image}"></p>
-        </a>
-        <div class="card-body">
-        <span th:each="cat:${garment.categories}">
-        <button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>
-        </span>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="display-4">Hello, <span th:text="${#authentication.principal.username}"></span></div>
         </div>
     </div>
+    <div class="container-fluid bg-light h-100">
+        <button type="button" class="btn btn-dark" id="open">Upload Here</button>
+
+        <input type="search" class="form-control w-100" placeholder="Search..."/>
+
+        <div class="row" style="height: 66vh;">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Closet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Outfits</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
+            <a th:href="@{/closet/{id}(id=${garment.id})}">
+                <img class="card-img-top" th:src="@{${garment.image}}"/>
+            </a>
+            <div class="card-body">
+                <span th:each="cat:${garment.categories}">
+                <button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
     <!--<div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">-->
         <!--<a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>-->
         <!--<p class="card-body" th:each="garment:${outfit.garments}"></p>-->
@@ -61,7 +66,7 @@
 
         <!--</div>-->
     <!--</div>-->
-    </div>
+
     <footer th:replace="partials :: footer"></footer>
     <script>
 
