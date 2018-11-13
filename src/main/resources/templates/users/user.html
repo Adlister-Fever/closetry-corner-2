@@ -30,7 +30,6 @@
 </div>
 <div class="container-fluid bg-light h-100">
     <button type="button" class="btn btn-dark" id="open">Upload Here</button>
-    <img src="" id="pic1"/>
     <input type="search" class="form-control w-100" placeholder="Search..."/>
     <div class="row" style="height: 66vh;">
         <ul class="nav nav-tabs">
@@ -44,31 +43,10 @@
     </div>
 </div>
 <footer th:replace="partials :: footer"></footer>
-<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
 <script>
 
 
-    window.addEventListener('DOMContentLoaded', function () {
-        const apikey = '';
-        const client = filestack.init(apikey);
-
-        const options = {
-                maxFiles: 1,
-                uploadInBackground: false,
-                onOpen: () => console.log('opened!'),
-            onUploadDone: (res) => {
-                    console.log(res.filesUploaded[0].url)
-            $("#pic1").attr("src", res.filesUploaded[0].url);
-
-        },
-
-    };
-        $();
-
-        $('#open').click(()=>client.picker(options).open());
-
-
-    });
+    //use button to redirect to upload.html
 </script>
 </body>
 </html>
