@@ -85,4 +85,20 @@ public class Garment {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public List<Outfit> getOutfits() {
+        return outfits;
+    }
+
+    public void setOutfits(List<Outfit> outfits) {
+        this.outfits = outfits;
+    }
 }

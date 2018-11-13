@@ -2,8 +2,12 @@ package com.codeup.closetrycorner.services;
 
 import com.codeup.closetrycorner.models.Outfit;
 import com.codeup.closetrycorner.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OutfitsSvc {
+    @Autowired
     private OutfitsRepo outfitsRepo;
 
     public Iterable<Outfit> findAll(){ return outfitsRepo.findAll();}
