@@ -6,11 +6,14 @@
     <title>Title</title>
 </head>
 
-<!--<body class="container">-->
-<!--<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>-->
-<!--<div class="card">-->
-    <!--&lt;!&ndash;<img th:src="${user.picture_large}" alt="profile_picture"/>&ndash;&gt;-->
-    <!--<div th:text="${#authentication.principal.username}"></div>-->
+
+<body class="container">
+<nav th:replace="partials :: nav"></nav>
+
+<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>
+<div class="card">
+    <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
+    <div th:text="${#authentication.principal.username}"></div>
 
     <!--<div sec:authorize="isAuthenticated()">-->
         <!--This content is only shown to authenticated users.-->
@@ -18,13 +21,12 @@
 
         <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
         <!--<br/>-->
-        <!--Username: <span th:text="${#authentication.principal.username}"/>-->
+        Username: <span th:text="${#authentication.principal.username}"/>
         <!--<br/>-->
         <!--Email: <span th:text="${#authentication.principal.email}"/>-->
         <!--<br/>-->
     <!--</div>-->
 <!--</div>-->
-<body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="display-4">Hello, <span th:text="${#authentication.principal.username}"></span></div>

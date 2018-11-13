@@ -4,20 +4,22 @@
     <meta charset="UTF-8" />
     <title>Sign up</title>
 </head>
-<body>
-<h1>Create an account</h1>
-<form th:action="@{/register}" th:method="POST" th:object="${user}">
-    <label for="username">Username</label>
-    <input id="username" th:field="*{username}" />
+<body class="container">
+<div class="card mx-auto my-auto p-3">
+    <h1>Create an account</h1>
+    <form th:action="@{/register}" th:method="POST" th:object="${user}">
+        <label for="username">Username</label>
+        <input id="username" th:field="*{username}" />
 
-    <label for="email">Email</label>
-    <input id="email" th:field="*{email}" />
+        <label for="email">Email</label>
+        <input id="email" th:field="*{email}" />
 
-    <label for="password">Password</label>
-    <input id="password" type="password" th:field="*{password}" />
+        <label for="password">Password</label>
+        <input id="password" type="password" th:field="*{password}" />
 
-    <input value="Sign me up!" type="submit" />
-</form>
+        <input class="btn" value="Sign me up!" type="submit" />
+    </form>
+</div>
 <footer th:replace="partials :: footer"/>
 
 </body>
