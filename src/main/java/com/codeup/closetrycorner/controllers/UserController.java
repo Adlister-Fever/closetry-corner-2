@@ -19,9 +19,11 @@ public class UserController {
     private OutfitsSvc outfitsSvc;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UserSvc users, PasswordEncoder passwordEncoder) {
+    public UserController(UserSvc users, PasswordEncoder passwordEncoder, GarmentSvc garmentSvc, OutfitsSvc outfitsSvc) {
         this.userSvc = users;
         this.passwordEncoder = passwordEncoder;
+        this.garmentSvc = garmentSvc;
+        this.outfitsSvc = outfitsSvc;
     }
 
     @GetMapping("/register")
@@ -40,8 +42,7 @@ public class UserController {
     @GetMapping("/user")
     public String showProfile(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user", user);
-//        model.addAttribute("garments", garmentSvc.findAllForUser(user));
+        model.addAttribute("garments", garmentSvc.findAllForUser(userSvc.findOne(user.getId())));
 //        model.addAttribute("outfits", outfitsSvc.findAllForUser(user));
         return "users/user";
     }
