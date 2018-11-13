@@ -31,13 +31,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         ;
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/closet/user") // user's home page, it can be any URL
+                .defaultSuccessUrl("/user") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
                 /* Logout configuration */
                 .and()
