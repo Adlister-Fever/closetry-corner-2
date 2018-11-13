@@ -40,7 +40,7 @@ public class GarmentController {
 
 
     @GetMapping("/closet/user/{id}")
-    public String showUserGarments(@PathVariable int id, Model vModel){
+    public String showUserGarments(@PathVariable long id, Model vModel){
         User currentUser = userSvc.findOne(id);
         vModel.addAttribute("garments", garmentSvc.findAllForUser(currentUser));
         return "closet/show-user";
