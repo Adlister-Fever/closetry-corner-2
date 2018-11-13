@@ -17,7 +17,7 @@ public class OutfitsSvc {
     public Outfit createOutfit (Outfit outfit) { return outfitsRepo.save(outfit);}
 
     public Iterable<Outfit> findAllForUser(User user){
-        return outfitsRepo.findOutfitsByUser(user.getId());
+        return outfitsRepo.findByUser(user);
     }
 
     public void saveOutfit(Outfit outfit){
