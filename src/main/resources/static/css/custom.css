@@ -1,0 +1,14 @@
+body, .container, .container-fluid{
+    background-color: #261b0c;
+    !important;
+}
+
+div.jumbotron.jumbotron-fluid{
+    background-color: #261b0c;
+!important;
+}
+
+*{
+    color: antiquewhite;
+    !important;
+}
