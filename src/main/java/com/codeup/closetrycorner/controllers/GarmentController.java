@@ -18,11 +18,11 @@ public class GarmentController {
     private UserSvc userSvc;
     private CatSvc catSvc;
 
-//    public GarmentController(GarmentSvc postsvc, UserSvc usersvc, CatSvc catSvc ){
-//        this.garmentSvc = garmentSvc;
-//        this.userSvc = userSvc;
-//        this.catSvc = catSvc;
-//    }
+    public GarmentController(GarmentSvc garmentSvc, UserSvc userSvc, CatSvc catSvc ){
+        this.garmentSvc = garmentSvc;
+        this.userSvc = userSvc;
+        this.catSvc = catSvc;
+    }
 
 
     @GetMapping("/closet/index")
