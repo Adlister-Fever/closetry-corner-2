@@ -7,6 +7,8 @@
 </head>
 
 <body class="container">
+<nav th:replace="partials :: nav"></nav>
+
 <div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>
 <div class="card">
     <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
@@ -18,7 +20,7 @@
 
         <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
         <!--<br/>-->
-        <!--Username: <span th:text="${#authentication.principal.username}"/>-->
+        Username: <span th:text="${#authentication.principal.username}"/>
         <!--<br/>-->
         <!--Email: <span th:text="${#authentication.principal.email}"/>-->
         <!--<br/>-->
@@ -26,7 +28,7 @@
 <!--</div>-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <div class="display-4">Hello, <span th:text="${user.username}"></span></div>
+        <div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>
     </div>
 </div>
 <div class="container-fluid bg-light h-100">
@@ -52,6 +54,7 @@
         <button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>
         </span>
         </div>
+    </div>
     </div>
     <!--<div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">-->
         <!--<a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>-->
