@@ -1,5 +1,6 @@
 package com.codeup.closetrycorner.services;
 
+import com.codeup.closetrycorner.models.Category;
 import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class GarmentSvc {
 
     }
 
+    public Iterable<Garment> searchGarment(Category category) {
+        return garmentRepo.findGarmentsByCategories(category);
+    }
+
     public void saveGarment(Garment garment){
         garmentRepo.save(garment);
     }
@@ -38,4 +43,6 @@ public class GarmentSvc {
     public void deleteGarment(Garment garment) {
         garmentRepo.delete(garment);
     }
+
+
 }
