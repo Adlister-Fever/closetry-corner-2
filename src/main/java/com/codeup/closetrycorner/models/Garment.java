@@ -10,7 +10,7 @@ public class Garment {
     @GeneratedValue
     private long id;
 
-    @Column(nullable=false)
+    @Column()
     private String date;
 
     @Column(nullable=false)
@@ -53,6 +53,7 @@ public class Garment {
 
     public Garment() {
     }
+
 
     public long getId() {
         return id;
