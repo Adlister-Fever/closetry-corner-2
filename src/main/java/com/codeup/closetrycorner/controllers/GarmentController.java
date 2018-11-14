@@ -1,5 +1,6 @@
 package com.codeup.closetrycorner.controllers;
 
+import com.codeup.closetrycorner.models.Category;
 import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.User;
 import com.codeup.closetrycorner.services.CatSvc;
@@ -63,6 +64,16 @@ public class GarmentController {
     public String garmentUploaded(@ModelAttribute Garment garment){
         Garment newGarment = garmentSvc.uploadGarment(garment);
         return "redirect:/closet/"+newGarment.getId();
+    }
+
+    @GetMapping("/closet/search")
+    public String showSearchForm(Model vModel){
+        vModel.addAttribute("category", garmentSvc.searchGarments())
+    }
+
+    @PostMapping("/closet/search")
+    public String searchUserGarments(@ModelAttribute Garment garment){
+        garmentSvc.searchGarments()
     }
 
 }
