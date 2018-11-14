@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="partials :: head">
+<head th:replace="fragments/partials :: head">
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 
 
 <body class="container">
-<nav th:replace="partials :: nav"></nav>
+<nav th:replace="fragments/partials :: nav"></nav>
 
-<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>
+<!--<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>-->
 <div class="card">
     <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
-    <div th:text="${#authentication.principal.username}"></div>
+    <!--<div th:text="${#authentication.principal.username}"></div>-->
 
     <!--<div sec:authorize="isAuthenticated()">-->
         <!--This content is only shown to authenticated users.-->
@@ -21,7 +21,7 @@
 
         <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
         <!--<br/>-->
-        Username: <span th:text="${#authentication.principal.username}"/>
+        <!--Username: <span th:text="${#authentication.principal.username}"/>-->
         <!--<br/>-->
         <!--Email: <span th:text="${#authentication.principal.email}"/>-->
         <!--<br/>-->
@@ -38,12 +38,12 @@
         <input type="search" class="form-control w-100" placeholder="Search..."/>
 
         <div class="row" style="height: 66vh;">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs justify-content-center nav-fill" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Closet</a>
+                    <a class="nav-link active" data-toggle="tab" id="closetTab" role="tab" href="#">Closet</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Outfits</a>
+                    <a class="nav-link" data-toggle="tab" id="outfitsTab" role="tab" href="#">Outfits</a>
                 </li>
             </ul>
         </div>
@@ -69,7 +69,7 @@
         <!--</div>-->
     <!--</div>-->
 
-    <footer th:replace="partials :: footer"></footer>
+    <footer th:replace="fragments/partials :: footer"></footer>
     <script>
 
 
