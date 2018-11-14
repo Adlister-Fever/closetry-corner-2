@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:replace="partials :: header">
+<head th:replace="fragments/partials :: header">
     <meta charset="UTF-8"/>
     <title>Upload Garment</title>
 </head>
 <body class="container">
-<nav th:replace="partials :: nav"></nav>
+<nav th:replace="fragments/partials :: nav"></nav>
 
 <p>Hello from Upload</p>
 <button type="button" class="btn btn-dark" id="open">Upload Picture</button>
@@ -29,7 +29,7 @@
            data-images-only="true" th:field="*{image}"/>
     <button type="submit" value="Save" class="btn btn-dark">Save</button>
 </form>
-<footer th:replace="partials :: footer"></footer>
+<footer th:replace="fragments/partials :: footer"></footer>
 
 <!--<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>-->
 <script>
