@@ -5,6 +5,7 @@
     <title>Viewing Garments</title>
 </head>
 <body>
+<nav th:replace="partials :: nav"></nav>
 <div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
     <a th:href="@{/closet/{id}(id=${garment.id})}">
         <p class="card-img-top" th:text="${garment.image}"></p>

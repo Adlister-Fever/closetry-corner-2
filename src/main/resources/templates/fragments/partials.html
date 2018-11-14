@@ -18,7 +18,7 @@
             <th:block th:text="${'Welcome, ' + #authentication.principal.username}"/>
         </li>
         <li class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link active navy" href="/">My Closet</a>
+            <a class="nav-link active navy" href="/">Home</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link navy" href="/upload">Upload</a>
@@ -27,7 +27,7 @@
             <a class="nav-link navy" href="/login">Login</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/user">Profile</a>
+            <a class="nav-link navy" href="/user">My Closet</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link navy" href="/closet/index">Explore Styles</a>

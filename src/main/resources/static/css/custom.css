@@ -5,12 +5,6 @@
     --main-text-color: #FFFDD0;
 }
 
-
-/*body, .container, .container-fluid{*/
-    /*background-color: #261b0c;*/
-    /*!important;*/
-/*}*/
-
 body, .container, .container-fluid{
     background-color: var(--main-bg-color);
 !important;
@@ -19,6 +13,7 @@ body, .container, .container-fluid{
 .bg-main{
     background-color: var(--main-bg-color);
 }
+
 .bg-accent{
     background-color: var(--main-accent-color);
 }
@@ -27,25 +22,26 @@ div.jumbotron.jumbotron-fluid{
     background-color: #261b0c;
 !important;
 }
+
 .card-img1-overlay{
     z-index: 1000;
     background-color: var(--main-accent-color);
     opacity: 0.4;
 }
+
 .card-img2-overlay{
     z-index: 1000;
     background-color: var(--main-bg-color);
     opacity: 0.4;
 }
 
-/**{*/
-    /*color: antiquewhite;*/
-    /*!important;*/
-/*}*/
-
 *{
     color: var(--main-text-color);
 !important;
+}
+
+btn-accent{
+    background-color: var(--main-accent-color);
 }
 
 
