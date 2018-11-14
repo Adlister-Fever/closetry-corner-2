@@ -17,6 +17,14 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private List<Garment> garments;
 
+    public Category() {
+    }
+
+    public Category(String name, List<Garment> garments) {
+        this.name = name;
+        this.garments = garments;
+    }
+
     public Category(long id, String name) {
         this.id = id;
         this.name = name;
