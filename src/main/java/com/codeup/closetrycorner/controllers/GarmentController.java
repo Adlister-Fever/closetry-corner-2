@@ -1,22 +1,26 @@
 package com.codeup.closetrycorner.controllers;
 
+import com.codeup.closetrycorner.models.Category;
 import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.User;
 import com.codeup.closetrycorner.services.CatSvc;
 import com.codeup.closetrycorner.services.GarmentSvc;
 import com.codeup.closetrycorner.services.UserSvc;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Generated;
+import javax.persistence.GeneratedValue;
 
 @Controller
 public class GarmentController {
     private GarmentSvc garmentSvc;
     private UserSvc userSvc;
     private CatSvc catSvc;
+
 
     public GarmentController(GarmentSvc garmentSvc, UserSvc userSvc, CatSvc catSvc ){
         this.garmentSvc = garmentSvc;
@@ -46,13 +50,6 @@ public class GarmentController {
         return "closet/show-user";
     }
 
-//    @GetMapping("/closet/search")
-//    public String showSearchResults(Model vModel){
-//        vModel.addAttribute("garments", findGarmentsByTerm)
-//    }
-
-
-
     @GetMapping("/upload")
     public String showUploadForm(Model vModel){
         vModel.addAttribute("garment", new Garment());
@@ -61,8 +58,13 @@ public class GarmentController {
     }
     @PostMapping("/upload")
     public String garmentUploaded(@ModelAttribute Garment garment){
-        Garment newGarment = garmentSvc.uploadGarment(garment);
-        return "redirect:/closet/"+newGarment.getId();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        garment.setUser(userSvc.findOne(user.getId()));
+        garmentSvc.saveGarment(garment);
+        System.out.println(garment.getImage());
+        return "redirect:/user";
     }
+
+
 
 }

@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments/partials :: head">
+<head th:replace="partials :: head">
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
-
-
 <body class="container">
-<nav th:replace="fragments/partials :: nav"></nav>
-
-<!--<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>-->
+<nav th:replace="partials :: nav"></nav>
+<div class="display-4">Hello, <span th:text="${#authentication.principal.username}"/></div>
 <div class="card">
-    <!--<img th:src="${user.picture_large}" alt="profile_picture"/>-->
-    <!--<div th:text="${#authentication.principal.username}"></div>-->
-
-    <!--<div sec:authorize="isAuthenticated()">-->
-        <!--This content is only shown to authenticated users.-->
-        <!--<br/>-->
-
-        <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
-        <!--<br/>-->
-        <!--Username: <span th:text="${#authentication.principal.username}"/>-->
-        <!--<br/>-->
-        <!--Email: <span th:text="${#authentication.principal.email}"/>-->
-        <!--<br/>-->
-    <!--</div>-->
-<!--</div>-->
+    <div th:text="${#authentication.principal.username}"></div>
+        Username: <span th:text="${#authentication.principal.username}"/>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="display-4">Hello, <span th:text="${#authentication.principal.username}"></span></div>
@@ -38,38 +22,37 @@
         <input type="search" class="form-control w-100" placeholder="Search..."/>
 
         <div class="row" style="height: 66vh;">
-            <ul class="nav nav-tabs justify-content-center nav-fill" role="tablist">
+            <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" id="closetTab" role="tab" href="#">Closet</a>
+                    <a class="nav-link active" href="#">Closet</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" id="outfitsTab" role="tab" href="#">Outfits</a>
+                    <a class="nav-link" href="#">Outfits</a>
                 </li>
             </ul>
         </div>
-
         <div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
             <a th:href="@{/closet/{id}(id=${garment.id})}">
                 <img class="card-img-top" th:src="@{${garment.image}}"/>
+                <div class="mr-1 mb-1">
+                    <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST" th:object="${garment}">
+                        <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                    </form>
+                </div>
             </a>
             <div class="card-body">
-                <span th:each="cat:${garment.categories}">
-                <button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>
-                </span>
+                <span th:each="cat:${garment.categories}"><button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button></span>
             </div>
         </div>
     </div>
-
     <!--<div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">-->
         <!--<a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>-->
         <!--<p class="card-body" th:each="garment:${outfit.garments}"></p>-->
         <!--<div class="card-footer">-->
             <!--<p th:text="${outfit.date}"></p>-->
-
         <!--</div>-->
     <!--</div>-->
-
-    <footer th:replace="fragments/partials :: footer"></footer>
+    <footer th:replace="partials :: footer"></footer>
     <script>
 
 
