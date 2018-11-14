@@ -75,7 +75,7 @@ public class GarmentController {
 
     //search and return garments based on search term (category name)
     @PostMapping("/closet/search")
-    public String searchUserGarments(@ModelAttribute Garment garment, Category category, @RequestParam(name = "name") String name){
+    public String searchUserGarments(@ModelAttribute Garment garment,  @RequestParam(name = "name") String name){
         Category category = new Category(name);
         garmentSvc.searchGarment(category);
 
