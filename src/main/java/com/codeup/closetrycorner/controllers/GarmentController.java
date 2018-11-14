@@ -50,13 +50,6 @@ public class GarmentController {
         return "closet/show-user";
     }
 
-//    @GetMapping("/closet/search")
-//    public String showSearchResults(Model vModel){
-//        vModel.addAttribute("garments", findGarmentsByTerm)
-//    }
-
-
-
     @GetMapping("/upload")
     public String showUploadForm(Model vModel){
         vModel.addAttribute("garment", new Garment());
@@ -72,14 +65,6 @@ public class GarmentController {
         return "redirect:/user";
     }
 
-    @GetMapping("/closet/search")
-    public String showSearchForm(Model vModel){
-        vModel.addAttribute("category", garmentSvc.searchGarments())
-    }
 
-    @PostMapping("/closet/search")
-    public String searchUserGarments(@ModelAttribute Garment garment){
-        garmentSvc.searchGarments()
-    }
 
 }

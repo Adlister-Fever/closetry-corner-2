@@ -1,5 +1,6 @@
 package com.codeup.closetrycorner.controllers;
 
+import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.User;
 import com.codeup.closetrycorner.services.GarmentSvc;
 import com.codeup.closetrycorner.services.OutfitsSvc;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -45,6 +47,12 @@ public class UserController {
         model.addAttribute("garments", garmentSvc.findAllForUser(userSvc.findOne(user.getId())));
         model.addAttribute("outfits", outfitsSvc.findAllForUser(userSvc.findOne(user.getId())));
         return "users/user";
+    }
+    @PostMapping("/user/garment/delete/{id}")
+    public String deleteGarment(@PathVariable long id){
+        Garment garment = garmentSvc.findOne(id);
+        garmentSvc.deleteGarment(garment);
+        return "redirect:/user";
     }
 
 //    @GetMapping("/user/followers")
