@@ -5,36 +5,44 @@
 </head>
 <body>
 <nav th:replace="partials :: nav"></nav>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <div id="duotone"></div>
-            <h1 class="display-4">Closetry Corner</h1>
-            <p class="lead"><em>Interesting Slogan Here.</em></p>
-        </div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div id="duotone"></div>
+        <h1 class="display-4">Closetry Corner</h1>
+        <p class="lead"><em>Interesting Slogan Here.</em></p>
     </div>
+</div>
 
 
-    <div class="container-fluid bg-light h-100">
+<div class="container-fluid bg-light h-100">
 
-        <div class="row" style="height: 66vh;">
-            <div class="col bg-primary" id="col-1">column 1
-                <div class="card">
-                    <div class="card-img"><img src="/img/girl-in-dress.jpg" style="max-width: 50%;"/>
-                        </div>
-                    <div class="card-img-overlay">Hello</div>
+    <div class="row" style="height: 66vh;">
+        <div class="col bg-main" id="col-1">column 1
+            <div class="card">
+                <div class="card-img">
+                    <img src="/img/girl-in-dress.jpg" style="max-width: 50%;"/>
+                    <div class="card-img1-overlay">Hello</div>
                 </div>
-                <div class="card"><div class="card-body">Hello2</div></div>
-
-            </div>
-            <div class="col bg-secondary" id="col-2">column 2
-                <div class="card"><div class="card-body">Hello3</div></div>
-                <div class="card"><div class="card-body">Hello4</div></div>
-
+                <div class="card">
+                    <div class="card-body">Hello2</div>
+                </div>
             </div>
         </div>
-    </div>
-<a href="/register"><button type="button" class="btn btn-dark w-100">Register for Free</button></a>
+        <div class="col bg-accent" id="col-2">column 2
+            <div class="card-img">
+                <img src="/img/jumbo.jpg" style="max-width: 50%"/>
+                <div class="card-img2-overlay">Hello 3</div>
+            </div>
+            <div class="card">
+                <div class="card-body">Hello4</div>
+            </div>
 
+        </div>
+    </div>
+</div>
+<a href="/register">
+    <button type="button" class="btn btn-dark w-100">Register for Free</button>
+</a>
 
 
 <footer th:replace="partials :: footer"></footer>
