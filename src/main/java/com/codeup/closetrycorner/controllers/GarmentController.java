@@ -1,5 +1,6 @@
 package com.codeup.closetrycorner.controllers;
 
+import com.codeup.closetrycorner.models.Category;
 import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.User;
 import com.codeup.closetrycorner.services.CatSvc;
@@ -7,10 +8,7 @@ import com.codeup.closetrycorner.services.GarmentSvc;
 import com.codeup.closetrycorner.services.UserSvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class GarmentController {
@@ -63,6 +61,21 @@ public class GarmentController {
     public String garmentUploaded(@ModelAttribute Garment garment){
         Garment newGarment = garmentSvc.uploadGarment(garment);
         return "redirect:/closet/"+newGarment.getId();
+    }
+
+    //show search form
+    @GetMapping("/closet/search")
+    public String showSearchForm(){
+        return "closet/user";
+    }
+
+    //search and return garments based on search term (category name)
+    @PostMapping("/closet/search")
+    public String searchUserGarments(@ModelAttribute Garment garment, Category category, @RequestParam(name = "name") String name){
+        Category category = new Category(name);
+        garmentSvc.searchGarment(category);
+
+        return "closet/user";
     }
 
 }
