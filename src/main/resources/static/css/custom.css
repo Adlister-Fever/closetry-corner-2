@@ -10,6 +10,9 @@
     /*background-color: #261b0c;*/
     /*!important;*/
 /*}*/
+.card {
+    background-color: var(--main-bg-color);
+}
 
 body, .container, .container-fluid{
     background-color: var(--main-bg-color);
