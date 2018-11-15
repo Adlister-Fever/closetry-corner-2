@@ -5,6 +5,12 @@
     --main-text-color: #FFFDD0;
 }
 
+
+.card {
+    background-color: var(--main-bg-color);
+}
+
+
 body, .container, .container-fluid{
     background-color: var(--main-bg-color);
 !important;

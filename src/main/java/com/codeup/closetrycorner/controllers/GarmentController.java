@@ -11,6 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Generated;
+import javax.persistence.GeneratedValue;
+import java.util.List;
+
+
 
 @Controller
 public class GarmentController {
@@ -63,26 +68,6 @@ public class GarmentController {
         return "redirect:/user";
     }
 
-
-    //show search form
-    @GetMapping("/closet/search")
-    public String showSearchForm() {
-        return "closet/user";
-    }
-
-    //search and return garments based on search term (category name)
-    @PostMapping("/closet/search")
-    public String searchUserGarments(@ModelAttribute Garment garment, @RequestParam(name = "name") String name) {
-        Category category = new Category(name);
-        garmentSvc.searchGarment(category);
-
-        return "closet/user";
-    }
-
-//    @PostMapping("/garment/delete/{id}")
-//    public String deleteGarment(@ModelAttribute Garment garment, @PathVariable long id){
-//        garmentSvc.deleteGarment(garment);
-//        return "redirect:/user";
 }
 
 
