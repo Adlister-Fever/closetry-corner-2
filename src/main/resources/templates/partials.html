@@ -8,39 +8,41 @@
     <link rel="shortcut icon" href="https://img.icons8.com/ultraviolet/100/000000/hanger.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/colors.css"/>
     <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
     <title>Home</title>
 </head>
 <body>
 <nav class="nav border border-top-0 mb-4 p-3" th:fragment="nav">
     <ul class="nav">
-        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-3 mr-2">
+        <li sec:authorize="isAuthenticated()" class="nav-item orange border rounded p-3 mr-2">
             <th:block th:text="${'Welcome, ' + #authentication.principal.username}"/>
         </li>
         <li class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link active navy" href="/">Home</a>
+            <a class="nav-link active orange" href="/">Home</a>
         </li>
-        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/upload">Upload</a>
+        <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
+            <a class="nav-link orange" href="/upload">Upload</a>
         </li>
-        <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/login">Login</a>
+        <li sec:authorize="!isAuthenticated()" class="nav-item border rounded p-1 mr-2">
+            <a class="nav-link orange" href="/login">Login</a>
         </li>
-        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/user">Profile</a>
+        <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
+            <a class="nav-link orange" href="/user">Profile</a>
         </li>
-        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/closet/index">My Closet</a>
+        <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
+            <a class="nav-link orange" href="/closet/index">My Closet</a>
         </li>
-        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/outfits">Outfits</a>
+        <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
+            <a class="nav-link orange" href="/outfits">Outfits</a>
         </li>
-        <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/register">Register</a>
+        <li sec:authorize="!isAuthenticated()" class="nav-item border rounded p-1 mr-2">
+            <a class="nav-link orange" href="/register">Register</a>
         </li>
-        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-2 mr-2">
+        <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
             <form th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn navy my-auto" style="margin-top: 8px">Logout</button>
+                <button class="btn-link btn orange my-auto" style="margin-top: 8px">Logout</button>
             </form>
         </li>
         <li>

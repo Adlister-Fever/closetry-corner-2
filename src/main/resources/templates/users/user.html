@@ -5,7 +5,22 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
-<body class="container warning">
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+<body class="container">
 <nav th:replace="partials :: nav"></nav>
 <div class="card">
     <div class="jumbotron jumbotron-fluid">
@@ -16,31 +31,35 @@
     <div class="container-fluid bg-light h-100">
         <button type="button" class="btn btn-dark" id="open">Upload Here</button>
 
-        <input type="search" class="form-control w-100" placeholder="Search..."/>
+        <input type="search" class="form-control w-100 mb-4" placeholder="Search..."/>
+        <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">outfit maker</div>
+
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#">Closet</a>
-                <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#">Outfits</a>
+                <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
+                <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#outfits">Outfits</a>
             </div>
         </nav>
-            <div class="tab-content p-2">
+        <div class="tab-content p-2">
                 <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
-                    <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
-                        <a th:href="@{/closet/{id}(id=${garment.id})}">
-                            <img class="card-img-top" th:src="@{${garment.image}}"/>
-                            <div class="mr-1 mb-1">
-                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
-                                      th:object="${garment}">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                </form>
-                            </div>
-                        </a>
-                        <div class="card-body">
+                   <div class="row">
+                       <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+                           <a th:href="@{/closet/{id}(id=${garment.id})}">
+                               <img class="card-img-top" th:src="@{${garment.image}}"/>
+                               <div class="mr-1 mb-1">
+                                   <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
+                                         th:object="${garment}">
+                                       <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                   </form>
+                               </div>
+                           </a>
+                           <div class="card-body">
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
-                                                                              class="btn btn-light badge badge-pill badge-primary catBtn ml-2"
-                                                                              th:text="${cat.name}"></button></span>
-                        </div>
-                    </div>
+                                                                                                  class="btn btn-light badge badge-pill badge-primary catBtn ml-2"
+                                                                                                  th:text="${cat.name}"></button></span>
+                           </div>
+                       </div>
+                   </div>
                 </div>
                 <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
                     <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
@@ -55,20 +74,6 @@
             </div>
     </div>
     <footer th:replace="partials :: footer"></footer>
-    <!--<script>-->
-
-        <!--$('#nav-garments-tab').on('click', ((e) => {-->
-            <!--console.log(e)-->
-            <!--$('#outfits').css("display", "none")-->
-            <!--$('#garments').css("display", "block")-->
-        <!--}));-->
-        <!--$('#nav-outfits-tab').on('click', ((e) => {-->
-            <!--console.log(e)-->
-            <!--$('#garments').css("display", "none")-->
-            <!--$('#outfits').css("display", "block")-->
-        <!--}));-->
-        <!--// use button to redirect to upload.html-->
-    <!--</script>-->
 </div>
 </body>
 </html>

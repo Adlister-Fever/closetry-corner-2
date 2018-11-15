@@ -49,6 +49,15 @@ div.jumbotron.jumbotron-fluid{
 }
 
 
+.bg-purple-gradient {
+    background: rgba(176,13,201,1);
+    background: -webkit-linear-gradient(top, rgba(176,13,201,1) 0%, rgba(107,7,122,1) 100%);
+    background: linear-gradient(to bottom, rgba(176,13,201,1) 0%, rgba(107,7,122,1) 100%);
+    /*background-repeat: no-repeat;*/
+    /*background-size: revert;*/
+}
+
+
 /*//duotone instruciones*/
 /*#duotone {*/
     /*background: url('https://jmperezperez.com/assets/images/posts/fecolormatrix-kanye-west.jpg');*/
