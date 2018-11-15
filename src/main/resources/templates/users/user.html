@@ -16,7 +16,7 @@
     <div class="container-fluid bg-light h-100">
         <button type="button" class="btn btn-dark" id="open">Upload Here</button>
 
-        <input type="search" class="form-control w-100" placeholder="Search..."/>
+        <input type="search" class="form-control w-100" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#">Closet</a>
@@ -25,7 +25,8 @@
         </nav>
             <div class="tab-content p-2">
                 <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
-                    <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+                    <!--//do not remove garment-card class. essential for search-->
+                    <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
                         <a th:href="@{/closet/{id}(id=${garment.id})}">
                             <img class="card-img-top" th:src="@{${garment.image}}"/>
                             <div class="mr-1 mb-1">
@@ -36,6 +37,7 @@
                             </div>
                         </a>
                         <div class="card-body">
+                            <!--//do not remove span. essential for search-->
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
                                                                               class="btn btn-light badge badge-pill badge-primary catBtn ml-2"
                                                                               th:text="${cat.name}"></button></span>
@@ -55,20 +57,9 @@
             </div>
     </div>
     <footer th:replace="partials :: footer"></footer>
-    <script>
-        function searchGarments(){
-            var selectedGarment = garmentSelection.value;
-            // var FilteredGarments = [];
-
-            $( "catBtn" ).each( ()=> {
-                console.log($(this));
-            });
-
-        }
-
-        var garmentSelection = document.querySelector('#garment-selection');
-    </script>
-
 </div>
+    <script th:src="@{/js/search.js}"></script>
+
+
 </body>
 </html>
