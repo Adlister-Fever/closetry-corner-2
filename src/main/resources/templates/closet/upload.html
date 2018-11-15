@@ -7,18 +7,22 @@
 <body class="container bg-purple-gradient silver">
 <nav th:replace="fragments/partials :: nav"></nav>
 <div class="card bg-transparent mx-auto">
-    <p>Hello from Upload</p>
-    <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
-        <div class="form-check p-3 float-left row">
-            <button type="button" class="btn btn-secondary catBtn badge badge-primary" th:each="cat:${cats}">
-                <span th:text="${cat.name}"></span></button>
-        </div>
-        <div class="float-right">
-            <input type="hidden" role="uploadcare-uploader" name="content" data-public-key="f4d049bd4151e8ea72ed"
-                   data-images-only="true" th:field="*{image}"/>
-            <button type="submit" value="Save" class="btn btn-dark">Save</button>
-        </div>
-    </form>
+    <div class="card col-8 bg-transparent mx-auto float-left border p-3">
+        <div class="display-4 mb-5">Upload and tag your image</div>
+        <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
+            <div>
+               <span th:each="cat:${cats}">
+                   <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}"/><span
+                       th:text="${cat.name}"></span></span>
+            </div>
+            <div class=" mt-4 float-right">
+                <input type="hidden" class="catNames" role="uploadcare-uploader" name="content"
+                       data-public-key="f4d049bd4151e8ea72ed"
+                       data-images-only="true" th:field="*{image}"/>
+                <button type="submit" value="Save" class="btn btn-dark">Save</button>
+            </div>
+        </form>
+    </div>
 </div>
 <footer th:replace="fragments/partials :: footer"></footer>
 </body>

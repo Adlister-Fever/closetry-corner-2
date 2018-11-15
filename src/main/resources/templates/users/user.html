@@ -5,6 +5,14 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
+<style>
+    #div1 {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+    }
+</style>
 <script>
     function allowDrop(ev) {
         ev.preventDefault();
@@ -16,7 +24,7 @@
 
     function drop(ev) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
+        let data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
     }
 </script>
@@ -30,18 +38,23 @@
     </div>
     <div class="container-fluid bg-light h-100">
         <button type="button" class="btn btn-dark" id="open">Upload Here</button>
-        <input type="search" class="form-control w-100 mb-4" placeholder="Search Garments"/>
+
+        <input type="search" class="form-control w-100" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
+
         <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">outfit maker</div>
+
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
                 <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#outfits">Outfits</a>
             </div>
         </nav>
-        <div class="tab-content p-2">
-            <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
-                <div class="row">
-                    <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+            <div class="tab-content p-2">
+                <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
+                  <div class="row">
+                  <!--//do not remove garment-card class. essential for search-->
+                    <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+
                         <a th:href="@{/closet/{id}(id=${garment.id})}">
                             <img class="card-img-top" th:id="${garment.id}" th:src="@{${garment.image}}" draggable="true" ondragstart="drag(event)"/>
                             <div class="mr-1 mb-1">
@@ -52,9 +65,11 @@
                             </div>
                         </a>
                         <div class="card-body">
+                            <!--//do not remove span. essential for search-->
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
                                                                                                   class="btn btn-light badge badge-pill badge-primary catBtn ml-2"
                                                                                                   th:text="${cat.name}"></button></span>
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </div>
                     </div>
                 </div>
@@ -71,24 +86,10 @@
             </div>
         </div>
     </div>
-
     <footer th:replace="fragments/partials :: footer"></footer>
-    <script>
-
-        $('#garments-tab').on('click', ((e) => {
-            console.log(e)
-            $('#outfits').css("display", "none")
-            $('#garments').css("display", "block")
-        }));
-        $('#outfits-tab').on('click', ((e) => {
-            console.log(e)
-            $('#garments').css("display", "none")
-            $('#outfits').css("display", "block")
-        }));
-
-
-        //use button to redirect to upload.html
-    </script>
 </div>
+    <script th:src="@{/js/search.js}"></script>
+
+
 </body>
 </html>
