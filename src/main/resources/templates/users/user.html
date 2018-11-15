@@ -5,6 +5,21 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
 <body class="container">
 <nav th:replace="fragments/partials :: nav"></nav>
 <div class="card">
@@ -16,57 +31,60 @@
     <div class="container-fluid bg-light h-100">
         <button type="button" class="btn btn-dark" id="open">Upload Here</button>
 
-        <input type="search" class="form-control w-100" placeholder="Search..."/>
+        <input type="search" class="form-control w-100 mb-4" placeholder="Search..."/>
+        <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">outfit maker</div>
 
-        <div class="row" style="height: 66vh;">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" role="tab" id="garments-tab" href="#">Closet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#">Outfits</a>
-                </li>
-            </ul>
-            <div id="garments">
-                <div class="card mx-auto my-5 w-25 p-3" th:each="garment:${garments}">
-                    <a th:href="@{/closet/{id}(id=${garment.id})}">
-                        <img class="card-img-top" th:src="@{${garment.image}}"/>
-                        <div class="mr-1 mb-1">
-                            <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
-                                  th:object="${garment}">
-                                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                            </form>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
+                <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#outfits">Outfits</a>
+            </div>
+        </nav>
+        <div class="tab-content p-2">
+                <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
+                   <div class="row">
+                       <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+                           <a th:href="@{/closet/{id}(id=${garment.id})}">
+                               <img class="card-img-top" th:src="@{${garment.image}}"/>
+                               <div class="mr-1 mb-1">
+                                   <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
+                                         th:object="${garment}">
+                                       <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                   </form>
+                               </div>
+                           </a>
+                           <div class="card-body">
+                            <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
+                                                                                                  class="btn btn-light badge badge-pill badge-primary catBtn ml-2"
+                                                                                                  th:text="${cat.name}"></button></span>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+                <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
+                    <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
+                        <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
+                                                                           th:text="${outfit.description}"></h3></a>
+                        <p class="card-body" th:each="garment:${outfit.garments}"></p>
+                        <div class="card-footer">
+                            <p th:text="${outfit.date}"></p>
                         </div>
-                    </a>
-                    <div class="card-body">
-                        <span th:each="cat:${garment.categories}"><button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button></span>
                     </div>
                 </div>
             </div>
-            <div id="outfits">
-                <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
-                    <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
-                                                                       th:text="${outfit.description}"></h3></a>
-                    <p class="card-body" th:each="garment:${outfit.garments}"></p>
-                    <div class="card-footer">
-                        <p th:text="${outfit.date}"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <footer th:replace="fragments/partials :: footer"></footer>
     <script>
 
         $('#garments-tab').on('click', ( (e)=>{
-            console.log(e);
-            $('#outfits').css("display", "none");
+            console.log(e)
+            $('#outfits').css("display", "none")
             $('#garments').css("display", "block")
         }));
         $('#outfits-tab').on('click', ( (e)=>{
-            console.log(e);
-            $('#garments').css("display", "none");
+            console.log(e)
+            $('#garments').css("display", "none")
             $('#outfits').css("display", "block")
         }));
 
