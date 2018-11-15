@@ -5,6 +5,7 @@
     <title>Sign up</title>
 </head>
 <body class="container">
+<nav th:replace="fragments/partials :: nav"></nav>
 <div class="card mx-auto my-auto p-3">
     <h1>Create an account</h1>
     <form th:action="@{/register}" th:method="POST" th:object="${user}">

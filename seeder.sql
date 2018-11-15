@@ -1,40 +1,33 @@
 use closet_db;
-insert into users (username, email, password, open)
+insert into users (username, email, password)
 values(
           'BigParrot',
           'BirdGuy@email.com',
-          'password',
-          true
+          'password'
           ),(
           'RainbowUnicorn',
           'colors@email.com',
-          'password',
-          true
+          'password'
           ),(
           'NobleBadger',
           'honey@email.com',
-          'password',
-          false
+          'password'
           ),(
           'TacoCat',
           'palindrome@email.com',
-          'password',
-          true
+          'password'
           ),(
           'DazzlingStingray',
           'aquaticwonder@email.com',
-          'password',
-          true
+          'password'
           ),(
           'FancyTailfeathers',
           'hawk@email.com',
-          'password',
-          false
+          'password'
           ),(
           'UselessWeapon',
           'gunblade@jrpg.com',
-          'password',
-          true
+          'password'
           );
 
 insert into category (name)

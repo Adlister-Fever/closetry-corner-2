@@ -5,6 +5,7 @@
     <title>Viewing Outfits</title>
 </head>
 <body>
+<nav th:replace="partials :: nav"></nav>
 <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
     <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>
     <p class="card-body" th:each="garment:${outfit.garments}"></p>

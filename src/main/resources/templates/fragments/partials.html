@@ -6,8 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="shortcut icon" href="https://img.icons8.com/ultraviolet/100/000000/hanger.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
     <title>Home</title>
 </head>
@@ -18,7 +17,7 @@
             <th:block th:text="${'Welcome, ' + #authentication.principal.username}"/>
         </li>
         <li class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link active navy" href="/">My Closet</a>
+            <a class="nav-link active navy" href="/">Home</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link navy" href="/upload">Upload</a>
@@ -27,7 +26,7 @@
             <a class="nav-link navy" href="/login">Login</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/user">Profile</a>
+            <a class="nav-link navy" href="/user">My Closet</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link navy" href="/closet/index">Explore Styles</a>
@@ -61,15 +60,15 @@
 </div>
 
 <footer th:fragment="footer">
-    <!--jQuery-->
+
     <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous"></script>
-    <!--bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</footer>
+    </footer>
 </body>
 </html>

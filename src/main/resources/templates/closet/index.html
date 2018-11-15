@@ -2,19 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/partials :: header">
     <meta charset="UTF-8"/>
-    <title>Viewing Garments</title>
+    <title>Viewing All Garments</title>
 </head>
 <body>
-<div class="card mx-auto my-5 w-25" th:each="garment:${garments}">
-    <a th:href="@{/closet/{id}(id=${garment.id})}">
-        <p class="card-img-top" th:text="${garment.image}"></p>
-    </a>
-    <div class="card-body">
-        <span th:each="cat:${garment.categories}">
-        <button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button>
-        </span>
+<nav th:replace="fragments/partials :: nav"></nav>
+<div id="garments">
+    <div class="card mx-auto my-5 w-25 p-3" th:each="garment:${garments}">
+        <a th:href="@{/closet/{id}(id=${garment.id})}">
+            <img class="card-img-top" th:src="@{${garment.image}}"/></a>
+        <div class="mr-1 mb-1">
+            <button class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            <!--START OF MODAL-->
+            <div class="modal fade-bd-delete-sm" id="deleteModal" tabindex="-1" role="dialog">
+                <div class="modal=dialog" role="document">
+                    <div class="modal-content bg-main">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="DeleteModalLabel">Are you sure you want to delete this item?</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST">
+                                <button type="submit" class="btn btn-danger mr-auto">Yes</button>
+                                <button class="btn btn-warning mr-auto" data-dismiss="modal" data-target="#deleteModal">
+                                    No
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <span th:each="cat:${garment.categories}"><button type="button" class="btn btn-accent catBtn ml-2" th:text="${cat.name}"></button></span>
+        </div>
     </div>
+
 </div>
 
+<footer th:replace="fragments/partials :: footer"></footer>
 </body>
 </html>
