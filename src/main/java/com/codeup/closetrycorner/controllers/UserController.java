@@ -55,8 +55,4 @@ public class UserController {
         return "redirect:/user";
     }
 
-//    @GetMapping("/user/followers")
-//    public String showFollowers(Model model){
-//
-//    }
 }

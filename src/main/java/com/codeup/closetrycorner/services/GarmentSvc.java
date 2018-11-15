@@ -32,8 +32,8 @@ public class GarmentSvc {
         return garmentRepo.findGarmentsByCategories(category);
     }
 
-    public void saveGarment(Garment garment){
-        garmentRepo.save(garment);
+    public Garment saveGarment(Garment garment){
+        return garmentRepo.save(garment);
     }
 
     public Garment editGarment(Garment garment) {

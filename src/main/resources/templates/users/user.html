@@ -5,6 +5,14 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
+<style>
+    #div1 {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+    }
+</style>
 <script>
     function allowDrop(ev) {
         ev.preventDefault();
@@ -16,7 +24,7 @@
 
     function drop(ev) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
+        let data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
     }
 </script>
@@ -43,7 +51,7 @@
         </nav>
             <div class="tab-content p-2">
                 <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
-                  <div class="row">  
+                  <div class="row">
                   <!--//do not remove garment-card class. essential for search-->
                     <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
 
@@ -77,8 +85,7 @@
             </div>
         </div>
     </div>
-    <footer th:replace="partials :: footer"></footer>
-
+    <footer th:replace="fragments/partials :: footer"></footer>
 </div>
     <script th:src="@{/js/search.js}"></script>
 
