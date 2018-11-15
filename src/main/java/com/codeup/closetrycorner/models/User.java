@@ -17,9 +17,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column
-    private boolean open;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Garment> garments;
 
@@ -47,9 +44,6 @@ public class User {
         this.password = password;
     }
 
-    public User(boolean open) {
-        this.open = open;
-    }
 
     public long getId() {
         return id;
@@ -83,11 +77,4 @@ public class User {
         this.password = password;
     }
 
-    public boolean isOpen() {
-        return open;
-    }
-
-    public void setOpen(boolean open) {
-        this.open = open;
-    }
 }

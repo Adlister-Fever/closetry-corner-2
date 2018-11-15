@@ -30,10 +30,8 @@
     </div>
     <div class="container-fluid bg-light h-100">
         <button type="button" class="btn btn-dark" id="open">Upload Here</button>
-
-        <input type="search" class="form-control w-100 mb-4" placeholder="Search..."/>
+        <input type="search" class="form-control w-100 mb-4" placeholder="Search Garments"/>
         <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">outfit maker</div>
-
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
@@ -41,53 +39,52 @@
             </div>
         </nav>
         <div class="tab-content p-2">
-                <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
-                   <div class="row">
-                       <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
-                           <a th:href="@{/closet/{id}(id=${garment.id})}">
-                               <img class="card-img-top" th:src="@{${garment.image}}"/>
-                               <div class="mr-1 mb-1">
-                                   <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
-                                         th:object="${garment}">
-                                       <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                   </form>
-                               </div>
-                           </a>
-                           <div class="card-body">
+            <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
+                <div class="row">
+                    <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+                        <a th:href="@{/closet/{id}(id=${garment.id})}">
+                            <img class="card-img-top" th:id="${garment.id}" th:src="@{${garment.image}}" draggable="true" ondragstart="drag(event)"/>
+                            <div class="mr-1 mb-1">
+                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
+                                      th:object="${garment}">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        </a>
+                        <div class="card-body">
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
                                                                                                   class="btn btn-light badge badge-pill badge-primary catBtn ml-2"
                                                                                                   th:text="${cat.name}"></button></span>
-                           </div>
-                       </div>
-                   </div>
-                </div>
-                <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
-                    <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
-                        <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
-                                                                           th:text="${outfit.description}"></h3></a>
-                        <p class="card-body" th:each="garment:${outfit.garments}"></p>
-                        <div class="card-footer">
-                            <p th:text="${outfit.date}"></p>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
+                <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
+                    <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
+                                                                       th:text="${outfit.description}"></h3></a>
+                    <p class="card-body" th:each="garment:${outfit.garments}"></p>
+                    <div class="card-footer">
+                        <p th:text="${outfit.date}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer th:replace="fragments/partials :: footer"></footer>
     <script>
 
-        $('#garments-tab').on('click', ( (e)=>{
+        $('#garments-tab').on('click', ((e) => {
             console.log(e)
             $('#outfits').css("display", "none")
             $('#garments').css("display", "block")
         }));
-        $('#outfits-tab').on('click', ( (e)=>{
+        $('#outfits-tab').on('click', ((e) => {
             console.log(e)
             $('#garments').css("display", "none")
             $('#outfits').css("display", "block")
         }));
-
 
 
         //use button to redirect to upload.html

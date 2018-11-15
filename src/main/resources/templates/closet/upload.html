@@ -5,7 +5,7 @@
     <title>Upload Garment</title>
 </head>
 <body class="container bg-purple-gradient silver">
-<nav th:replace="partials :: nav"></nav>
+<nav th:replace="fragments/partials :: nav"></nav>
 <div class="card bg-transparent mx-auto">
     <p>Hello from Upload</p>
     <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
@@ -20,6 +20,6 @@
         </div>
     </form>
 </div>
-<footer th:replace="partials :: footer"></footer>
+<footer th:replace="fragments/partials :: footer"></footer>
 </body>
 </html>
