@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:replace="partials :: header">
+<head th:replace="fragments/partials :: header">
     <meta charset="UTF-8"/>
     <title>Upload Garment</title>
 </head>
 <body class="container bg-purple-gradient silver">
-<nav th:replace="partials :: nav"></nav>
-<div class="card bg-transparent mx-auto">
-    <p>Hello from Upload</p>
+<nav th:replace="fragments/partials :: nav"></nav>
+<div class="card col-8 bg-transparent mx-auto float-left border p-3">
+    <div class="display-4 mb-5">Upload and tag your image</div>
+    <!--<div class="form-check p-3 float-left mb-5">-->
+        <!--<button type="button" class="btn catBtn badge bg-accent selectfrom" th:each="cat:${cats}">-->
+            <!--<span class="selectCat" th:text="${cat.name}" th:id="${cat.id}" th:value="${cat.id}"></span></button>-->
+    <!--</div>-->
     <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
-        <div class="form-check p-3 float-left row">
-            <button type="button" class="btn btn-secondary catBtn badge badge-primary" th:each="cat:${cats}">
-                <span th:text="${cat.name}"></span></button>
+        <!--<div class="form-check p-3 float-left">-->
+            <!--<button type="button" class="btn catBtn badge bg-accent callbacks" th:each="cat:${cats}">-->
+                <!--<span class="hiddencat" th:text="${cat.name}" th:id="${cat.id}" th:value="${cat.id}"></span></button>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<select class="d-none" multiple="multiple" name="select" th:each="cat:${cats}">-->
+                <!--<option th:value='${cat.id}'><span th:text="${cat.name}"></span></option>-->
+            <!--</select>-->
+        <!--</div>-->
+        <div>
+               <span th:each="cat:${cats}">
+                   <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}"/><span th:text="${cat.name}"></span></span>
         </div>
-        <div class="float-right">
-            <input type="hidden" role="uploadcare-uploader" name="content" data-public-key="f4d049bd4151e8ea72ed"
+        <div class=" mt-4 float-right">
+            <input type="hidden" class="catNames" role="uploadcare-uploader" name="content"
+                   data-public-key="f4d049bd4151e8ea72ed"
                    data-images-only="true" th:field="*{image}"/>
             <button type="submit" value="Save" class="btn btn-dark">Save</button>
         </div>
     </form>
 </div>
-<footer th:replace="partials :: footer"></footer>
+<footer th:replace="fragments/partials :: footer"></footer>
+<script type="text/javascript">
+
+
+    // $('.callbacks').hide();
+    // $('.selectCat').click(function(e){
+    //     console.log(this.getAttribute('id'))
+    //     let item = this.getAttribute('id');
+    //     $(this.getAttribute('id')).fadeToggle();
+    //
+    // })
+    // var inputArray = [];
+    // $(".selectCat").click(function () {
+    //     inputArray.push(this.innerText);
+    //     console.log(inputArray);
+    //     console.log($('.callbacks').innerText);
+    //
+    // });
+    //
+    // console.log(this.value);
+
+</script>
 </body>
 </html>

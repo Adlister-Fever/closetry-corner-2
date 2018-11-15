@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="partials :: head">
+<head th:replace="fragments/partials :: head">
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
+<style>
+    #div1 {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+    }
+</style>
 <script>
     function allowDrop(ev) {
         ev.preventDefault();
@@ -16,12 +24,12 @@
 
     function drop(ev) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
+        let data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
     }
 </script>
 <body class="container">
-<nav th:replace="partials :: nav"></nav>
+<nav th:replace="fragments/partials :: nav"></nav>
 <div class="card">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
@@ -32,7 +40,14 @@
         <button type="button" class="btn btn-dark" id="open">Upload Here</button>
 
         <input type="search" class="form-control w-100 mb-4" placeholder="Search..."/>
-        <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">outfit maker</div>
+        <div class="p-3 col">
+            <div class="display-4 olive">outfit maker</div>
+            <form action="#">
+                <div class="p-3"><button class="btn-group-sm btn-outline-dark">Save Outfit</button></div>
+                <hr/>
+                <div class="row p-3 olive card col" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </form>
+        </div>
 
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -45,7 +60,7 @@
                    <div class="row">
                        <div class="card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
                            <a th:href="@{/closet/{id}(id=${garment.id})}">
-                               <img class="card-img-top" th:src="@{${garment.image}}"/>
+                               <img class="card-img-top" th:id="${garment.id}" th:src="@{${garment.image}}" draggable="true" ondragstart="drag(event)"/>
                                <div class="mr-1 mb-1">
                                    <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
                                          th:object="${garment}">
@@ -73,7 +88,7 @@
                 </div>
             </div>
     </div>
-    <footer th:replace="partials :: footer"></footer>
+    <footer th:replace="fragments/partials :: footer"></footer>
 </div>
 </body>
 </html>

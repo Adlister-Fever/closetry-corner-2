@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Generated;
 import javax.persistence.GeneratedValue;
+import java.util.List;
 
 
 @Controller
@@ -27,14 +28,6 @@ public class GarmentController {
         this.garmentSvc = garmentSvc;
         this.userSvc = userSvc;
         this.catSvc = catSvc;
-    }
-
-
-    @GetMapping("/closet/index")
-    public String showAllGarments(Model vModel){
-        vModel.addAttribute("garments", garmentSvc.findAll());
-        return "closet/index";
-
     }
 
     @GetMapping("/closet/{id}")
@@ -58,11 +51,12 @@ public class GarmentController {
         return "closet/upload";
     }
     @PostMapping("/upload")
-    public String garmentUploaded(@ModelAttribute Garment garment){
+    public String garmentUploaded(@ModelAttribute Garment garment,@RequestParam(value = "categories") List<Category> categories){
+        garment.setCategories(categories);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         garment.setUser(userSvc.findOne(user.getId()));
         garmentSvc.saveGarment(garment);
-        System.out.println(garment.getImage());
+//        garmentSvc.saveGarment(garment);
         return "redirect:/user";
     }
 
