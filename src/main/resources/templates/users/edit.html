@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/partials :: head">
+    <meta charset="UTF-8" />
+    <title>Sign up</title>
+</head>
+<body class="container">
+<nav th:replace="fragments/partials :: nav"></nav>
+<div class="card border mx-auto my-auto p-3">
+    <h1>Create an account</h1>
+    <form th:action="@{/user/edit/{id}(id=${user.id})}" th:method="POST" th:object="${user}" class="row">
+        <div class="col-md-4 mb-3">
+            <label for="username">Username</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" th:field="*{username}" th:required="true"/>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Email" th:required="true"/>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Password" th:required="true"/>
+        </div>
+        <!---->
+        <!--<label for="confirm-password">Confirm Password</label>-->
+        <!--<input id="confirm-password" type="password" th:field="*{password}" />-->
+
+        <div class="col"><button class="btn btn-outline-primary float-right" type="submit">Update Profile</button></div>
+    </form>
+    <form th:action="@{/user/{id}/delete(id=${user.id})}" th:method="POST">
+        <div class="col"><button class="btn btn-outline-danger float-right" type="submit">Delete Profile</button></div>
+    </form>
+
+</div>
+<footer th:replace="fragments/partials :: footer"/>
+<script th:replace="fragments/partials :: validation"></script>
+</body>
+</html>

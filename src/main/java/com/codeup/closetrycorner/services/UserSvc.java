@@ -3,10 +3,12 @@ package com.codeup.closetrycorner.services;
 
 
 import com.codeup.closetrycorner.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserSvc {
+    @Autowired
     private UsersRepo usersRepo;
 
 
@@ -24,10 +26,6 @@ public class UserSvc {
 
     public User findByUsername(String username) {
         return usersRepo.findByUsername(username);
-    }
-
-    public User registerUser(User user) {
-        return usersRepo.save(user);
     }
 
     public void save(User user){
