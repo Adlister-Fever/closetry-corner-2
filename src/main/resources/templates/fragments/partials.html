@@ -37,7 +37,7 @@
             <!--<a class="nav-link navy" href="/outfits">Outfits</a>-->
         <!--</li>-->
         <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link navy" href="/register">Register</a>
+            <a class="nav-link orange" href="/register">Register</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
             <form th:action="@{/logout}" th:method="post">
