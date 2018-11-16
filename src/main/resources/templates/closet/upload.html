@@ -11,8 +11,9 @@
         <div class="display-4 mb-5">Upload and tag your image</div>
         <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
             <div>
+                <small>Garments MUST have a category to be saved!</small>
                <span th:each="cat:${cats}">
-                   <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}"/><span
+                   <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}" required/><span
                        th:text="${cat.name}"></span></span>
             </div>
             <div class=" mt-4 float-right">
