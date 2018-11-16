@@ -2,9 +2,7 @@ package com.codeup.closetrycorner.controllers;
 
 import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.User;
-import com.codeup.closetrycorner.services.GarmentSvc;
-import com.codeup.closetrycorner.services.OutfitsSvc;
-import com.codeup.closetrycorner.services.UserSvc;
+import com.codeup.closetrycorner.services.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -19,6 +17,7 @@ public class UserController {
     private UserSvc userSvc;
     private GarmentSvc garmentSvc;
     private OutfitsSvc outfitsSvc;
+    private CatSvc catSvc;
     private PasswordEncoder passwordEncoder;
 
     public UserController(UserSvc users, PasswordEncoder passwordEncoder, GarmentSvc garmentSvc, OutfitsSvc outfitsSvc) {
@@ -51,6 +50,7 @@ public class UserController {
     @PostMapping("/user/garment/delete/{id}")
     public String deleteGarment(@PathVariable long id){
         Garment garment = garmentSvc.findOne(id);
+//        catSvc.deleteCat(garment.getCategories());
         garmentSvc.deleteGarment(garment);
         return "redirect:/user";
     }
