@@ -21,24 +21,16 @@ public class OutfitsController {
     private CatSvc catSvc;
     private OutfitsSvc outfitsSvc;
 
-
-
-
     @GetMapping("/outfits")
     public String showAllOutfits(Model vModel){
         vModel.addAttribute("outfits", outfitsSvc.findAll());
         return "outfits/show";
     }
-
     @GetMapping("/outfits/{id}")
     public String showOneOutfit (@PathVariable long id, Model vmodel){
         vmodel.addAttribute("outfit", outfitsSvc.findOne(id));
         return "outfits/show";
     }
-
-
-
-
     @GetMapping("/outfits/create")
     public String createOutfitForm(Model vModel){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -46,7 +38,6 @@ public class OutfitsController {
         vModel.addAttribute("garments", garmentSvc.findAllForUser(user));
                 return "outfits/create";
     }
-
     @PostMapping("/outfits/create")
     public String submitCreatedOutfit(@ModelAttribute Outfit outfit) {
         Outfit newOutfit = outfitsSvc.createOutfit(outfit);
