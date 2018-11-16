@@ -18,6 +18,8 @@
         }
     </style>
     <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
     <title>Home</title>
 </head>
 <body>
@@ -43,6 +45,7 @@
         </li>
         <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link" href="/register">Register</a>
+
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
             <form th:action="@{/logout}" th:method="post">
@@ -70,5 +73,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </footer>
+<script th:fragment="validation">
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+</script>
 </body>
 </html>
