@@ -7,8 +7,8 @@
 </head>
 <style>
     #div1 {
-        width: 350px;
-        height: 70px;
+        width: 450px;
+        height: 100px;
         padding: 10px;
         border: 1px solid #aaaaaa;
     }
@@ -37,12 +37,20 @@
         </div>
     </div>
     <div class="container-fluid bg-light h-100">
-        <button type="button" class="btn btn-dark" id="open">Upload Here</button>
-
-        <input type="search" class="form-control w-100" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
-
-        <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">outfit maker</div>
-
+        <!--search-->
+        <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
+        <!--outfit maker window-->
+       <div class="card p-2">
+           <div class="display-4 p-2 olive text-center">Outfit Maker</div>
+           <div class="olive text-center">(drag items here to create an outfit.)</div>
+           <div class="p-3 d-flex inline-block">
+               <form th:action="@{/outfits/create}" method="POST" th:object="${outfit}">
+                   <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                   <div class="p-4"><button type="submit" class="btn btn-outline-info">Save Outfit</button></div>
+               </form>
+           </div>
+       </div>
+        <!--nav tabs-->
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
@@ -56,19 +64,21 @@
                     <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
 
                         <a th:href="@{/closet/{id}(id=${garment.id})}">
-                            <img class="card-img-top" th:id="${garment.id}" th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
-                            <div class="mr-1 mb-1">
-                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST" th:object="${garment}">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                </form>
-                            </div>
+                           <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}" th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
                         </a>
-                        <div class="card-body">
+                        <div class="card-footer bg-transparent border border--yellow p-3">
                             <!--//do not remove span. essential for search-->
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
-                                                                                                  class="btn btn-light badge badge-pill badge-primary catBtn ml-2"
+                                                                                                  class="btn btn-light badge badge-pill badge-primary catBtn ml-1 mt-3"
                                                                                                   th:text="${cat.name}"></button></span>
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <div class="p-3"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                                <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
+                            <div class="mr-1 mb-1 p-3 float-right">
+                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST" th:object="${garment}">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,11 +94,10 @@
                 </div>
             </div>
         </div>
+
+        </div>
     </div>
     <footer th:replace="fragments/partials :: footer"></footer>
-</div>
     <script th:src="@{/js/search.js}"></script>
-
-
 </body>
 </html>

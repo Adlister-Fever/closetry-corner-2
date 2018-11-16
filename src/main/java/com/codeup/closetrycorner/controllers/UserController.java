@@ -55,4 +55,10 @@ public class UserController {
         return "redirect:/user";
     }
 
+    @GetMapping("/user/edit")
+    public String showEditUser(){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return "/user";
+    }
+
 }
