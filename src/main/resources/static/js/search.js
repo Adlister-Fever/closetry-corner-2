@@ -21,8 +21,8 @@
 
         //comparison b/t search value and garments
         for (var i = 0; i <= cats.length - 1; i++) {
-            console.log(cats[i].innerText);
-            console.log(selectedCat);
+            // console.log(cats[i].innerText);
+            // console.log(selectedCat);
             //if selectors match search terms
             if (cats[i].innerText.toLowerCase().indexOf(selectedCat.toLowerCase()) > -1 &&
                 cats[i].innerText.toLowerCase().charAt(0) === selectedCat.toLowerCase().charAt(0)) {
