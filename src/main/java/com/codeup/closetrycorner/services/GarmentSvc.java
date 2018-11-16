@@ -6,10 +6,13 @@ import com.codeup.closetrycorner.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GarmentSvc {
     @Autowired
     private GarmentRepo garmentRepo;
+    private CategoriesRepo categoryRepo;
 
     public Iterable<Garment> findAll() {
         return garmentRepo.findAll();

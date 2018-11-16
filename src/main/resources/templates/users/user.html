@@ -56,10 +56,9 @@
                     <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
 
                         <a th:href="@{/closet/{id}(id=${garment.id})}">
-                            <img class="card-img-top" th:id="${garment.id}" th:src="@{${garment.image}}" draggable="true" ondragstart="drag(event)"/>
+                            <img class="card-img-top" th:id="${garment.id}" th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
                             <div class="mr-1 mb-1">
-                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
-                                      th:object="${garment}">
+                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST" th:object="${garment}">
                                     <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                                 </form>
                             </div>
