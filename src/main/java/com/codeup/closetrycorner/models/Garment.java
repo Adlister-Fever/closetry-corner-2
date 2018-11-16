@@ -21,7 +21,7 @@ public class Garment {
     private User user;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name="garments_categories",
             joinColumns = {@JoinColumn(name="garment_id")},
