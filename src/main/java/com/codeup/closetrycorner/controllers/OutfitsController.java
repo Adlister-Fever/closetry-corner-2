@@ -1,5 +1,6 @@
 package com.codeup.closetrycorner.controllers;
 
+import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.Outfit;
 import com.codeup.closetrycorner.models.User;
 import com.codeup.closetrycorner.services.CatSvc;
@@ -9,10 +10,9 @@ import com.codeup.closetrycorner.services.UserSvc;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class OutfitsController {
@@ -20,6 +20,18 @@ public class OutfitsController {
     private UserSvc userSvc;
     private CatSvc catSvc;
     private OutfitsSvc outfitsSvc;
+
+
+    public OutfitsController(GarmentSvc garmentSvc, UserSvc userSvc, CatSvc catSvc, OutfitsSvc outfitsSvc){
+        this.garmentSvc = garmentSvc;
+        this.userSvc = userSvc;
+        this.catSvc = catSvc;
+        this.outfitsSvc = outfitsSvc;
+    }
+
+
+
+
 
     @GetMapping("/outfits")
     public String showAllOutfits(Model vModel){
@@ -34,13 +46,17 @@ public class OutfitsController {
     @GetMapping("/outfits/create")
     public String createOutfitForm(Model vModel){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = userSvc.findOne(user.getId());
         vModel.addAttribute("outfit", new Outfit());
-        vModel.addAttribute("garments", garmentSvc.findAllForUser(user));
+        vModel.addAttribute("garments", garmentSvc.findAllForUser(currentUser));
                 return "outfits/create";
     }
     @PostMapping("/outfits/create")
-    public String submitCreatedOutfit(@ModelAttribute Outfit outfit) {
-        Outfit newOutfit = outfitsSvc.createOutfit(outfit);
-        return "outfits/"+newOutfit.getId();
+    public String submitCreatedOutfit(@ModelAttribute Outfit outfit, @RequestParam(value="garmentchoices") List<Garment> garments) {
+        outfit.setGarments(garments);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        outfit.setUser(user);
+        outfitsSvc.createOutfit(outfit);
+        return "redirect: /user";
     }
 }
