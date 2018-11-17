@@ -50,9 +50,30 @@ public class UserController {
     @PostMapping("/user/garment/delete/{id}")
     public String deleteGarment(@PathVariable long id){
         Garment garment = garmentSvc.findOne(id);
-//        catSvc.deleteCat(garment.getCategories());
         garmentSvc.deleteGarment(garment);
         return "redirect:/user";
     }
+
+    @GetMapping("/user/edit")
+    public String showUserEditForm(Model vModel){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        vModel.addAttribute("user", user);
+        return "/users/edit";
+    }
+    @PostMapping("/user/edit/{id}")
+    public String editUser(@ModelAttribute User newUserInfo, @PathVariable long id){
+        String hash = passwordEncoder.encode(newUserInfo.getPassword());
+        newUserInfo.setPassword(hash);
+        newUserInfo.setId(id);
+        userSvc.editUser(newUserInfo);
+        return "redirect:/user";
+    }
+
+    @PostMapping("/user/{id}/delete")
+    public String deleteUser(@PathVariable long id){
+        userSvc.deleteUser(userSvc.findOne(id));
+        return"redirect:/login";
+    }
+
 
 }
