@@ -5,36 +5,60 @@
 </head>
 <body class="container">
 <nav th:replace="fragments/partials :: nav"></nav>
+
 <div class="home jumbotron jumbotron-fluid">
-    <div class="container home-title">
-        <div id="duotone"></div>
+    <div class="container-fluid home-title">
+        <div></div>
         <h1 class="display-4">Closetry Corner</h1>
         <p class="lead"><em>None of this makes sense</em></p>
     </div>
 </div>
 <div class="container-fluid bg-light h-100">
-    <div class="row" style="height: 66vh;">
-        <div class="col bg-main" id="col-1">column 1
-            <div class="card">
-                <div class="card-img">
-                    <img src="/img/girl-in-dress.jpg" style="max-width: 50%;"/>
-                    <div class="card-img1-overlay">Hello</div>
-                </div>
-                <div class="card">
-                    <div class="card-body">Hello2</div>
+
+
+    <div class="row">
+
+        <div class="col-sm-6" id="col-1">
+            <!--first card: take a photo-->
+            <div class="card home-card1 border-0 bg-transparent">
+                <img class="card-img" src="/img/taking-pic.jpg" />
+                    <div class="card-img-overlay">
+                        <div class="card-text">Snap a Photo</div>
+                    </div>
+            </div>
+
+            <!--third card: create an outfit-->
+            <div class="card home-card3 border-0 bg-transparent">
+                <img class="card-img" src="/img/outfit.jpg"/>
+                <div class="card-img-overlay">
+                    <div class="card-text">Create an Outfit</div>
+
                 </div>
             </div>
+
+
         </div>
-        <div class="col bg-accent" id="col-2">column 2
-            <div class="card-img">
-                <img src="/img/jumbo.jpg" style="max-width: 50%"/>
-                <div class="card-img2-overlay">Hello 3</div>
+
+
+        <div class="col-sm-6" id="col-2">
+            <!--second card: select a category-->
+            <div class="card home-card2 border-0 bg-transparent">
+                <img class="card-img" src="/img/select-category.jpg" />
+                <div class="card-img-overlay">
+                    <div class="card-text">Select a Category</div>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-body">Hello4</div>
+
+
+            <div class="card home-card4 border-0 bg-transparent">
+                <img class="card-img" src="/img/group-photo.jpg"/>
+                <div class="card-img-overlay">
+                    <div class="card-text">Share with Friends</div>
+                </div>
             </div>
 
         </div>
+
     </div>
 </div>
 <a href="/register"><button type="button" class="btn btn-dark w-100">Register for Free</button></a>

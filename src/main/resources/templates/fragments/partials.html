@@ -36,6 +36,7 @@
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
             <a class="nav-link" href="/upload">Add a Garment</a>
+
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link" href="/outfits/create">Create an Outfit</a>
@@ -63,6 +64,7 @@
 </div>
 
 <footer th:fragment="footer">
+    <a href="/devs">Devs</a>
 
     <script
             src="https://code.jquery.com/jquery-3.3.1.js"
