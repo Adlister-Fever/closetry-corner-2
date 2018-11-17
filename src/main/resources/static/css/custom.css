@@ -18,7 +18,7 @@ body{
     background-image: url(/img/blur-branches.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 /*home page styling*/
