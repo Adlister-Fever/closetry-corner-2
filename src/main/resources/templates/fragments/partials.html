@@ -21,16 +21,16 @@
             <th:block th:text="${'Welcome, ' + #authentication.principal.username}"/>
         </li>
         <li class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link active orange" href="/">My Closet</a>
+            <a class="nav-link active navy" href="/">My Closet</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
-            <a class="nav-link orange" href="/upload">Upload</a>
+            <a class="nav-link navy" href="/upload">Upload</a>
         </li>
         <li sec:authorize="!isAuthenticated()" class="nav-item border rounded p-1 mr-2">
-            <a class="nav-link orange" href="/login">Login</a>
+            <a class="nav-link navy" href="/login">Login</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
-            <a class="nav-link orange" href="/user">Profile</a>
+            <a class="nav-link navy" href="/user">Profile</a>
         </li>
         <!--<li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">-->
             <!--<a class="nav-link orange" href="/closet/index">My Closet</a>-->
