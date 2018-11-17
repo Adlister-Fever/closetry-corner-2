@@ -24,7 +24,47 @@
             </div>
         </form>
     </div>
+
 </div>
 <footer th:replace="fragments/partials :: footer"></footer>
+
+<!--<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>-->
+<script>
+
+
+    window.addEventListener('DOMContentLoaded', function () {
+        const apikey = 'AtXT24mWXSGUvgcRzV7JQz';
+        const client = filestack.init(apikey);
+
+        let link;
+        const options = {
+            maxFiles: 1,
+            uploadInBackground: false,
+            onOpen: () => console.log('opened!'),
+            onUploadDone: (res) => {
+                console.log(res.filesUploaded[0].url)
+                // $("#pic1").attr("src", res.filesUploaded[0].url);
+            },
+
+        };
+        $();
+
+        $('#open').click(() => {
+            return client.picker(options).open();
+        });
+
+        $(".catBtn").click(function () {
+            this.toggleClass("btn-secondary");
+            this.toggleClass("btn-success");
+        })
+
+
+        $("#")
+
+
+    });
+</script>
+
+
 </body>
 </html>
