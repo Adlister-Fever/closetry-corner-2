@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/partials :: head">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+</head>
+<body class="container">
+<nav th:replace="fragments/partials :: nav"></nav>
+
+<div>
+    <h1>Devs</h1>
+    <h2>Setting things on fire</h2>
+</div>
+<div class="container-fluid bg-light h-100">
+
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <img src="/img/ChrisEsquerra.jpg"/>
+        </div>
+        <div class="col-sm-4">
+            <img src="/img/WilfredoPacheco.jpg"/>
+        </div>
+        <div class="col-sm-4">
+            <img src="/img/StephanieVelazquez.jpg"/>
+
+        </div>
+
+    </div>
+</div>
+<a href="/register"><button type="button" class="btn btn-dark w-100">Register for Free</button></a>
+<footer th:replace="fragments/partials :: footer"></footer>
+</body>
+</html>

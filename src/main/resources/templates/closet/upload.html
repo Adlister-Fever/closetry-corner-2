@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:replace="partials :: header">
+<head th:replace="fragments/partials :: header">
     <meta charset="UTF-8"/>
     <title>Upload Garment</title>
 </head>
-<body class="container">
-<nav th:replace="partials :: nav"></nav>
-
-<p>Hello from Upload</p>
-<button type="button" class="btn btn-dark" id="open">Upload Picture</button>
-
-<form th:action="@{/upload}" th:method="POST" th:object="${garment}">
-    <div class="form-check">
-        <button type="button" class="btn btn-secondary catBtn" th:each="cat:${cats}"><span th:text="${cat.name}"></span>
-        </button>
-
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
-        <label class="form-check-label" for="defaultCheck1">
-        </label>
+<body class="container bg-purple-gradient silver">
+<nav th:replace="fragments/partials :: nav"></nav>
+<div class="card bg-transparent mx-auto">
+    <div class="card col-8 bg-transparent mx-auto float-left border p-3">
+        <div class="display-4 mb-5">Upload and tag your image</div>
+        <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
+            <div>
+                <small>Garments MUST have a category to be saved!</small>
+               <span th:each="cat:${cats}">
+                   <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}" required/><span
+                       th:text="${cat.name}"></span></span>
+            </div>
+            <div class=" mt-4 float-right">
+                <input type="hidden" class="catNames" role="uploadcare-uploader" name="content"
+                       data-public-key="f4d049bd4151e8ea72ed"
+                       data-images-only="true" th:field="*{image}"/>
+                <button type="submit" value="Save" class="btn btn-dark">Save</button>
+            </div>
+        </form>
     </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
-        <label class="form-check-label" for="defaultCheck2">
 
-        </label>
-    </div>
-    <input type="hidden" role="uploadcare-uploader" name="content" data-public-key="f4d049bd4151e8ea72ed"
-           data-images-only="true" th:field="*{image}"/>
-    <button type="submit" value="Save" class="btn btn-dark">Save</button>
-</form>
-<footer th:replace="partials :: footer"></footer>
+</div>
+<footer th:replace="fragments/partials :: footer"></footer>
 
 <!--<script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>-->
 <script>
@@ -67,6 +64,7 @@
 
     });
 </script>
+
 
 </body>
 </html>

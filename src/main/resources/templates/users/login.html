@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <title>Log In</title>
 </head>
-<body class="container navy">
+<body class="container">
 <!--<nav th:replace="nav :: nav"/>-->
 
-<div class="card col-10 p-4 mb-3 mx-auto">
-    <div class="card col-12 p-4 mt-3 mb-3 mx-auto border-primary border-top-0 border-bottom-0 border-right-0">
+<div class="card col-10 p-4 mb-3 mx-auto mt-3 bg-transparent">
+    <div class="card col-12 p-4 mt-3 mb-3 mx-auto border-primary border-top-0 border-bottom-0 border-right-0 bg-transparent">
         <h1>Log In</h1>
         <div th:if="${param.error}">
             Invalid Username and Password.
@@ -18,13 +18,18 @@
         </div>
 
         <form th:action="@{/login}" th:method="post">
-            <div>
+            <div class="col-md-4 mb-3">
                 <label for="username">Username</label>
-                <input id="username" name="username" type="text" />
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    </div>
+                <input class="form-control" id="username" name="username" type="text" />
+                </div>
             </div>
-            <div class="pl-2">
+            <div class="col-md-4 mb-3">
                 <label for="password">Password</label>
-                <input id="password" name="password" type="password" />
+                <input class="form-control" id="password" name="password" type="password" />
             </div>
             <button type="submit" value="Log In" class="btn btn-outline-primary btn-sm">Login</button>
         </form>

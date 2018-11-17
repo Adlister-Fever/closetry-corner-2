@@ -1,49 +1,113 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="partials :: head">
+<head th:replace="fragments/partials :: head">
     <meta charset="UTF-8"/>
     <title>Title</title>
+    <meta property="og:url"           content="https://closetrycorner.me" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Closetry Corner" />
+    <meta property="og:description"   content="Virtual Closet" />
+    <meta property="og:image"         content="https://img.icons8.com/ultraviolet/100/000000/hanger.png" />
 </head>
+<style>
+    #div1 {
+        width: 450px;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+    }
+</style>
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
 <body class="container">
-<nav th:replace="partials :: nav"></nav>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&amp;version=v3.2";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<nav th:replace="fragments/partials :: nav"></nav>
 <div class="card">
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <div class="display-4">Hello, <span th:text="${#authentication.principal.username}"></span></div>
+            <div id="weather-box" style="margin: 8px; width: 100%; height: 150px;"></div>
         </div>
     </div>
     <div class="container-fluid bg-light h-100">
-        <button type="button" class="btn btn-dark" id="open">Upload Here</button>
+        <!--search-->
+        <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
+        <!--outfit maker window-->
+       <div class="card p-2">
+           <div class="display-4 p-2 olive text-center">Outfit Maker</div>
+           <div class="olive text-center">(drag items here to create an outfit.)</div>
+           <div class="p-3 d-flex inline-block">
+               <form th:action="@{/outfits/create}" method="POST" th:object="${outfit}">
+                   <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                   <div class="p-4"><button type="submit" class="btn btn-outline-info">Save Outfit</button></div>
+               </form>
+           </div>
+       </div>
+        <!--nav tabs-->
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
+                <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#outfits">Outfits</a>
+            </div>
+        </nav>
+            <div class="tab-content p-2">
+                <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
+                  <div class="row">
+                  <!--//do not remove garment-card class. essential for search-->
+                    <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
 
-        <input type="search" class="form-control w-100" placeholder="Search..."/>
-
-        <div class="row" style="height: 66vh;">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" role="tab" id="garments-tab" href="#">Closet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#">Outfits</a>
-                </li>
-            </ul>
-            <div id="garments">
-                <div class="card mx-auto my-5 w-25 p-3" th:each="garment:${garments}">
-                    <a th:href="@{/closet/{id}(id=${garment.id})}">
-                        <img class="card-img-top" th:src="@{${garment.image}}"/>
-                        <div class="mr-1 mb-1">
-                            <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
-                                  th:object="${garment}">
-                                <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                            </form>
+                        <a th:href="@{/closet/{id}(id=${garment.id})}">
+                           <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}" th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
+                        </a>
+                        <div class="card-footer bg-transparent border border--yellow p-3">
+                            <!--//do not remove span. essential for search-->
+                            <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
+                                                                                                  class="btn btn-light badge badge-pill badge-primary catBtn ml-1 mt-3"
+                                                                                                  th:text="${cat.name}"></button></span>
+                            <!--twitter share button-->
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <!--facebook share button-->
+                            <div class="fb-share-button"
+                                 data-href="http://closetrycorner.me"
+                                 data-layout="button"
+                                 data-size="large">
+                            </div>
+                            <div class="p-3"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                                <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
+                            <div class="mr-1 mb-1 p-3 float-right">
+                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST" th:object="${garment}">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
+                                </form>
+                            </div>
                         </div>
-                    </a>
-                    <div class="card-body">
-                        <span th:each="cat:${garment.categories}"><button type="button" class="btn btn-light catBtn ml-2" th:text="${cat.name}"></button></span>
                     </div>
                 </div>
             </div>
-            <div id="outfits">
+            <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
                 <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
                     <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
                                                                        th:text="${outfit.description}"></h3></a>
@@ -55,25 +119,13 @@
             </div>
         </div>
     </div>
-
-    <footer th:replace="partials :: footer"></footer>
-    <script>
-
-        $('#garments-tab').on('click', ( (e)=>{
-            console.log(e)
-            $('#outfits').css("display", "none")
-            $('#garments').css("display", "block")
-        }));
-        $('#outfits-tab').on('click', ( (e)=>{
-            console.log(e)
-            $('#garments').css("display", "none")
-            $('#outfits').css("display", "block")
-        }));
-
-
-
-        //use button to redirect to upload.html
-    </script>
 </div>
+    <footer th:replace="fragments/partials :: footer"></footer>
+    <script th:src="@{/js/search.js}"></script>
+
+
+    <script th:src="@{/js/weather.js}"></script>
+
+
 </body>
 </html>

@@ -2,9 +2,7 @@ package com.codeup.closetrycorner.controllers;
 
 import com.codeup.closetrycorner.models.Garment;
 import com.codeup.closetrycorner.models.User;
-import com.codeup.closetrycorner.services.GarmentSvc;
-import com.codeup.closetrycorner.services.OutfitsSvc;
-import com.codeup.closetrycorner.services.UserSvc;
+import com.codeup.closetrycorner.services.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -19,6 +17,7 @@ public class UserController {
     private UserSvc userSvc;
     private GarmentSvc garmentSvc;
     private OutfitsSvc outfitsSvc;
+    private CatSvc catSvc;
     private PasswordEncoder passwordEncoder;
 
     public UserController(UserSvc users, PasswordEncoder passwordEncoder, GarmentSvc garmentSvc, OutfitsSvc outfitsSvc) {
@@ -55,8 +54,26 @@ public class UserController {
         return "redirect:/user";
     }
 
-//    @GetMapping("/user/followers")
-//    public String showFollowers(Model model){
-//
-//    }
+    @GetMapping("/user/edit")
+    public String showUserEditForm(Model vModel){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        vModel.addAttribute("user", user);
+        return "/users/edit";
+    }
+    @PostMapping("/user/edit/{id}")
+    public String editUser(@ModelAttribute User newUserInfo, @PathVariable long id){
+        String hash = passwordEncoder.encode(newUserInfo.getPassword());
+        newUserInfo.setPassword(hash);
+        newUserInfo.setId(id);
+        userSvc.editUser(newUserInfo);
+        return "redirect:/user";
+    }
+
+    @PostMapping("/user/{id}/delete")
+    public String deleteUser(@PathVariable long id){
+        userSvc.deleteUser(userSvc.findOne(id));
+        return"redirect:/login";
+    }
+
+
 }
