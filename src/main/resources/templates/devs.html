@@ -16,19 +16,53 @@
     <div class="row">
 
         <div class="col-sm-4">
-            <img src="/img/ChrisEsquerra.jpg"/>
-        </div>
-        <div class="col-sm-4">
-            <img src="/img/WilfredoPacheco.jpg"/>
-        </div>
-        <div class="col-sm-4">
-            <img src="/img/StephanieVelazquez.jpg"/>
+            <div id="card1">
+                <div class="front">
+                    <img src="/img/ChrisEsquerra.jpg"/>
+                </div>
+                <div class="back">
+                    <img src="/img/TacoChris.jpg" style="height:230px; width:230px;"/>
+                </div>
+            </div>
 
+        </div>
+        <div class="col-sm-4">
+            <div id="card2">
+                <div class="front">
+                    <img src="/img/WilfredoPacheco.jpg"/>
+                </div>
+                <div class="back">
+                    <img src="/img/WilBack.png" style="height:230px; width:230px;"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="card3">
+                <div class="front">
+                    <img  src="/img/StephanieVelazquez.jpg"/>
+                </div>
+                <div class="back">
+                    <img src="/img/CatSteph.png" style="height:230px; width:230px;"/>
+                </div>
+            </div>
         </div>
 
     </div>
 </div>
 <a href="/register"><button type="button" class="btn btn-dark w-100">Register for Free</button></a>
 <footer th:replace="fragments/partials :: footer"></footer>
+
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+<script>
+    $("#card1").flip({
+        trigger: 'hover'
+        });
+    $("#card3").flip({
+        trigger: 'hover'
+    });
+    $("#card2").flip({
+        trigger: 'hover'
+    });
+</script>
 </body>
 </html>
