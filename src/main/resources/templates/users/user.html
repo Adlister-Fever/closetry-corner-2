@@ -57,16 +57,16 @@
         <!--search-->
         <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
         <!--outfit maker window-->
-       <div class="card p-2">
-           <div class="display-4 p-2 olive text-center">Outfit Maker</div>
-           <div class="olive text-center">(drag items here to create an outfit.)</div>
-           <div class="p-3 d-flex inline-block">
-               <form th:action="@{/outfits/create}" method="POST" th:object="${outfit}">
-                   <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                   <div class="p-4"><button type="submit" class="btn btn-outline-info">Save Outfit</button></div>
-               </form>
-           </div>
-       </div>
+       <!--<div class="card p-2">-->
+           <!--<div class="display-4 p-2 olive text-center">Outfit Maker</div>-->
+           <!--<div class="olive text-center">(drag items here to create an outfit.)</div>-->
+           <!--<div class="p-3 d-flex inline-block">-->
+               <!--<form th:action="@{/outfits/create}" method="POST" th:object="${outfit}">-->
+                   <!--<div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+                   <!--<div class="p-4"><button type="submit" class="btn btn-outline-info">Save Outfit</button></div>-->
+               <!--</form>-->
+           <!--</div>-->
+       <!--</div>-->
         <!--nav tabs-->
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -86,17 +86,18 @@
                         <div class="card-footer bg-transparent border border--yellow p-3">
                             <!--//do not remove span. essential for search-->
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
+
                                                                                                   class="badge badge-pill bg-accent catBtn ml-2"
                                                                                                   th:text="${cat.name}"></button></span>
                             <!--twitter share button-->
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
                             <!--facebook share button-->
                             <div class="fb-share-button"
                                  data-href="http://closetrycorner.me"
                                  data-layout="button"
                                  data-size="large">
                             </div>
-                            <div class="p-3"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                            <div class="p-3 col"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
                                 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                             </div>
                             <div class="mr-1 mb-1 p-3 float-right">
