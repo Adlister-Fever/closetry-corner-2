@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/partials :: head">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+</head>
+<body class="container">
+<nav th:replace="fragments/partials :: nav"></nav>
+
+<div>
+    <h1>Devs</h1>
+    <h2>Setting things on fire</h2>
+</div>
+<div class="container-fluid bg-transparent h-100">
+
+
+    <div class="row">
+
+        <div class="col-sm-4 justify-content-center">
+            <div id="card1">
+                <div class="front">
+                    <img src="/img/ChrisEsquerra.jpg"/>
+                </div>
+                <div class="back">
+                    <img src="/img/TacoChris.jpg" style="height:230px; width:230px;"/>
+                </div>
+                <h3 class="pt-3"><a href="https://github.com/esquerrac">Chris Esquerra</a></h3>
+                <div class="card-text">
+                    Every day is taco ipsum tuesday. It’s taco time all the time.
+                    50 cent tacos! I’ll take 30. I’d have to say, those tacos are on fleek.
+                    Tacos for breakfast, lunch and dinner. Josh’s taco shack is the best taco shack.
+                    Give me all the tacos, immediately.
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+            <div id="card2" class="d-block justify-content-center">
+                <div class="front">
+                    <img src="/img/WilfredoPacheco.jpg"/>
+                </div>
+                <div class="back">
+                    <img src="/img/WilBack.png" style="height:230px; width:230px;"/>
+                </div>
+                <h3 class="pt-3"><a href="https://github.com/wilfredopacheco">Wilfredo Pacheco</a></h3>
+                <div class="card-text">
+                    Gizzle dawg dolor sit amizzle, check out this adipiscing elit. Nullizzle sapien tellivizzle,
+                    shut the shizzle up volutpizzle, fizzle shiznit, gravida vizzle, mammasay mammasa mamma oo sa.
+                    Pellentesque eget tortizzle. Nizzle erizzle. Fusce izzle dolizzle dapibus turpis tempizzle
+                    go to hizzle.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 justify-content-center">
+            <div id="card3">
+                <div class="front">
+                    <img  src="/img/StephanieVelazquez.jpg"/>
+                </div>
+                <div class="back">
+                    <img src="/img/CatSteph.png" style="height:230px; width:230px;"/>
+                </div>
+                <h3 class="pt-3"><a href="https://github.com/svelazquez">Stephanie Velazquez</a></h3>
+                <div class="card-text">
+                    Scottish fold kitty. Jaguar egyptian mau but panther. Bobcat scottish fold. Malkin donskoy.
+                    Russian blue russian blue russian blue, abyssinian . Norwegian forest ocelot but malkin.
+                    Kitten tom, bombay, so sphynx or tomcat, ocelot manx. Malkin. Singapura kitty panther,
+                    manx for ragdoll bobcat for tomcat.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer th:replace="fragments/partials :: footer"></footer>
+
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+<script>
+    $("#card1").flip({
+        trigger: 'hover'
+        });
+    $("#card3").flip({
+        trigger: 'hover'
+    });
+    $("#card2").flip({
+        trigger: 'hover'
+    });
+</script>
+</body>
+</html>
