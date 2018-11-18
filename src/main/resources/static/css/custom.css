@@ -59,8 +59,8 @@ div, p, .nav-link{
     border-radius: 5px;
 }
 .oufitPreview{
-    max-height: 50px;
-    width: auto;
+    max-width: 150px;
+    height: auto;
 }
 
 .home-card1, .home-card3{
