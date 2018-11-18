@@ -15,10 +15,11 @@
     /*background-color: var(--main-bg-color);*/
 /*}*/
 body{
+    height: 100vh;
     background-image: url(/img/blur-branches.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 /*home page styling*/
@@ -62,7 +63,11 @@ div, p, .nav-link{
 }
 
 
-
+/*LOGIN/REGSIER PAGE STYLNG*/
+.login, .register {
+    background: url(/img/jeans.jpg) center no-repeat;
+    background-size: cover;
+}
 /*.card {*/
     /*background-color: var(--main-bg-color);*/
 /*}*/

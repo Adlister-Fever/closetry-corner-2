@@ -35,14 +35,15 @@
 </script>
 <body class="container">
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+    (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&amp;version=v3.2";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 <nav th:replace="fragments/partials :: nav"></nav>
 <div class="card">
@@ -87,7 +88,6 @@
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
 
                                                                                                   class="badge badge-pill bg-accent catBtn ml-2"
-
                                                                                                   th:text="${cat.name}"></button></span>
                             <!--twitter share button-->
                             <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
@@ -124,10 +124,6 @@
 </div>
     <footer th:replace="fragments/partials :: footer"></footer>
     <script th:src="@{/js/search.js}"></script>
-
-
     <script th:src="@{/js/weather.js}"></script>
-
-
 </body>
 </html>

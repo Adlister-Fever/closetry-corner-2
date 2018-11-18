@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <title>Log In</title>
 </head>
-<body class="container">
+<body class="container login">
 <!--<nav th:replace="nav :: nav"/>-->
 
-<div class="card col-10 p-4 mb-3 mx-auto mt-3 bg-transparent">
+<div class="card col-10 p-4 mb-3 mx-auto mt-3" style="background-image: url(/img/blur-branches.jpg); background-size: cover;">
     <div class="card col-12 p-4 mt-3 mb-3 mx-auto border-primary border-top-0 border-bottom-0 border-right-0 bg-transparent">
         <h1>Log In</h1>
         <div th:if="${param.error}">
@@ -32,10 +32,10 @@
                 <input class="form-control" id="password" name="password" type="password" />
             </div>
             <button type="submit" value="Log In" class="btn btn-outline-primary btn-sm">Login</button>
+            <a class="btn btn-outline-primary btn-sm" href="/" role="button">Home</a>
         </form>
     </div>
 </div>
 <footer th:replace="fragments/partials :: footer"/>
-
 </body>
 </html>
