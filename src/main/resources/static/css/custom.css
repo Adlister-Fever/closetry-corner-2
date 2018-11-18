@@ -46,6 +46,22 @@ div, p, .nav-link{
     height: 50%;
     width: 100%;
 }
+.textBackground1{
+    width: 25%;
+    background-color: white;
+    /*opacity: 0.4;*/
+    border-radius: 5px;
+}
+.textBackground2{
+    width: 30%;
+    background-color: white;
+    /*opacity: 0.4;*/
+    border-radius: 5px;
+}
+.oufitPreview{
+    max-width: 150px;
+    height: auto;
+}
 
 .home-card1, .home-card3{
     margin-bottom: 15%;
@@ -61,7 +77,10 @@ div, p, .nav-link{
 .home-card4{
     margin-top: 15%;
 }
-
+.card-img{
+    max-width: 400px;
+    height: auto;
+}
 
 /*LOGIN/REGSIER PAGE STYLNG*/
 .login, .register {
