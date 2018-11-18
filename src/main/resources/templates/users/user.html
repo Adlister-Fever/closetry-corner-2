@@ -110,10 +110,12 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
-                <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
+                <div class="card mx-auto my-5 w-25 row" th:each="outfit:${outfits}">
                     <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
                                                                        th:text="${outfit.description}"></h3></a>
-                    <p class="card-body" th:each="garment:${outfit.garments}"></p>
+                    <span class="col-4 p-0" th:each="garment:${outfit.garments}">
+                        <img class="oufitPreview" th:src="${garment.image}"/>
+                    </span>
                     <div class="card-footer">
                         <p th:text="${outfit.date}"></p>
                     </div>
