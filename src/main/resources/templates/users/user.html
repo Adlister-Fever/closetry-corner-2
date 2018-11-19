@@ -95,19 +95,29 @@
                             <!--twitter share button-->
                             <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
                             <!--facebook share button-->
-                            <div class="fb-share-button"
-                                 data-href="http://closetrycorner.me"
-                                 data-layout="button"
-                                 data-size="large">
-                            </div>
-                            <div class="p-3 col"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                                                    class="twitter-share-button" data-show-count="false">Tweet</a>
-                                <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                            </div>
-                            <div class="mr-1 mb-1 p-3 float-right">
+
+                            <!--<div class="fb-share-button"-->
+                                 <!--data-href="http://closetrycorner.me"-->
+                                 <!--data-layout="button"-->
+                                 <!--data-size="large">-->
+                            <!--</div>-->
+                            <!--<div class="p-3 col"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"-->
+                                                    <!--class="twitter-share-button" data-show-count="false">Tweet</a>-->
+                                <!--<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+                            <!--</div>-->
+                            <div class="mr-1 mb-1 p-3 float-right d-inline">
+                                <div class="fb-share-button"
+                                     data-href="http://closetrycorner.me"
+                                     data-layout="button"
+                                     data-size="large">
+                                </div>
+                                <div class="p-3 col d-inline"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                                                        class="twitter-share-button" data-show-count="false">Tweet</a>
+                                    <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </div>
                                 <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
                                       th:object="${garment}">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
+                                    <button type="submit" class="d-inline btn btn-outline-danger btn-sm mt-3">Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -117,8 +127,8 @@
             <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
                 <div class="row">
                     <div class="card-body mx-auto my-5 w-25 col" th:each="outfit:${outfits}">
-                        <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
-                                                                           th:text="${outfit.description}"></h3></a>
+                        <div th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
+                                                                           th:text="${outfit.description}"></h3></div>
                         <!--<div id="outfitCarousel" class="carousel slide" data-ride="carousel">-->
                         <!--<div class="carousel-inner">-->
                         <!--<div class="carousel-item" th:each="garment:${outfit.garments}">-->
@@ -137,6 +147,12 @@
                         <span class="p-0" th:each="garment:${outfit.garments}">
                         <img class="oufitPreview" th:src="${garment.image}"/>
                         </span>
+                        <div class="mr-1 mb-1 p-3 float-right">
+                            <form th:action="@{/outfits/{id}/delete(id=${outfit.id})}" method="POST"
+                                  th:object="${outfit}">
+                                <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

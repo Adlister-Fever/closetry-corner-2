@@ -13,6 +13,10 @@
 
             <small class="red">Garments MUST have a category to be saved!</small>
 
+            <div>
+               <div class="d-inline-block" th:each="cat:${cats}">
+                   <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}"/>
+                   <span th:text="${cat.name}"></span></div>
             <div class="row container-no-gutters">
                <span class="col-3 justify-content-center" th:each="cat:${cats}">
                    <input type="checkbox" class="mx-3" name="categories" th:id="${cat.id}" th:value="${cat.id}"/>
