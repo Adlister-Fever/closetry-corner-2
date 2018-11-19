@@ -14,31 +14,34 @@ public class Outfit {
     @Column(nullable = false)
     private String description;
 
-    @Column
-    private String date;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany(mappedBy = "outfits")
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name="garments_outfits",
+            joinColumns = {@JoinColumn(name="outfit_id")},
+            inverseJoinColumns = {@JoinColumn(name="garment_id")}
+    )
     private List<Garment> garments;
-
-    public Outfit(String description, String date) {
-        this.description = description;
-        this.date = date;
-    }
-
-    public Outfit() {
-    }
 
     public Outfit(String description) {
         this.description = description;
     }
 
-    public Outfit(String description, String date, List<Garment> garments) {
+    public Outfit(String description, User user, List<Garment> garments) {
         this.description = description;
-        this.date = date;
+        this.user = user;
+        this.garments = garments;
+    }
+
+    public Outfit() {
+    }
+
+    public Outfit(String description, List<Garment> garments) {
+        this.description = description;
         this.garments = garments;
     }
 
@@ -56,14 +59,6 @@ public class Outfit {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public User getUser() {
