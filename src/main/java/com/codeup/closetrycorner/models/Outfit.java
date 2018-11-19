@@ -14,8 +14,6 @@ public class Outfit {
     @Column(nullable = false)
     private String description;
 
-    @Column
-    private String date;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -24,21 +22,15 @@ public class Outfit {
     @ManyToMany(mappedBy = "outfits")
     private List<Garment> garments;
 
-    public Outfit(String description, String date) {
+    public Outfit(String description) {
         this.description = description;
-        this.date = date;
     }
 
     public Outfit() {
     }
 
-    public Outfit(String description) {
+    public Outfit(String description, List<Garment> garments) {
         this.description = description;
-    }
-
-    public Outfit(String description, String date, List<Garment> garments) {
-        this.description = description;
-        this.date = date;
         this.garments = garments;
     }
 
@@ -56,14 +48,6 @@ public class Outfit {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public User getUser() {

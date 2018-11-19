@@ -351,17 +351,14 @@ values
 
 
 
-insert into outfit (date, description, user_id)
+insert into outfit (description, user_id)
 values(
-'22 October 2018',
 'Sweet Threads',
 1
 ),(
-'18 October 2018',
 'Laundry Day',
 1
 ),(
-'2 November 2018',
 'Shopping',
 1);
 
