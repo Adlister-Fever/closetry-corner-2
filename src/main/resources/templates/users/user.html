@@ -117,8 +117,8 @@
             <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
                 <div class="row">
                     <div class="card-body mx-auto my-5 w-25 col" th:each="outfit:${outfits}">
-                        <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
-                                                                           th:text="${outfit.description}"></h3></a>
+                        <div th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
+                                                                           th:text="${outfit.description}"></h3></div>
                         <!--<div id="outfitCarousel" class="carousel slide" data-ride="carousel">-->
                         <!--<div class="carousel-inner">-->
                         <!--<div class="carousel-item" th:each="garment:${outfit.garments}">-->
