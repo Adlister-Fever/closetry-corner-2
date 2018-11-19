@@ -21,10 +21,9 @@
             <div class="card-body">
                 <input th:field="*{description}" class="ml-0 w-100" placeholder="Name your outfit something like Formal Event or Going out with Friends"/>
             </div>
-        </form>
         <div class="container-fluid row">
             <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
-                <input type="checkbox" name="garmentchoices"/>
+                <input type="checkbox" name="garmentchoices"  th:value="${garment.id}"/>
                 <img class="card-img-top" th:id="${garment.id}" th:src="${garment.image}"/>
 
                 <div class="card-body">
@@ -49,7 +48,7 @@
         <!--<button type="submit" class="btn btn-outline-light btn-lg btn-block ml-auto">Create Outfit</button>-->
         <!--</form>-->
 
-
+        </form>
     </div>
 </div>
 

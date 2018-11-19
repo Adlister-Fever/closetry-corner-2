@@ -52,11 +52,11 @@ public class OutfitsController {
                 return "outfits/create";
     }
     @PostMapping("/outfits/create")
-    public String submitCreatedOutfit(@ModelAttribute Outfit outfit, @RequestParam(value="garmentchoices") List<Garment> garments) {
+    public String submitCreatedOutfit(@ModelAttribute Outfit outfit, @RequestParam(value = "garmentchoices") List<Garment> garments) {
         outfit.setGarments(garments);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         outfit.setUser(user);
         outfitsSvc.createOutfit(outfit);
-        return "redirect: /user";
+        return "redirect:/user";
     }
 }
