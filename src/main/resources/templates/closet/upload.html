@@ -14,9 +14,9 @@
             <small class="red">Garments MUST have a category to be saved!</small>
 
             <div>
-               <span th:each="cat:${cats}">
+               <div class="d-inline-block" th:each="cat:${cats}">
                    <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}"/>
-                   <span th:text="${cat.name}"></span></span>
+                   <span th:text="${cat.name}"></span></div>
             </div>
             <div class=" mt-4 float-right">
                 <input type="hidden" class="catNames" role="uploadcare-uploader" name="content"
