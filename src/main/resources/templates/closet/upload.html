@@ -14,19 +14,17 @@
             <small class="red">Garments MUST have a category to be saved!</small>
 
             <div>
-               <div class="d-inline-block" th:each="cat:${cats}">
-                   <input type="checkbox" class="mx-3" name="categories" th:value="${cat.id}"/>
-                   <span th:text="${cat.name}"></span></div>
-            <div class="row container-no-gutters">
+                <div class="row container-no-gutters">
                <span class="col-3 justify-content-center" th:each="cat:${cats}">
                    <input type="checkbox" class="mx-3" name="categories" th:id="${cat.id}" th:value="${cat.id}"/>
                    <label th:for="${cat.id}" th:text="${cat.name}"></label></span>
-            </div>
-            <div class=" mt-4 float-right">
-                <input type="hidden" class="catNames" role="uploadcare-uploader" name="content"
-                       data-public-key="f4d049bd4151e8ea72ed"
-                       data-images-only="true" th:field="*{image}"/>
-                <button type="submit" value="Save" class="btn btn-dark">Save</button>
+                </div>
+                <div class=" mt-4 float-right">
+                    <input type="hidden" class="catNames" role="uploadcare-uploader" name="content"
+                           data-public-key="f4d049bd4151e8ea72ed"
+                           data-images-only="true" th:field="*{image}"/>
+                    <button type="submit" value="Save" class="btn btn-dark">Save</button>
+                </div>
             </div>
         </form>
     </div>
