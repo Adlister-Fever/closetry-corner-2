@@ -9,7 +9,7 @@
             let currentTemp = data.main.temp;
             let generalWeather = data.weather[0].main;
             let icon = data.weather[0].icon;
-            $('#weather-box').append("<h5><img src='http://openweathermap.org/img/w/" + icon + ".png'/>" + " It is " + currentTemp + " degrees with " + generalWeather.toLowerCase() + " in " + data.name + "</h5>");
+            $('#weather-box').append("<h5><img src='https://openweathermap.org/img/w/" + icon + ".png'/>" + " It is " + currentTemp + " degrees. " + generalWeather.toLowerCase() + " in " + data.name + "</h5>");
             if(currentTemp < 60){
                 $('#weather-box').append("<p>You may need a jacket. Try searching for cold weather</p>");
             } else if(currentTemp > 80){
