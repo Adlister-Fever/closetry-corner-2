@@ -31,9 +31,6 @@
         <li class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link" href="/">Closetry Corner</a>
         </li>
-        <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
-            <a class="nav-link" href="/devs">About Us</a>
-        </li>
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
             <a class="nav-link" href="/user">My Closet</a>
         </li>
@@ -51,8 +48,11 @@
         </li>
         <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link" href="/register">Register</a>
-
         </li>
+        <li class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link" href="/devs">About Us</a>
+        </li>
+
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
             <form th:action="@{/logout}" th:method="post">
                 <button class="btn-link btn my-auto" style="margin-top: 8px">Logout</button>

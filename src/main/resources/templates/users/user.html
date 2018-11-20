@@ -148,10 +148,10 @@
                         <span class="p-0" th:each="garment:${outfit.garments}">
                         <img class="oufitPreview" th:src="${garment.image}"/>
                         </span>
-                        <div class="mr-1 mb-1 p-3 float-right">
+                        <div class="mr-1 mb-1 p-0 card-footer justify-content-center">
                             <form th:action="@{/outfits/{id}/delete(id=${outfit.id})}" method="POST"
                                   th:object="${outfit}">
-                                <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
+                                <button type="submit" class="btn btn-outline-danger btn-sm my-3">Delete Outfit</button>
                             </form>
                         </div>
                     </div>

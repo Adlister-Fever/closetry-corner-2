@@ -71,15 +71,16 @@ div, p, .nav-link{
     margin-top: 15%;
     margin-bottom:15%;
 }
-.home-card2{
-    margin-top:30%;
-}
 .home-card4{
-    margin-top: 15%;
+    margin-top: 20%;
 }
 .card-img{
     max-width: 400px;
     height: auto;
+}
+.catBtn{
+    font-size: large;
+    color: white;
 }
 
 /*LOGIN/REGSIER PAGE STYLNG*/
