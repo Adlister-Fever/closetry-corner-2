@@ -16,7 +16,7 @@
             </div>
 
         <form th:action="@{/outfits/create}" th:method="post" th:object="${outfit}">
-            <button type="submit" class="btn btn-outline-dark btn-lg btn-block ml-auto" id="submitOutfit">Save Outfit
+            <button type="submit" class="btn btn-dark ml-auto w-100" id="submitOutfit">Save Outfit
             </button>
             <div class="card-body">
                 <input th:field="*{description}" class="ml-0 w-100" placeholder="Name your outfit something like Formal Event or Going out with Friends"/>
