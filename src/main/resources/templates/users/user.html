@@ -99,10 +99,12 @@
                                      data-layout="button"
                                      data-size="large">
                                 </div>
-                                <div class="p-3 col d-inline"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                                                        class="twitter-share-button" data-show-count="false">Tweet</a>
-                                    <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                </div>
+                                <!--<div class="p-3 col d-inline"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"-->
+                                                        <!--class="twitter-share-button" data-show-count="false">Tweet</a>-->
+                                    <!--<script type="text/javascript" async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+                                <!--</div>-->
+
+                                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out these duds..." data-url="https://closetrycorner.me" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
                                       th:object="${garment}">
                                     <button type="submit" class="d-inline btn btn-outline-danger btn-sm mt-3">Delete</button>
