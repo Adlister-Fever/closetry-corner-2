@@ -82,7 +82,12 @@ div, p, .nav-link{
     font-size: large;
     color: white;
 }
-
+#submitOutfit{
+    z-index: 1000;
+    position: fixed;
+    bottom: 0px;
+    right:0em;
+}
 /*LOGIN/REGSIER PAGE STYLNG*/
 .login, .register {
     background: url(/img/jeans.jpg) center no-repeat;
