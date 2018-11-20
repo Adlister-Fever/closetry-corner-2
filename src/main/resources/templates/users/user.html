@@ -4,11 +4,11 @@
 <head th:replace="fragments/partials :: head">
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <meta property="og:url"           content="https://closetrycorner.me" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Closetry Corner" />
-    <meta property="og:description"   content="Virtual Closet" />
-    <meta property="og:image"         content="https://img.icons8.com/ultraviolet/100/000000/hanger.png" />
+    <meta property="og:url" content="https://closetrycorner.me"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Closetry Corner"/>
+    <meta property="og:description" content="Virtual Closet"/>
+    <meta property="og:image" content="https://img.icons8.com/ultraviolet/100/000000/hanger.png"/>
 </head>
 <style>
     #div1 {
@@ -35,14 +35,16 @@
 </script>
 <body class="container">
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&amp;version=v3.2";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&amp;version=v3.2";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <nav th:replace="fragments/partials :: nav"></nav>
 <div class="card">
@@ -54,18 +56,19 @@
     </div>
     <div class="container-fluid bg-light h-100">
         <!--search-->
-        <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
+        <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()"
+               placeholder="Search..."/>
         <!--outfit maker window-->
-       <div class="card p-2">
-           <div class="display-4 p-2 olive text-center">Outfit Maker</div>
-           <div class="olive text-center">(drag items here to create an outfit.)</div>
-           <div class="p-3 d-flex inline-block">
-               <form th:action="@{/outfits/create}" method="POST" th:object="${outfit}">
-                   <div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                   <div class="p-4"><button type="submit" class="btn btn-outline-info">Save Outfit</button></div>
-               </form>
-           </div>
-       </div>
+        <!--<div class="card p-2">-->
+        <!--<div class="display-4 p-2 olive text-center">Outfit Maker</div>-->
+        <!--<div class="olive text-center">(drag items here to create an outfit.)</div>-->
+        <!--<div class="p-3 d-flex inline-block">-->
+        <!--<form th:action="@{/outfits/create}" method="POST" th:object="${outfit}">-->
+        <!--<div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+        <!--<div class="p-4"><button type="submit" class="btn btn-outline-info">Save Outfit</button></div>-->
+        <!--</form>-->
+        <!--</div>-->
+        <!--</div>-->
         <!--nav tabs-->
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -73,36 +76,48 @@
                 <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#outfits">Outfits</a>
             </div>
         </nav>
-            <div class="tab-content p-2">
-                <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
-                  <div class="row">
-                  <!--//do not remove garment-card class. essential for search-->
+        <div class="tab-content p-2">
+            <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
+                <div class="row">
+                    <!--//do not remove garment-card class. essential for search-->
                     <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
 
                         <a th:href="@{/closet/{id}(id=${garment.id})}">
-                           <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}" th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
+                            <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}"
+                                 th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
                         </a>
                         <div class="card-footer bg-transparent border border--yellow p-3">
                             <!--//do not remove span. essential for search-->
                             <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
 
                                                                                                   class="badge badge-pill bg-accent catBtn ml-2"
-
                                                                                                   th:text="${cat.name}"></button></span>
                             <!--twitter share button-->
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
                             <!--facebook share button-->
-                            <div class="fb-share-button"
-                                 data-href="http://closetrycorner.me"
-                                 data-layout="button"
-                                 data-size="large">
-                            </div>
-                            <div class="p-3"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
-                                <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                            </div>
-                            <div class="mr-1 mb-1 p-3 float-right">
-                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST" th:object="${garment}">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
+
+                            <!--<div class="fb-share-button"-->
+                                 <!--data-href="http://closetrycorner.me"-->
+                                 <!--data-layout="button"-->
+                                 <!--data-size="large">-->
+                            <!--</div>-->
+                            <!--<div class="p-3 col"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"-->
+                                                    <!--class="twitter-share-button" data-show-count="false">Tweet</a>-->
+                                <!--<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+                            <!--</div>-->
+                            <div class="mr-1 mb-1 p-3 float-right d-inline">
+                                <div class="fb-share-button"
+                                     data-href="http://closetrycorner.me"
+                                     data-layout="button"
+                                     data-size="large">
+                                </div>
+                                <div class="p-3 col d-inline"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                                                        class="twitter-share-button" data-show-count="false">Tweet</a>
+                                    <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </div>
+                                <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
+                                      th:object="${garment}">
+                                    <button type="submit" class="d-inline btn btn-outline-danger btn-sm mt-3">Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -110,24 +125,42 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
-                <div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
-                    <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
-                                                                       th:text="${outfit.description}"></h3></a>
-                    <p class="card-body" th:each="garment:${outfit.garments}"></p>
-                    <div class="card-footer">
-                        <p th:text="${outfit.date}"></p>
+                <div class="row">
+                    <div class="card-body mx-auto my-5 w-25 col" th:each="outfit:${outfits}">
+                        <div th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
+                                                                           th:text="${outfit.description}"></h3></div>
+                        <!--<div id="outfitCarousel" class="carousel slide" data-ride="carousel">-->
+                        <!--<div class="carousel-inner">-->
+                        <!--<div class="carousel-item" th:each="garment:${outfit.garments}">-->
+                        <!--<img class="d-block w-100" th:src="${garment.image}" alt="First slide"/>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<a class="carousel-control-prev" href="#outfitCarousel" role="button" data-slide="prev">-->
+                        <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+                        <!--<span class="sr-only"></span>-->
+                        <!--</a>-->
+                        <!--<a class="carousel-control-next" href="#outfitCarousel" role="button" data-slide="next">-->
+                        <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+                        <!--<span class="sr-only"></span>-->
+                        <!--</a>-->
+                        <!--</div>-->
+                        <span class="p-0" th:each="garment:${outfit.garments}">
+                        <img class="oufitPreview" th:src="${garment.image}"/>
+                        </span>
+                        <div class="mr-1 mb-1 p-0 card-footer justify-content-center">
+                            <form th:action="@{/outfits/{id}/delete(id=${outfit.id})}" method="POST"
+                                  th:object="${outfit}">
+                                <button type="submit" class="btn btn-outline-danger btn-sm my-3">Delete Outfit</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    <footer th:replace="fragments/partials :: footer"></footer>
-    <script th:src="@{/js/search.js}"></script>
-
-
-    <script th:src="@{/js/weather.js}"></script>
-
-
+<footer th:replace="fragments/partials :: footer"></footer>
+<script th:src="@{/js/search.js}"></script>
+<script th:src="@{/js/weather.js}"></script>
 </body>
 </html>

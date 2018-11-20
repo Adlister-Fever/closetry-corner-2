@@ -4,70 +4,59 @@
     <meta charset="UTF-8"/>
     <title>Create Outfit</title>
 </head>
-<body>
+<body class="container">
 <nav th:replace="fragments/partials :: nav"></nav>
-<div class="card bg-main mx-2 my-5 w-75">
-    <div class="card-header">
-        <h3>Create a new style!</h3>
-        <input type="search" class="form-control w-100" id="search-selection" onkeyup="searchCats()" placeholder="Search..."/>
-    </div>
-</div>
-<form th:action="@{/outfits/create}" th:method="post" th:object="${outfit}">
-    <button type="submit" class="btn btn-outline-light btn-lg btn-block ml-auto" id="submitOutfit">Create Outfit</button>
-    <div class="card-body">
-        <input th:field="*{description}" class="ml-0" placeholder="Outfit Name"/>
-    </div>
-</form>
-<div class="container-fluid row">
-    <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
-        <input type="checkbox" name="garmentchoices"/>
-            <img class="card-img-top" th:id="${garment.id}" th:src="${garment.image}"/>
+<div class="card">
+    <div class="container-fluid bg-light h-100">
+        <!--search-->
+            <div class="card-header w-100">
+                <h3>Create a new style!</h3>
+                <input type="search" class="form-control w-100" id="search-selection" onkeyup="searchCats()"
+                       placeholder="Search..."/>
+            </div>
 
-        <div class="card-body">
+        <form th:action="@{/outfits/create}" th:method="post" th:object="${outfit}">
+            <button type="submit" class="btn btn-outline-dark btn-lg btn-block ml-auto" id="submitOutfit">Save Outfit
+            </button>
+            <div class="card-body">
+                <input th:field="*{description}" class="ml-0 w-100" placeholder="Name your outfit something like Formal Event or Going out with Friends"/>
+            </div>
 
-            <!--//do not remove span. essential for search-->
-            <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
-                                                                                  class="badge badge-pill bg-accent catBtn ml-2"
-                                                                                  th:text="${cat.name}"></button></span>
-        </div>
-    </div>
-</div>
-    <!--<div class="card-body">-->
+            <div class="container-fluid row">
+                <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+                    <input type="checkbox" name="garmentchoices" th:id="${garment.id}" th:value="${garment.id}"/>
+                    <label th:for="${garment.id}">
+                      <img class="card-img-top" th:id="${garment.id}"  th:src="${garment.image}"/>
+                    </label>
+
+                    <div class="card-body">
+
+                        <!--//do not remove span. essential for search-->
+                        <span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"
+                                                                                              class="badge badge-pill bg-accent catBtn ml-2"
+                                                                                              th:text="${cat.name}"></button></span>
+                    </div>
+                </div>
+            </div>
+        <!--<div class="card-body">-->
         <!--<input th:field="*{description}" class="ml-0" placeholder="Outfit Name"/>-->
-    <!--</div>-->
-    <!--<img class="card-img-top mx-auto col-3 p-3 float-left" th:each="garment:${garments}" th:id="${garment.id}"-->
-         <!--th:src="${garment.image}"/>-->
-    <!--<div class="card-footer">-->
+        <!--</div>-->
+        <!--<img class="card-img-top mx-auto col-3 p-3 float-left" th:each="garment:${garments}" th:id="${garment.id}"-->
+        <!--th:src="${garment.image}"/>-->
+        <!--<div class="card-footer">-->
         <!--<span th:each="cat:${garment.categories}" th:object="${cats}"><button type="button"-->
-                                                                              <!--class="btn btn-light badge badge-pill bg-accent catBtn ml-2"-->
-                                                                              <!--th:text="${cat.name}"></button></span>-->
-    <!--</div>-->
-    <!--<button type="submit" class="btn btn-outline-light btn-lg btn-block ml-auto">Create Outfit</button>-->
-<!--</form>-->
+        <!--class="btn btn-light badge badge-pill bg-accent catBtn ml-2"-->
+        <!--th:text="${cat.name}"></button></span>-->
+        <!--</div>-->
+        <!--<button type="submit" class="btn btn-outline-light btn-lg btn-block ml-auto">Create Outfit</button>-->
+        <!--</form>-->
+
+        </form>
+    </div>
+</div>
+
 
 <footer th:replace="fragments/partials :: footer"></footer>
 <script th:src="@{/js/search.js}"></script>
-<script>
-
-//    $(".selectBtn").click(function(){
-//        var outfitArray = [];
-//        // console.log(this.firstElementChild.id);
-//        outfitArray.push(this.firstElementChild.id);
-//        $("#newGarments").append(outfitArray);
-//
-//    });
-
-
-    // function doAjaxPost(){
-    //     $.ajax({
-    //         type: "POST",
-    //         contentType: "application/json",
-    //         url: "/outfits/create",
-    //         data: outfitArray.toString(),
-    //     })
-    // }
-    // $("#submitOutfit").click(doAjaxPost());
-
-</script>
 </body>
 </html>

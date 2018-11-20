@@ -15,10 +15,11 @@
     /*background-color: var(--main-bg-color);*/
 /*}*/
 body{
+    height: 100vh;
     background-image: url(/img/blur-branches.jpg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 /*home page styling*/
@@ -45,6 +46,22 @@ div, p, .nav-link{
     height: 50%;
     width: 100%;
 }
+.textBackground1{
+    width: 25%;
+    background-color: white;
+    /*opacity: 0.4;*/
+    border-radius: 5px;
+}
+.textBackground2{
+    width: 30%;
+    background-color: white;
+    /*opacity: 0.4;*/
+    border-radius: 5px;
+}
+.oufitPreview{
+    max-width: 150px;
+    height: auto;
+}
 
 .home-card1, .home-card3{
     margin-bottom: 15%;
@@ -54,15 +71,23 @@ div, p, .nav-link{
     margin-top: 15%;
     margin-bottom:15%;
 }
-.home-card2{
-    margin-top:30%;
-}
 .home-card4{
-    margin-top: 15%;
+    margin-top: 20%;
+}
+.card-img{
+    max-width: 400px;
+    height: auto;
+}
+.catBtn{
+    font-size: large;
+    color: white;
 }
 
-
-
+/*LOGIN/REGSIER PAGE STYLNG*/
+.login, .register {
+    background: url(/img/jeans.jpg) center no-repeat;
+    background-size: cover;
+}
 /*.card {*/
     /*background-color: var(--main-bg-color);*/
 /*}*/

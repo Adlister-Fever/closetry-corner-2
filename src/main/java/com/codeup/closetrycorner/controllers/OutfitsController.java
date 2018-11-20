@@ -7,6 +7,7 @@ import com.codeup.closetrycorner.services.CatSvc;
 import com.codeup.closetrycorner.services.GarmentSvc;
 import com.codeup.closetrycorner.services.OutfitsSvc;
 import com.codeup.closetrycorner.services.UserSvc;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,10 +30,6 @@ public class OutfitsController {
         this.outfitsSvc = outfitsSvc;
     }
 
-
-
-
-
     @GetMapping("/outfits")
     public String showAllOutfits(Model vModel){
         vModel.addAttribute("outfits", outfitsSvc.findAll());
@@ -52,11 +49,18 @@ public class OutfitsController {
                 return "outfits/create";
     }
     @PostMapping("/outfits/create")
-    public String submitCreatedOutfit(@ModelAttribute Outfit outfit, @RequestParam(value="garmentchoices") List<Garment> garments) {
+    public String submitCreatedOutfit(@ModelAttribute Outfit outfit, @RequestParam(value = "garmentchoices") List<Garment> garments) {
         outfit.setGarments(garments);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         outfit.setUser(user);
         outfitsSvc.createOutfit(outfit);
-        return "redirect: /user";
+        return "redirect:/user";
+    }
+
+    @PostMapping("/outfits/{id}/delete")
+    public String deleteUserOutfit(@ModelAttribute Outfit outfit,@PathVariable long id){
+        outfit = outfitsSvc.findOne(id);
+        outfitsSvc.deleteOutfit(outfit);
+        return "redirect:/user";
     }
 }

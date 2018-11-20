@@ -11,8 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Generated;
-import javax.persistence.GeneratedValue;
 import java.util.List;
 
 
@@ -56,7 +54,6 @@ public class GarmentController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         garment.setUser(userSvc.findOne(user.getId()));
         garmentSvc.saveGarment(garment);
-        System.out.println(garment.getImage());
         return "redirect:/user";
     }
 

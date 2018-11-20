@@ -13,7 +13,7 @@
         <p class="lead"><em>None of this makes sense</em></p>
     </div>
 </div>
-<div class="container-fluid bg-light h-100">
+<div class="container-fluid bg-transparent h-100">
 
 
     <div class="row">
@@ -21,47 +21,41 @@
         <div class="col-sm-6" id="col-1">
             <!--first card: take a photo-->
             <div class="card home-card1 border-0 bg-transparent">
-                <img class="card-img" src="/img/taking-pic.jpg" />
+                <img class="card-img mx-sm-auto my-sm-auto" src="/img/taking-pic.jpg" />
                     <div class="card-img-overlay">
-                        <div class="card-text">Snap a Photo</div>
+                        <div class="card-text"><div class="textBackground1 text-center">Snap a Photo</div></div>
                     </div>
             </div>
-
             <!--third card: create an outfit-->
-            <div class="card home-card3 border-0 bg-transparent">
-                <img class="card-img" src="/img/outfit.jpg"/>
+            <div class="card home-card3 border-0 bg-transparent mx-sm-auto">
+                <img class="card-img mx-sm-auto my-sm-auto" src="/img/outfit.jpg"/>
                 <div class="card-img-overlay">
-                    <div class="card-text">Create an Outfit</div>
-
+                    <div class="card-text"><div class="textBackground1 text-center">Create an Outfit</div></div>
                 </div>
             </div>
-
-
         </div>
-
-
-        <div class="col-sm-6" id="col-2">
+        <div class="col-sm-6 mb-10" id="col-2">
             <!--second card: select a category-->
             <div class="card home-card2 border-0 bg-transparent">
-                <img class="card-img" src="/img/select-category.jpg" />
+                <img class="card-img mx-sm-auto my-sm-auto" src="/img/select-category.jpg" />
                 <div class="card-img-overlay">
-                    <div class="card-text">Select a Category</div>
+                    <div class="card-text"><div class="textBackground2 text-center">Select a Category</div></div>
                 </div>
             </div>
-
-
+            <!--fourth card: share with friends-->
             <div class="card home-card4 border-0 bg-transparent">
-                <img class="card-img" src="/img/group-photo.jpg"/>
+                <img class="card-img mx-sm-auto my-sm-auto" src="/img/group-photo.jpg"/>
                 <div class="card-img-overlay">
-                    <div class="card-text">Share with Friends</div>
+                    <div class="card-text"><div class="textBackground2 text-center shareText">Share with Friends</div></div>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
-<a href="/register"><button type="button" class="btn btn-dark w-100">Register for Free</button></a>
+<div class="spacer"></div>
+<div>
+<a href="/register"><button type="button" class="btn btn-dark w-100"><span class="text-white display-4" style="text-shadow: 2px 2px #4e555b">Register for Free</span></button></a>
+</div>
 <footer th:replace="fragments/partials :: footer"></footer>
 </body>
 </html>

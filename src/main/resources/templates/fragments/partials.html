@@ -20,7 +20,7 @@
     <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
     <!--google font-->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
-    <title>Home</title>
+    <title>Closetry Corner</title>
 </head>
 <body>
 <nav class="nav border mb-4 p-3" th:fragment="nav">
@@ -36,18 +36,23 @@
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
             <a class="nav-link" href="/upload">Add a Garment</a>
-
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link" href="/outfits/create">Create an Outfit</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link" href="/user/edit">Edit Profile</a>
         </li>
         <li sec:authorize="!isAuthenticated()" class="nav-item border rounded p-1 mr-2">
             <a class="nav-link" href="/login">Login</a>
         </li>
         <li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">
             <a class="nav-link" href="/register">Register</a>
-
         </li>
+        <li class="nav-item navy border rounded p-1 mr-2">
+            <a class="nav-link" href="/devs">About Us</a>
+        </li>
+
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
             <form th:action="@{/logout}" th:method="post">
                 <button class="btn-link btn my-auto" style="margin-top: 8px">Logout</button>
@@ -64,8 +69,6 @@
 </div>
 
 <footer th:fragment="footer">
-    <a href="/devs">Devs</a>
-
     <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -77,9 +80,7 @@
     </footer>
 <script th:fragment="validation">
     window.addEventListener('load', function() {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
         var validation = Array.prototype.filter.call(forms, function(form) {
             form.addEventListener('submit', function(event) {
                 if (form.checkValidity() === false) {

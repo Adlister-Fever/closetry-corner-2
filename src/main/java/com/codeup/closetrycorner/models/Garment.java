@@ -10,9 +10,6 @@ public class Garment {
     @GeneratedValue
     private long id;
 
-    @Column
-    private String date;
-
     @Column(nullable=false)
     private String image;
 
@@ -39,8 +36,7 @@ public class Garment {
     private List<Outfit> outfits;
 
 
-    public Garment(String date, String image, User user, List<Category> categories) {
-        this.date = date;
+    public Garment(String image, User user, List<Category> categories) {
         this.image = image;
         this.user = user;
         this.categories = categories;
@@ -60,14 +56,6 @@ public class Garment {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getImage() {
