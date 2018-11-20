@@ -15,7 +15,7 @@
 
             <div>
                 <div class="row container-no-gutters">
-               <span class="col-3 justify-content-center" th:each="cat:${cats}">
+               <span class="col-lg-3 col-sm-4 justify-content-center" th:each="cat:${cats}">
                    <input type="checkbox" class="mx-3" name="categories" th:id="${cat.id}" th:value="${cat.id}"/>
                    <label th:for="${cat.id}" th:text="${cat.name}"></label></span>
                 </div>
