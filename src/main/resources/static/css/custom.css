@@ -88,6 +88,9 @@ div, p, .nav-link{
     bottom: 0px;
     right:0em;
 }
+.shareText{
+    margin-top: 1em;
+}
 /*LOGIN/REGSIER PAGE STYLNG*/
 .login, .register {
     background: url(/img/jeans.jpg) center no-repeat;
