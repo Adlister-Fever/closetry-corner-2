@@ -30,8 +30,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder()) // How to encode and verify passwords
         ;
     }
-    
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -55,7 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/upload", // only authenticated users can create ads
-                        "/closet/{id}" // only authenticated users can edit ads
+                        "/closet/{id}", "/user/edit", "/user/edit/*" // only authenticated users can edit ads
                 )
                 .authenticated()
         ;
