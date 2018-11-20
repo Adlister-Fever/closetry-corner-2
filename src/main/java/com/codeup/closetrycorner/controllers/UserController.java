@@ -58,7 +58,7 @@ public class UserController {
     public String showUserEditForm(Model vModel){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         vModel.addAttribute("user", user);
-        return "/users/edit";
+        return "users/edit";
     }
     @PostMapping("/user/edit/{id}")
     public String editUser(@ModelAttribute User newUserInfo, @PathVariable long id){

@@ -30,8 +30,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder()) // How to encode and verify passwords
         ;
     }
-    
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
