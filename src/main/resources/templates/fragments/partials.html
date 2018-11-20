@@ -57,16 +57,18 @@
         </li>
 
         <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
-            <form th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn my-auto" style="margin-top: 8px">Logout</button>
+            <form id="logout2" th:action="@{/logout}" th:method="post">
+                <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logout2').submit();">Logout</a>
+                <!--<button class="btn my-auto bg-transparent" style="margin-top: 8px">Logout</button>-->
             </form>
         </li>
     </ul>
 </nav>
 <div th:fragment="logout">
     <div sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-2 mr-2">
-        <form th:action="@{/logout}" th:method="post">
-            <button class="btn-link btn navy my-auto" style="margin-top: 8px">Logout</button>
+        <form id="logout" th:action="@{/logout}" th:method="post">
+            <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logout').submit();">Logout</a>
+            <!--<button class="btn my-auto bg-transparent" style="margin-top: 8px">Logout</button>-->
         </form>
     </div>
 </div>
