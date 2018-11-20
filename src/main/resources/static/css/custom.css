@@ -78,6 +78,10 @@ div, p, .nav-link{
     max-width: 400px;
     height: auto;
 }
+.catBtn{
+    font-size: large;
+    color: white;
+}
 
 /*LOGIN/REGSIER PAGE STYLNG*/
 .login, .register {
