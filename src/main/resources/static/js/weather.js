@@ -1,5 +1,5 @@
 (function () {
-    $.get("https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather", {
+    $.get("https://api.openweathermap.org/data/2.5/weather", {
         APPID: "09be3d87503af2062f84723988428f58",
         q:     "San Antonio, US",
         units: "imperial"
