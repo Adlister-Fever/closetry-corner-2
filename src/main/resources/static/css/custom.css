@@ -16,7 +16,7 @@
 /*}*/
 body{
     height: 100vh;
-    background-image: url(/img/blur-branches.jpg);
+    background-image: url(/img/blur-branches-min.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
@@ -24,7 +24,7 @@ body{
 
 /*home page styling*/
 .home.jumbotron{
-    background-image: url(/img/jumbo.jpg);
+    background-image: url(/img/jumbo-min.jpg);
     background-size: cover;
     background-position: center 20%;
     !important;
@@ -82,10 +82,18 @@ div, p, .nav-link{
     font-size: large;
     color: white;
 }
-
+#submitOutfit{
+    z-index: 1000;
+    position: fixed;
+    bottom: 0px;
+    right:0em;
+}
+.shareText{
+    margin-top: 1em;
+}
 /*LOGIN/REGSIER PAGE STYLNG*/
 .login, .register {
-    background: url(/img/jeans.jpg) center no-repeat;
+    background: url(/img/jeans-min.jpg) center no-repeat;
     background-size: cover;
 }
 /*.card {*/
