@@ -131,6 +131,10 @@ btn-accent{
 #navBtn{
     color: var(--main-accent-color);
 }
+.logo{
+    max-height: 75px;
+    width: auto;
+}
 
 
 /*.bg-purple-gradient {*/
