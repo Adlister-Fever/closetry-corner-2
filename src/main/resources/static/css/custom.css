@@ -15,7 +15,14 @@
     /*background-color: var(--main-bg-color);*/
 /*}*/
 body{
+    padding-top: 5em;
     height: 100vh;
+    background-image: url(/img/blur-branches-min.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
+.navbar{
     background-image: url(/img/blur-branches-min.jpg);
     background-size: cover;
     background-position: center;
