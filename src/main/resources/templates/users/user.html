@@ -80,7 +80,7 @@
             <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
                 <div class="row">
                     <!--//do not remove garment-card class. essential for search-->
-                    <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+                    <div class="garment-card card mx-auto col-lg-3 col-sm-6 p-3 float-left" th:each="garment:${garments}">
 
                         <a th:href="@{/closet/{id}(id=${garment.id})}">
                             <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}"
@@ -117,7 +117,7 @@
 
             <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
                 <div class="row">
-                    <div class="card-body mx-auto my-5 w-25 col" th:each="outfit:${outfits}">
+                    <div class="card-body mx-auto my-5 col-lg-3 col-sm-6" th:each="outfit:${outfits}">
                         <div th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
                                                                            th:text="${outfit.description}"></h3></div>
                         <!--<div id="outfitCarousel" class="carousel slide" data-ride="carousel">-->

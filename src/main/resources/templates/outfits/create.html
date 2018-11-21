@@ -16,14 +16,14 @@
             </div>
 
         <form th:action="@{/outfits/create}" th:method="post" th:object="${outfit}">
-            <button type="submit" class="btn btn-lg bg-accent ml-auto w-100 text-white" id="submitOutfit">Save Outfit
+            <button type="submit" class="btn bg-accent ml-auto w-100 text-white" id="submitOutfit">Save Outfit
             </button>
             <div class="card-body">
                 <input th:field="*{description}" class="ml-0 w-100" placeholder="Name your outfit something like Formal Event or Going out with Friends"/>
             </div>
 
             <div class="container-fluid row">
-                <div class="garment-card card mx-auto col-3 p-3 float-left" th:each="garment:${garments}">
+                <div class="garment-card card mx-auto col-lg-3 col-sm-4 p-3" th:each="garment:${garments}">
                     <input type="checkbox" name="garmentchoices" th:id="${garment.id}" th:value="${garment.id}"/>
                     <label th:for="${garment.id}">
                       <img class="card-img-top" th:id="${garment.id}"  th:src="${garment.image}"/>
