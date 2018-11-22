@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <title>Sign up</title>
 </head>
-<body class="container register">
+<body class="uk-container register">
 <nav th:replace="fragments/partials :: nav"></nav>
-<div class="card border mx-auto my-auto p-3" style="background-image: url(/img/blur-branches-min.jpg); background-size: cover;">
+<div class="card uk-padding border mx-auto my-auto p-3" style="background-image: url(/img/blur-branches-min.jpg); background-size: cover;">
     <h1>Create an account</h1>
     <form th:action="@{/register}" th:method="POST" th:object="${user}" class="row">
         <div class="col-md-4 mb-3">
@@ -15,22 +15,22 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                 </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" th:field="*{username}" th:required="true"/>
+                <input type="text" class="form-control uk-input" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" th:field="*{username}" th:required="true"/>
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Email" th:required="true"/>
+                <input type="email" class="form-control uk-input" id="email" th:field="*{email}" placeholder="Email" th:required="true"/>
         </div>
         <div class="col-md-4 mb-3">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Password" th:required="true"/>
+            <input type="password" class="form-control uk-search-input" id="password" th:field="*{password}" placeholder="Password" th:required="true"/>
         </div>
         <!---->
         <!--<label for="confirm-password">Confirm Password</label>-->
         <!--<input id="confirm-password" type="password" th:field="*{password}" />-->
 
-        <div class="col"><button class="btn btn-outline-primary float-right" type="submit">Register!</button></div>
+        <div class="col"><button class="uk-button-primary" type="submit">Register!</button></div>
     </form>
 </div>
 <footer th:replace="fragments/partials :: footer"/>

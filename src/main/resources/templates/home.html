@@ -3,68 +3,58 @@
 <head th:replace="fragments/partials :: head">
     <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
 </head>
-<body class="container">
+<body class="uk-container">
 <nav th:replace="fragments/partials :: nav"></nav>
-
-<div class="home jumbotron jumbotron-fluid">
-    <div class="container-fluid home-title">
-        <div></div>
-        <h1 class="display-4">Closetry Corner</h1>
-        <p class="lead"><em>Let us into your closet ;)</em></p>
+<div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('images/dark.jpg');">
+    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; viewport: 0.5;">Headline</h1>
+        <p uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; viewport: 0.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
 </div>
-<div class="mt-5">
-    <div class="row d-flex justify-content-center d-block d-md-none">
-        <div class="card bg-transparent border-0 mb-2">
-            <img class="card-img" src="/img/taking-pic-min.jpg"/>
-            <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Snap a Photo</div></div>
-        </div>
-        <!--<div class="col-6 d-xs-none"></div>-->
-        <div class="card bg-transparent border-0 mb-4">
-            <img class="card-img" src="/img/select-category-min.jpg" />
-            <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Select a Category</div></div>
-        </div>
-        <div class="card bg-transparent border-0 mt-2 mb-4">
-            <img class="card-img" src="/img/outfit-min.jpg"/>
-            <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Create an Outfit</div></div>
-        </div>
-        <div class="col-6"></div>
-        <div class="card bg-transparent mt-3 border-0">
-            <img class="card-img" src="/img/group-photo-min.jpg"/>
-            <div class="card-img-overlay col-5"><div class="bg-white rounded text-center">Share with Friends</div></div>
+<div class="uk-child-width-7 uk-child-height-3 uk-grid-match uk-grid">
+    <div>
+        <div class="uk-card uk-card-hover uk-card-body">
+            <img class="uk-img" src="img/jumbo-min.jpg" alt=""/>
+            <div class="uk-overlay uk-light uk-position-bottom">
+                <p class="uk-background-primary">Closetry Corner</p>
+            </div>
         </div>
     </div>
+</div>
+
+<div class="mt-5 uk-flex uk-flex-center">
 <div class="container bg-transparent h-100 d-none d-md-block">
     <div class="row">
         <div class="col-sm-6" id="col-1">
             <!--first card: take a photo-->
-            <div class="card home-card1 border-0 bg-transparent">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/taking-pic-min.jpg" />
-                    <div class="card-img-overlay">
-                        <div class="card-text"><div class="textBackground1 text-center">Snap a Photo</div></div>
-                    </div>
-            </div>
-            <!--third card: create an outfit-->
-            <div class="card home-card3 border-0 bg-transparent mx-sm-auto">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/outfit-min.jpg"/>
-                <div class="card-img-overlay">
-                    <div class="card-text"><div class="textBackground1 text-center">Create an Outfit</div></div>
+            <div class="uk-inline">
+                <img width="550" height="550" uk-imgclass="logo" class="card-img mx-sm-auto my-sm-auto" src="/img/taking-pic-min.jpg" />
+                <div class="uk-overlay uk-light uk-position-bottom">
+                    <p class="">Snap a Photo</p>
                 </div>
             </div>
+
         </div>
         <div class="col-sm-6 mb-10" id="col-2">
             <!--second card: select a category-->
             <div class="card home-card2 border-0 bg-transparent">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/select-category-min.jpg" />
-                <div class="card-img-overlay">
-                    <div class="card-text"><div class="textBackground2 text-center">Select a Category</div></div>
+                <img width="550" height="550" uk-imgclass="logo" class="card-img mx-sm-auto my-sm-auto" src="/img/select-category-min.jpg" />
+                <div class="uk-overlay uk-light uk-position-bottom">
+                    <p class="">Select a Category</p>
+                </div>
+            </div>
+            <!--third card: create an outfit-->
+            <div class="card home-card3 border-0 bg-transparent mx-sm-auto">
+                <img width="550" height="550" uk-imgclass="logo" class="card-img mx-sm-auto my-sm-auto" src="/img/outfit-min.jpg"/>
+                <div class="uk-overlay uk-light uk-position-bottom">
+                    <p class="">Create an Outfit</p>
                 </div>
             </div>
             <!--fourth card: share with friends-->
             <div class="card home-card4 border-0 bg-transparent">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/group-photo-min.jpg"/>
-                <div class="card-img-overlay">
-                    <div class="card-text"><div class="textBackground2 text-center shareText">Share with Friends</div></div>
+                <img width="550" height="550" uk-imgclass="logo" class="card-img mx-sm-auto my-sm-auto" src="/img/group-photo-min.jpg"/>
+                <div class="uk-overlay uk-light uk-position-bottom">
+                    <p class="">Share with Friends</p>
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@
         ev.target.appendChild(document.getElementById(data));
     }
 </script>
-<body class="container">
+<body class="uk-container">
 <div id="fb-root"></div>
 <script>
     (function (d, s, id) {
@@ -54,22 +54,11 @@
             <div id="weather-box" style="margin: 8px; width: 100%; height: 150px;"></div>
         </div>
     </div>
-    <div class="container-fluid bg-light h-100">
+    <div class="uk-container bg-light h-100">
         <!--search-->
-        <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()"
+        <input type="search" class="form-control w-100 mt-2 mb-2 uk-input" id="search-selection" onkeyup="searchCats()"
                placeholder="Search..."/>
-        <!--outfit maker window-->
-        <!--<div class="card p-2">-->
-        <!--<div class="display-4 p-2 olive text-center">Outfit Maker</div>-->
-        <!--<div class="olive text-center">(drag items here to create an outfit.)</div>-->
-        <!--<div class="p-3 d-flex inline-block">-->
-        <!--<form th:action="@{/outfits/create}" method="POST" th:object="${outfit}">-->
-        <!--<div class="row p-3" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
-        <!--<div class="p-4"><button type="submit" class="btn btn-outline-info">Save Outfit</button></div>-->
-        <!--</form>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--nav tabs-->
+
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
@@ -120,21 +109,6 @@
                     <div class="card-body mx-auto my-5 col-lg-3 col-sm-6" th:each="outfit:${outfits}">
                         <div th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
                                                                            th:text="${outfit.description}"></h3></div>
-                        <!--<div id="outfitCarousel" class="carousel slide" data-ride="carousel">-->
-                        <!--<div class="carousel-inner">-->
-                        <!--<div class="carousel-item" th:each="garment:${outfit.garments}">-->
-                        <!--<img class="d-block w-100" th:src="${garment.image}" alt="First slide"/>-->
-                        <!--</div>-->
-                        <!--</div>-->
-                        <!--<a class="carousel-control-prev" href="#outfitCarousel" role="button" data-slide="prev">-->
-                        <!--<span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-                        <!--<span class="sr-only"></span>-->
-                        <!--</a>-->
-                        <!--<a class="carousel-control-next" href="#outfitCarousel" role="button" data-slide="next">-->
-                        <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-                        <!--<span class="sr-only"></span>-->
-                        <!--</a>-->
-                        <!--</div>-->
                         <span class="p-0" th:each="garment:${outfit.garments}">
                         <img class="oufitPreview" th:src="${garment.image}"/>
                         </span>

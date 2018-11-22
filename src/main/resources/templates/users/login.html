@@ -7,8 +7,8 @@
 <body class="container login">
 <!--<nav th:replace="nav :: nav"/>-->
 
-<div class="card col-10 p-4 mb-3 mx-auto mt-3" style="background-image: url(/img/blur-branches-min.jpg); background-size: cover;">
-    <div class="card col-12 p-4 mt-3 mb-3 mx-auto border-primary border-top-0 border-bottom-0 border-right-0 bg-transparent">
+<div class="card uk-padding" width="200" style="background-image: url(/img/blur-branches-min.jpg); background-size: cover;">
+    <div class="uk-card uk-card-secondary uk-card-body">
         <h1>Log In</h1>
         <div th:if="${param.error}">
             Invalid Username and Password.
@@ -24,15 +24,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                     </div>
-                <input class="form-control" id="username" name="username" type="text" />
+                    <div class="uk-margin">
+                        <input class="uk-input" id="username" name="username" type="text" />
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <label for="password">Password</label>
-                <input class="form-control" id="password" name="password" type="password" />
+                <div class="uk-margin">
+                    <input class="uk-input" id="password" name="password" type="password" />
+                </div>
             </div>
-            <button type="submit" value="Log In" class="btn btn-outline-primary btn-sm">Login</button>
-            <a class="btn btn-outline-primary btn-sm" href="/" role="button">Home</a>
+            <button type="submit" value="Log In" class="uk-button uk-button-default">Login</button>
+            <a class="uk-button uk-button-default" href="/" role="button">Home</a>
         </form>
     </div>
 </div>
