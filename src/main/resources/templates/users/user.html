@@ -56,8 +56,14 @@
     </div>
     <div class="uk-container bg-light h-100">
         <!--search-->
-        <input type="search" class="form-control w-100 mt-2 mb-2 uk-input" id="search-selection" onkeyup="searchCats()"
-               placeholder="Search..."/>
+        <div class="uk-margin">
+            <form class="uk-search uk-search-default">
+                <span class="uk-search-icon-flip uk-search-icon" ></span>
+                <input class="uk-search-input" type="search" placeholder="Search..." id="search-selection" onkeyup="searchCats"/>
+            </form>
+        </div>
+        <!--<input type="search" class="form-control w-100 mt-2 mb-2 uk-input" id="search-selection" onkeyup="searchCats()"-->
+               <!--placeholder="Search..."/>-->
 
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
