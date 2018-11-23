@@ -4,41 +4,44 @@
     <meta charset="UTF-8" />
     <title>Log In</title>
 </head>
-<body class="container login">
+<body data-src="/img/jeans-min.jpg" uk-img="">
 <!--<nav th:replace="nav :: nav"/>-->
+<div>
+    <!--<h1>Background Image</h1>-->
+    <div class="uk-card uk-position-center uk-padding uk-width-2-3" style="background-image: url(/img/blur-branches-min.jpg); background-size: cover;">
+        <div class="">
+            <h1>Log In</h1>
+            <div th:if="${param.error}">
+                Invalid Username and Password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
 
-<div class="card uk-padding" width="200" style="background-image: url(/img/blur-branches-min.jpg); background-size: cover;">
-    <div class="uk-card uk-card-secondary uk-card-body">
-        <h1>Log In</h1>
-        <div th:if="${param.error}">
-            Invalid Username and Password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-
-        <form th:action="@{/login}" th:method="post">
-            <div class="col-md-4 mb-3">
-                <label for="username">Username</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    </div>
-                    <div class="uk-margin">
-                        <input class="uk-input" id="username" name="username" type="text" />
+            <form th:action="@{/login}" th:method="post">
+                <div class="">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <!--<span class="input-group-text" id="inputGroupPrepend"></span>-->
+                        </div>
+                        <div class="">
+                            <input class="uk-input" id="username" name="username" type="text" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="password">Password</label>
-                <div class="uk-margin">
-                    <input class="uk-input" id="password" name="password" type="password" />
+                <div class="col-md-4 mb-3">
+                    <label for="password">Password</label>
+                    <div class="">
+                        <input class="uk-input" id="password" name="password" type="password" />
+                    </div>
                 </div>
-            </div>
-            <button type="submit" value="Log In" class="uk-button uk-button-default">Login</button>
-            <a class="uk-button uk-button-default" href="/" role="button">Home</a>
-        </form>
-    </div>
+                <button type="submit" value="Log In" class="uk-button uk-button-default">Login</button>
+                <a class="uk-button" href="/" role="button">Home</a>
+            </form>
+        </div>
+</div>
+
 </div>
 <footer th:replace="fragments/partials :: footer"/>
 </body>

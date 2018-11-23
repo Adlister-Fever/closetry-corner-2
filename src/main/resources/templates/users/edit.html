@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <title>Sign up</title>
 </head>
-<body class="container">
+<body class="uk-container">
 <nav th:replace="fragments/partials :: nav"></nav>
-<div class="card border mx-auto my-auto p-3">
+<div class="uk-card uk-padding uk-width-4-5">
     <h1>Create an account</h1>
     <form th:action="@{/user/edit/{id}(id=${user.id})}" th:method="POST" th:object="${user}" class="row">
         <div class="col-md-4 mb-3">
             <label for="username">Username</label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <!--<span class="input-group-text" id="inputGroupPrepend">@</span>-->
                 </div>
                 <fieldset th:disabled="true">
                 <input type="text" class="form-control" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" th:field="*{username}" th:disabled="true"/>

@@ -99,8 +99,8 @@ div, p, .nav-link{
     margin-top: 1em;
 }
 /*LOGIN/REGSIER PAGE STYLNG*/
-.login, .register {
-    background: url(/img/jeans-min.jpg) center no-repeat;
+ .register {
+    background: url(/img/jeans-min.jpg) center repeat;
     background-size: cover;
 }
 /*.card {*/

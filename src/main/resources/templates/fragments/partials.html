@@ -10,6 +10,7 @@
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/colors.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
     <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
     <!--google font-->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
@@ -17,22 +18,22 @@
 </head>
 <body>
 <!-- Main Navbar-->
-<nav class="uk-navbar-container uk-margin" uk-navbar="mode: click">
+<nav class="uk-navbar-container uk-margin uk-container" uk-navbar="mode: click">
     <div class="uk-navbar-left">
-        <a href="/" class="navbar-brand d-none d-lg-block"><img width="80" height="80" uk-imgclass="logo" src="/img/nav-logo.png"/></a>
+        <a href="/" class="uk-padding-small"><img width="80" height="80" uk-imgclass="logo" src="/img/nav-logo.png"/></a>
     </div>
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
-            <li sec:authorize="isAuthenticated()" class="uk-active"><a href="/">Closetry Corner</a></li>
+            <li sec:authorize="isAuthenticated()" class="uk-active uk-button uk-button-primary"><a href="/">Closetry Corner</a></li>
             <li sec:authorize="isAuthenticated()" class="uk-active"><a href="/upload">Add a Garment</a></li>
             <li sec:authorize="isAuthenticated()" class="uk-active"><a href="/outfits/create">Create an Outfit</a></li>
             <li sec:authorize="isAuthenticated()" class="uk-active"><a href="/user/edit">Edit Profile</a></li>
-            <li sec:authorize="!isAuthenticated()" class="uk-active"><a href="/devs">About Us</a></li>
-            <li sec:authorize="!isAuthenticated()" class="uk-active"><a href="/login">Login</a></li>
-            <li sec:authorize="!isAuthenticated()" class="uk-active"><a href="/register">Register</a></li>
-            <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
+            <li  class="uk-active uk-margin-large-right uk-button uk-button-default"><a href="/devs">About Us</a></li>
+            <li sec:authorize="!isAuthenticated()" class="uk-active uk-margin-large-right"><a href="/login">Login</a></li>
+            <li sec:authorize="!isAuthenticated()" class="uk-active uk-margin-large-right"><a href="/register">Register</a></li>
+            <li sec:authorize="isAuthenticated()" class="uk-active uk-position-center-right uk-padding-small">
                 <form id="logout2" th:action="@{/logout}" th:method="post">
-                    <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logout2').submit();">Logout</a>
+                    <a class="" href="javascript:{}" onclick="document.getElementById('logout2').submit();">Logout</a>
                 </form>
             </li>
         </ul>
