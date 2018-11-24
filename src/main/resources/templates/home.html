@@ -13,11 +13,29 @@
         <p class="lead"><em>Let us into your closet ;)</em></p>
     </div>
 </div>
-<div class="container-fluid bg-transparent h-100">
-
-
+<div class="mt-5">
+    <div class="row d-flex justify-content-center d-block d-md-none">
+        <div class="card bg-transparent border-0 mb-2">
+            <img class="card-img" src="/img/taking-pic-min.jpg"/>
+            <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Snap a Photo</div></div>
+        </div>
+        <!--<div class="col-6 d-xs-none"></div>-->
+        <div class="card bg-transparent border-0 mb-4">
+            <img class="card-img" src="/img/select-category-min.jpg" />
+            <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Select a Category</div></div>
+        </div>
+        <div class="card bg-transparent border-0 mt-2 mb-4">
+            <img class="card-img" src="/img/outfit-min.jpg"/>
+            <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Create an Outfit</div></div>
+        </div>
+        <div class="col-6"></div>
+        <div class="card bg-transparent mt-3 border-0">
+            <img class="card-img" src="/img/group-photo-min.jpg"/>
+            <div class="card-img-overlay col-5"><div class="bg-white rounded text-center">Share with Friends</div></div>
+        </div>
+    </div>
+<div class="container bg-transparent h-100 d-none d-md-block">
     <div class="row">
-
         <div class="col-sm-6" id="col-1">
             <!--first card: take a photo-->
             <div class="card home-card1 border-0 bg-transparent">
@@ -51,6 +69,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <footer th:replace="fragments/partials :: footer"></footer>
 </body>
