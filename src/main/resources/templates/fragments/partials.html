@@ -67,7 +67,7 @@
                 <li class="nav-item navy border rounded p-1 mr-2">
                     <a class="nav-link" href="/devs">About Us</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">
+                <li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">
                     <form id="logout2" th:action="@{/logout}" th:method="post">
                         <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logout2').submit();">Logout</a>
                     </form>
