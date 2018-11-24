@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <title>Sign up</title>
 </head>
-<body class="container register">
+<body class="container register my-auto">
 <nav th:replace="fragments/partials :: nav"></nav>
+<br/>
+<br/>
+<br/>
 <div class="card border mx-auto my-auto p-3" style="background-image: url(/img/blur-branches-min.jpg); background-size: cover;">
     <h1>Create an account</h1>
     <form th:action="@{/register}" th:method="POST" th:object="${user}" class="row">
