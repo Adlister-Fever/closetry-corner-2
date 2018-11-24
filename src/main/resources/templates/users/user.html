@@ -34,8 +34,8 @@
     }
 </script>
 
-<body class="uk-container">
-<div id="fb-root"></div>
+<body>
+<!--<div id="fb-root uk-container"></div>-->
 <script>
     (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -47,15 +47,16 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 <nav th:replace="fragments/partials :: nav"></nav>
-<div class="uk-card uk-width-2-2@m">
-        <div class="container">
-            <div class=""><h1 class="uk-heading-primary">Hello, <span th:text="${#authentication.principal.username}"></span></h1></div>
-            <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m" id="weather-box" style="margin: 8px; width: 100%; height: 150px;"></div>
+<div>
+        <div class="uk-container">
+            <div class="uk-card uk-card-primary uk-card-body uk-text-right" id="weather-box">
+                <div class=""><h1 class="uk-heading-primary">Hello, <span class="white" th:text="${#authentication.principal.username}"></span></h1></div>
+            </div>
         </div>
-    <div class=" bg-light h-100">
+    <div class=" bg-light h-100 uk-container">
         <!--search-->
-        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-            <div class="uk-margin">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2 uk-margin-top uk-float-right">
+            <div>
                 <form class="uk-search uk-search-default ">
                     <span uk-search-icon=""></span>
                     <span class="uk-search-icon-flip uk-search-icon" ></span>
@@ -66,12 +67,12 @@
         <!--<input type="search" class="form-control w-100 mt-2 mb-2 uk-input" id="search-selection" onkeyup="searchCats()"-->
                <!--placeholder="Search..."/>-->
 
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>
-                <a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#outfits">Outfits</a>
-            </div>
-        </nav>
+        <!--<nav>-->
+            <!--<div class="nav nav-tabs" id="nav-tab" role="tablist">-->
+                <!--<a class="nav-link active" data-toggle="tab" role="tab" id="nav-garments-tab" href="#nav-garments">Closet</a>-->
+                <!--<a class="nav-link" data-toggle="tab" role="tab" id="outfits-tab" href="#outfits">Outfits</a>-->
+            <!--</div>-->
+        <!--</nav>-->
         <div class="tab-content p-2">
             <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
                 <div class="row">
