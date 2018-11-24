@@ -76,46 +76,7 @@
         </div>
     </div>
 </nav>
-<!--<nav class="nav border navbar-expand-lg" th:fragment="nav">-->
-<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar">-->
-<!--<span class="navbar-toggler-icon" id="navBtn">&#9776;</span>-->
-<!--</button>-->
-<!--<div class="collapse navbar-collapse" id="collapsenavbar">-->
-<!--<ul class="navbar nav">-->
-<!--<li class="nav-item navy border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/">Closetry Corner</a>-->
-<!--</li>-->
-<!--<li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/user">My Closet</a>-->
-<!--</li>-->
-<!--<li sec:authorize="isAuthenticated()" class="nav-item border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/upload">Add a Garment</a>-->
-<!--</li>-->
-<!--<li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/outfits/create">Create an Outfit</a>-->
-<!--</li>-->
-<!--<li sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/user/edit">Edit Profile</a>-->
-<!--</li>-->
-<!--<li sec:authorize="!isAuthenticated()" class="nav-item border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/login">Login</a>-->
-<!--</li>-->
-<!--<li sec:authorize="!isAuthenticated()" class="nav-item navy border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/register">Register</a>-->
-<!--</li>-->
-<!--<li class="nav-item navy border rounded p-1 mr-2">-->
-<!--<a class="nav-link" href="/devs">About Us</a>-->
-<!--</li>-->
 
-<!--<li sec:authorize="isAuthenticated()" class="nav-item border rounded p-2 mr-2">-->
-<!--<form id="logout2" th:action="@{/logout}" th:method="post">-->
-<!--<a class="nav-link" href="javascript:{}" onclick="document.getElementById('logout2').submit();">Logout</a>-->
-<!--&lt;!&ndash;<button class="btn my-auto bg-transparent" style="margin-top: 8px">Logout</button>&ndash;&gt;-->
-<!--</form>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</nav>-->
 <div th:fragment="logout">
     <div sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-2 mr-2">
         <form id="logout" th:action="@{/logout}" th:method="post">
