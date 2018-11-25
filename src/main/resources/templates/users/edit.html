@@ -35,8 +35,9 @@
 
         <div class="col"><button class="btn btn-outline-primary float-right" type="submit">Update Profile</button></div>
     </form>
+    <br/>
     <form th:action="@{/user/{id}/delete(id=${user.id})}" th:method="POST">
-        <div class="col"><button class="btn btn-outline-danger float-right" type="submit">Delete Profile</button></div>
+        <div class="col"><button class="btn btn-outline-danger float-left" type="submit">Delete Profile</button></div>
     </form>
 </div>
 <footer th:replace="fragments/partials :: footer"/>
