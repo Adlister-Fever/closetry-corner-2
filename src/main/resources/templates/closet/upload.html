@@ -10,9 +10,6 @@
     <div class="card col-8 mx-auto float-left mt-5 border p-3">
         <div class="display-4 mb-5">Upload and tag your image</div>
         <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
-
-            <small class="red">Garments MUST have a category to be saved!</small>
-
             <div>
                 <div class="row container-no-gutters d-flex d-inline-block">
                     <div class="col-lg-3 col-sm-4 justify-content-center p-0" th:each="cat:${cats}">
@@ -20,12 +17,20 @@
                         <label th:for="${cat.id}" th:text="${cat.name}"></label>
                     </div>
                 </div>
-
                 <div class=" mt-4 float-right d-flex d-inline-block">
-                    <input type="hidden" class="catNames btn" role="uploadcare-uploader" name="content"
-                           data-public-key="f4d049bd4151e8ea72ed"
-                           data-images-only="true" th:field="*{image}"/>
-                    <button type="submit" value="Save" class="btn btn-dark mt-sm-2 ml-2 rounded">Save</button>
+                    <div class="mt-2">
+                        <small class="red mr-4">Garments MUST have a category to be saved!</small>
+                    </div>
+
+                    <div class="mt-2">
+                        <input type="hidden" class="catNames" role="uploadcare-uploader"
+                               name="content"
+                               data-public-key="f4d049bd4151e8ea72ed"
+                               data-images-only="true" th:field="*{image}"/>
+                    </div>
+                    <div>
+                        <button type="submit" value="Save" class="btn btn-dark mt-sm-2 ml-2 rounded">Save</button>
+                    </div>
                 </div>
             </div>
         </form>
