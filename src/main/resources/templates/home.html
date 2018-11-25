@@ -10,7 +10,7 @@
     <div class="container-fluid home-title">
         <div></div>
         <h1 class="display-4">Closetry Corner</h1>
-        <p class="lead"><em>Let us into your closet ;)</em></p>
+        <p class="lead"><em id="slogan"></em></p>
     </div>
 </div>
 <div class="mt-5">
@@ -72,5 +72,28 @@
 </div>
 </div>
 <footer th:replace="fragments/partials :: footer"></footer>
+<script>
+    var sloganArray =["Say it with Closetry Corner", "Wait til we get our Closetry Corner on you", "Come one, come all, to Closetry Corner", "I believe in Closetry Corner", "I need Closetry Corner right now",
+    "Closetry Corner empowers you", "Just gotta have Closetry Corner", "Everyone loves Closetry Corner", "Closetry Corner is going places", "Don't be vague. Ask for Closetry Corner",
+    "Nobody puts Closetry in the Corner", "What can Closetry Corner do for you?", "You can't beat Closetry Corner", "Closetry Corner is there day or night", "Closetry Corner gives wealth and beauty",
+    "Closetry Corner will make you more popular", "Closetry Corner smells of leather bound books and rich mahogany", "Don't get mad, get Closetry Corner", "Closetry Corner loves you",
+    "Give that man a Closetry Corner", "The joy of Closetry Corner", "Closetry Corner does a body good", "Don't leave home without Closetry Corner", "Say it with Closetry Corner",
+    "The more Closetry Corner the better", "Closetry Corner lasts longer", "Everything is simple with Closetry Corner", "Closetry Corner forever", "When only the best will do; Closetry Corner",
+    "Closetry Corner. It just works.", "8 out of 10 owners who expressed a preference said their cats preferred Closetry Corner", "4 out of 5 Dentists with fashion sense probably recommend Closetry Corner",
+    "The magic of Closetry Corner", "Closetry Corner shows good taste", "I trust Closetry Corner", "Long live Closetry Corner", "We built this city on Closetry Corner", "I wish I was Closetry Corner"]
+    $(document).ready(function(){
+        $("#slogan").text(sloganArray[Math.floor(Math.random()*sloganArray.length)])
+    });
+    $(document).ready(setInterval(function(){
+        var newSlogan = sloganArray[Math.floor(Math.random()*sloganArray.length)];
+        console.log(newSlogan);
+        $("#slogan").fadeToggle(500);
+        setTimeout(function(){
+            $("#slogan").text(newSlogan);
+        }, 500);
+        $("#slogan").fadeToggle(500);
+    }, 6000))
+
+</script>
 </body>
 </html>
