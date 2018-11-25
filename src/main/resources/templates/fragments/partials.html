@@ -77,6 +77,8 @@
     </div>
 </nav>
 
+
+
 <div th:fragment="logout">
     <div sec:authorize="isAuthenticated()" class="nav-item navy border rounded p-2 mr-2">
         <form id="logout" th:action="@{/logout}" th:method="post">
