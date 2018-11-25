@@ -76,7 +76,7 @@
                             <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}"
                                  th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
                         </a>
-                        <div class="card-footer bg-transparent border p-3">
+                        <div class="card-footer bg-transparent border-0 p-3">
                             <!--//do not remove span. essential for search-->
                             <span th:each="cat:${garment.categories}" th:object="${cats}">
                                 <button type="button" class="badge badge-pill bg-accent catBtn mt-2" th:text="${cat.name}"></button>
