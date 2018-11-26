@@ -62,9 +62,14 @@ div, p, .nav-link{
 .div.container.home-title{
     background-color: transparent;
 }
-.home-card1, .home-card2, .home-card3, .home-card4{
-    height: 50%;
-    width: 100%;
+
+.home-card1{
+    margin-bottom: 15%;
+
+}
+.home-card2, .home-card4{
+    margin-top: 15%;
+
 }
 .textBackground1{
     width: 25%;
@@ -83,21 +88,11 @@ div, p, .nav-link{
     height: auto;
 }
 
-.home-card1, .home-card3{
-    margin-bottom: 15%;
 
-}
-.home-card2, .home-card3{
-    margin-top: 15%;
-    margin-bottom:15%;
-}
-.home-card4{
-    margin-top: 20%;
-}
-.card-img{
-    max-width: 400px;
-    height: auto;
-}
+/*.card-img{*/
+    /*max-width: 400px;*/
+    /*height: auto;*/
+/*}*/
 .catBtn{
     font-size: large;
     color: white;
