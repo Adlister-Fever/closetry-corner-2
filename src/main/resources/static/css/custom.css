@@ -3,6 +3,7 @@
     --main-highlight-color: #D1B700;
     --main-accent-color: #5e8a65;
     --main-text-color: #000000;
+
 }
 .bg-main{
     background-color: var(--main-bg-color);
@@ -11,11 +12,8 @@
 .bg-accent{
     background-color: var(--main-accent-color);
 }
-/*body, .container, .container-fluid{*/
-    /*background-color: var(--main-bg-color);*/
-/*}*/
 body{
-    padding-top: 5em;
+    padding-top: 6em;
     height: 100vh;
     background-image: url(/img/blur-branches-min.jpg);
     background-size: cover;
@@ -119,7 +117,6 @@ div, p, .nav-link{
     background-size: cover;
 }
 
-
 *{
     color: var(--main-text-color);
 !important;
@@ -134,7 +131,4 @@ btn-accent{
 .logo{
     max-height: 75px;
     width: auto;
-}
-
-
 

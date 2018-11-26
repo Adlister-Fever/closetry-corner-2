@@ -8,8 +8,8 @@
 <nav th:replace="fragments/partials :: nav"></nav>
 <div class="card border mx-auto my-auto p-3">
     <h1>Create an account</h1>
-    <form th:action="@{/user/edit/{id}(id=${user.id})}" th:method="POST" th:object="${user}" class="row">
-        <div class="col-md-4 mb-3">
+    <form th:action="@{/user/edit/{id}(id=${user.id})}" th:method="POST" th:object="${user}">
+        <div class="col-md-12 mb-3">
             <label for="username">Username</label>
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -33,11 +33,14 @@
         <!--<label for="confirm-password">Confirm Password</label>-->
         <!--<input id="confirm-password" type="password" th:field="*{password}" />-->
 
-        <div class="col"><button class="btn btn-outline-primary float-right" type="submit">Update Profile</button></div>
+        <div class="col pr-sm-4"><button class="btn btn-outline-primary float-right" type="submit">Update Profile</button></div>
     </form>
-    <form th:action="@{/user/{id}/delete(id=${user.id})}" th:method="POST">
-        <div class="col"><button class="btn btn-outline-danger float-right" type="submit">Delete Profile</button></div>
-    </form>
+    <br/>
+   <div class="pr-2">
+       <form th:action="@{/user/{id}/delete(id=${user.id})}" th:method="POST">
+           <div class="col"><button class="btn btn-outline-danger float-lg-left float-sm-right" type="submit">Delete Profile</button></div>
+       </form>
+   </div>
 </div>
 <footer th:replace="fragments/partials :: footer"/>
 <script th:replace="fragments/partials :: validation"></script>
