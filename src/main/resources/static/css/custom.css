@@ -116,6 +116,8 @@ btn-accent{
     max-height: 75px;
     width: auto;
 }
-.garment-image{
-    height: 350px;
+@media screen and (min-width: 1000px) {
+    .garment-image {
+        height: 350px;
+    }
 }

@@ -11,25 +11,34 @@
         <!--search-->
         <div class="card-header w-100">
             <h3>Create a new style!</h3>
-            <input type="search" class="form-control w-100" id="search-selection" onkeyup="searchCats()" placeholder="Search garments..."/>
+            <input type="search" class="form-control w-100" id="search-selection" onkeyup="searchCats()"
+                   placeholder="Search garments..."/>
         </div>
         <form th:action="@{/outfits/create}" th:method="post" th:object="${outfit}">
             <div class="card-body">
-                <button type="submit" class="btn bg-accent ml-auto w-100 text-white" id="submitOutfit">Save Outfit</button>
+                <button type="submit" class="btn bg-accent ml-auto w-100 text-white" id="submitOutfit">Save Outfit
+                </button>
             </div>
             <div class="card-body">
-                <input th:field="*{description}" class="ml-0 w-100" placeholder="Name your outfit something like Formal Event or Going out with Friends"/>
+                <input th:field="*{description}" class="ml-0 w-100"
+                       placeholder="Name your outfit something like Formal Event or Going out with Friends"/>
             </div>
             <div class="container-fluid row">
+
                 <div class="garment-card card mx-auto col-lg-3 col-sm-4 p-3" th:each="garment:${garments}">
-                    <input type="checkbox" class="check-box" name="garmentchoices" th:id="${garment.id}" th:value="${garment.id}"/>
+
+                    <input type="checkbox" class="check-box" name="garmentchoices" th:id="${garment.id}"
+                           th:value="${garment.id}"/>
                     <label th:for="${garment.id}">
-                      <img class="card-img-top mt-2" th:id="${garment.id}"  th:src="${garment.image}"/>
+                        <div class="garment-image">
+                            <img class="card-img-top mt-2" th:id="${garment.id}" th:src="${garment.image}"/>
+                        </div>
                     </label>
                     <div>
                         <!--//do not remove span. essential for search-->
                         <span th:each="cat:${garment.categories}" th:object="${cats}">
-                            <button type="button" class="badge badge-pill bg-accent catBtn mt-2" th:text="${cat.name}"></button>
+                            <button type="button" class="badge badge-pill bg-accent catBtn mt-2"
+                                    th:text="${cat.name}"></button>
                         </span>
                     </div>
                 </div>
