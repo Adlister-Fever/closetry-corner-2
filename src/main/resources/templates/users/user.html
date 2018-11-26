@@ -83,12 +83,12 @@
                             </span>
                             <div class="mr-1 mb-1 p-3 float-right d-flex d-inline-block container row">
                                 <div class="fb-share-button pb-2 pr-2"
-                                     data-href="https://closetrycorner.me"
+                                     th:data-href="${garment.image}"
                                      data-layout="button"
                                      data-size="large">
                                 </div>
                                 <div>
-                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out these duds..." data-url="https://closetrycorner.me" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out these duds..." th:data-url="${garment.image}" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
                                 <div class="mt-sm-3">
                                     <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
