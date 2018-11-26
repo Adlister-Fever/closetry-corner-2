@@ -52,38 +52,38 @@
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="/user">
-                        <img src="icons/icons8-closet-50.png"/>My Closet</a>
+                        <img src="/icons/icons8-closet-50.png"/>My Closet</a>
                 </li>
 
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="/upload">
-                        <img src="icons/icons8-hanger-50.png"/>Add a Garment</a>
+                        <img src="/icons/icons8-hanger-50.png"/>Add a Garment</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="/outfits/create">
-                        <img src="icons/icons8-try-and-buy-50.png"/>Create an Outfit</a>
+                        <img src="/icons/icons8-try-and-buy-50.png"/>Create an Outfit</a>
 
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="/user/edit">
-                        <img src="icons/icons8-resume-website-50.png"/>Edit Profile</a>
+                        <img src="/icons/icons8-resume-website-50.png"/>Edit Profile</a>
                 </li>
                 <li sec:authorize="!isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="/login">
-                        <img src="icons/icons8-login-rounded-up-50.png"/>Login</a>
+                        <img src="/icons/icons8-login-rounded-up-50.png"/>Login</a>
                 </li>
                 <li sec:authorize="!isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="/register">
-                        <img src="icons/icons8-add-50.png"/>Register</a>
+                        <img src="/icons/icons8-add-50.png"/>Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/devs">
-                        <img src="icons/icons8-help-50.png"/>About Us</a>
+                        <img src="/icons/icons8-help-50.png"/>About Us</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <form id="logout2" th:action="@{/logout}" th:method="post">
                         <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logout2').submit();">
-                            <img src="icons/icons8-exit-50.png"/>Logout</a>
+                            <img src="/icons/icons8-exit-50.png"/>Logout</a>
                     </form>
                 </li>
             </ul>
