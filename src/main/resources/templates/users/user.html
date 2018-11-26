@@ -69,18 +69,30 @@
             <div class="tab-pane fade show active" id="nav-garments" role="tabpanel" aria-labelledby="nav-garments-tab">
                 <div class="row">
                     <!--//do not remove garment-card class. essential for search-->
-                    <div class="garment-card card mx-auto col-lg-3 col-sm-6 p-3 float-left" th:each="garment:${garments}">
+                    <div class="garment-card card mx-auto col-lg-3 col-sm-6 p-3 float-left"
+                         th:each="garment:${garments}">
+                        <div>
+                            <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
+                                  th:object="${garment}">
+                                <button type="submit" class="btn pl-0 pr-0 mt-3 float-left">
+                                    <img src="/icons/icons8-trash-50.png"
+                                         alt="icon" style="width: 40%; height: 40%;"/></button>
+                            </form>
+                        </div>
                         <div class="garment-image">
-                        <a th:href="@{/closet/{id}(id=${garment.id})}">
-                            <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}"
+
+                            <img class="card-img-top float-left m-auto" th:id="${garment.id}"
+                                 th:value="${garment.id}"
                                  th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
-                        </a>
                         </div>
                         <div class="card-footer bg-transparent border-0 p-3">
                             <!--//do not remove span. essential for search-->
+                            <div class="garment-categories">
                             <span th:each="cat:${garment.categories}" th:object="${cats}">
-                                <button type="button" class="badge badge-pill bg-accent catBtn mt-2" th:text="${cat.name}"></button>
+                                <button type="button" class="badge badge-pill bg-accent catBtn mt-2"
+                                        th:text="${cat.name}"></button>
                             </span>
+                            </div>
                             <div class="mr-1 mb-1 p-3 float-right d-flex d-inline-block container row">
                                 <div class="fb-share-button pb-2 pr-2"
                                      th:data-href="${garment.image}"
@@ -88,17 +100,23 @@
                                      data-size="large">
                                 </div>
                                 <div>
-                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out these duds..." th:data-url="${garment.image}" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                </div>
-                                <div class="mt-sm-3">
-                                    <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
-                                          th:object="${garment}">
-                                        <button type="submit" class="btn btn-outline-danger btn-sm pl-0 pr-0 mt-3">
-                                            <img src="/icons/icons8-trash-50.png"
-                                                 alt="icon" style="width: 40%; height: 40%;"/></button>
-                                    </form>
+
+                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+                                       data-size="large" data-text="Check out these duds..."
+                                       data-url="https://closetrycorner.me" data-show-count="false">Tweet</a>
+                                    <script async="" src="https://platform.twitter.com/widgets.js"
+                                            charset="utf-8"></script>
+
                                 </div>
                             </div>
+                            <!--<div class="mt-sm-3">-->
+                            <!--<form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"-->
+                            <!--th:object="${garment}">-->
+                            <!--<button type="submit" class="btn btn-outline-danger pl-0 pr-0 mt-3 float-right">-->
+                            <!--<img src="/icons/icons8-trash-50.png"-->
+                            <!--alt="icon" style="width: 40%; height: 40%;"/></button>-->
+                            <!--</form>-->
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>
@@ -113,7 +131,8 @@
                             <img class="oufitPreview" th:src="${garment.image}"/>
                         </span>
                         <div class="mr-1 mb-1 p-0 card-footer d-flex justify-content-center bg-transparent">
-                            <form th:action="@{/outfits/{id}/delete(id=${outfit.id})}" method="POST" th:object="${outfit}">
+                            <form th:action="@{/outfits/{id}/delete(id=${outfit.id})}" method="POST"
+                                  th:object="${outfit}">
                                 <button type="submit" class="btn btn-outline-danger btn-sm my-3">Delete Outfit</button>
                             </form>
                         </div>
