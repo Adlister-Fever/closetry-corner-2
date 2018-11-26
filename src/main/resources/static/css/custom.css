@@ -3,6 +3,7 @@
     --main-highlight-color: #D1B700;
     --main-accent-color: #5e8a65;
     --main-text-color: #000000;
+
 }
 .bg-main{
     background-color: var(--main-bg-color);
@@ -11,9 +12,6 @@
 .bg-accent{
     background-color: var(--main-accent-color);
 }
-/*body, .container, .container-fluid{*/
-    /*background-color: var(--main-bg-color);*/
-/*}*/
 body{
     padding-top: 6em;
     height: 100vh;
@@ -103,30 +101,6 @@ div, p, .nav-link{
     background: url(/img/jeans-min.jpg) center no-repeat;
     background-size: cover;
 }
-/*.card {*/
-    /*background-color: var(--main-bg-color);*/
-/*}*/
-
-
-
-
-/*div.jumbotron.jumbotron-fluid{*/
-    /*background-color: #261b0c;*/
-/*!important;*/
-/*}*/
-
-/*.card-img1-overlay{*/
-    /*z-index: 1000;*/
-    /*background-color: var(--main-accent-color);*/
-    /*opacity: 0.4;*/
-/*}*/
-
-/*.card-img2-overlay{*/
-    /*z-index: 1000;*/
-    /*background-color: var(--main-bg-color);*/
-    /*opacity: 0.4;*/
-/*}*/
-
 *{
     color: var(--main-text-color);
 !important;
@@ -142,48 +116,3 @@ btn-accent{
     max-height: 75px;
     width: auto;
 }
-
-
-/*.bg-purple-gradient {*/
-    /*background: rgba(176,13,201,1);*/
-    /*background: -webkit-linear-gradient(top, rgba(176,13,201,1) 0%, rgba(107,7,122,1) 100%);*/
-    /*background: linear-gradient(to bottom, rgba(176,13,201,1) 0%, rgba(107,7,122,1) 100%);*/
-    /*!*background-repeat: no-repeat;*!*/
-    /*!*background-size: revert;*!*/
-/*}*/
-
-
-/*//duotone instruciones*/
-/*#duotone {*/
-    /*background: url('https://jmperezperez.com/assets/images/posts/fecolormatrix-kanye-west.jpg');*/
-
-    /*width: 200px;*/
-    /*height: 200px;*/
-
-
-/*}*/
-
-/*#duotone::before {*/
-    /*background-color: rgb(240, 14, 46);*/
-    /*content: '';*/
-    /*display: block;*/
-    /*width: 200px;*/
-    /*height: 200px;*/
-    /*mix-blend-mode: darken;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-/*}*/
-
-/*#duotone::after {*/
-    /*background-color: rgb(25, 37, 80);*/
-    /*content: '';*/
-    /*display: block;*/
-    /*width: 200px;*/
-    /*height: 200px;*/
-
-    /*mix-blend-mode: lighten;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-/*}*/

@@ -6,7 +6,7 @@
 </head>
 <body class="container">
 <nav th:replace="fragments/partials :: nav"></nav>
-<div class="card">
+<div class="card pb-4">
     <div class="container-fluid bg-light h-100">
         <!--search-->
         <div class="card-header w-100">
@@ -22,7 +22,7 @@
             </div>
             <div class="container-fluid row">
                 <div class="garment-card card mx-auto col-lg-3 col-sm-4 p-3" th:each="garment:${garments}">
-                    <input type="checkbox" name="garmentchoices" th:id="${garment.id}" th:value="${garment.id}"/>
+                    <input type="checkbox" class="check-box" name="garmentchoices" th:id="${garment.id}" th:value="${garment.id}"/>
                     <label th:for="${garment.id}">
                       <img class="card-img-top mt-2" th:id="${garment.id}"  th:src="${garment.image}"/>
                     </label>
