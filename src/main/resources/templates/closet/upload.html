@@ -7,7 +7,7 @@
 <body class="container bg-purple-gradient silver" style="background-image: url(img/apparel-attire-blur-994517copy.jpg); background-size: cover;">
 <nav th:replace="fragments/partials :: nav"></nav>
 <div class="card border-0 bg-transparent mx-auto my-auto">
-    <div class="card col-8 mx-auto float-left mt-5 border p-3">
+    <div class="card col-8 mx-auto float-left mt-5 border p-4">
         <div class="display-4 mb-5">Upload and tag your image</div>
         <form th:action="@{/upload}" th:method="POST" th:object="${garment}">
             <div>
@@ -21,15 +21,22 @@
                     <div class="mt-2">
                         <small class="red mr-4">Garments MUST have a category to be saved!</small>
                     </div>
-
-                    <div class="mt-2">
+                    <div class="mt-2 h-100">
                         <input type="hidden" class="catNames" role="uploadcare-uploader"
                                name="content"
                                data-public-key="f4d049bd4151e8ea72ed"
+                               data-effects="rotate,preview"
+
                                data-images-only="true" th:field="*{image}"/>
                     </div>
                     <div>
-                        <button type="submit" value="Save" class="btn btn-dark mt-sm-2 ml-2 rounded">Save</button>
+                        <button type="submit" value="Save" class="btn btn-primary mt-sm-2 ml-2 rounded pl-0 pr-3 pt-1 pb-1 d-flex d-inline-block">
+                            <div>
+                                <img src="/icons/icons8-upload-50-white.png"
+                                     alt="icon" style="width: 40%; height: 40%;"/>
+                            </div>
+                            <div class="white pt-1 h-100">Save</div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -38,10 +45,7 @@
 
 </div>
 <footer th:replace="fragments/partials :: footer"></footer>
-
 <script>
-
-
     window.addEventListener('DOMContentLoaded', function () {
         const apikey = 'AtXT24mWXSGUvgcRzV7JQz';
         const client = filestack.init(apikey);
@@ -55,7 +59,6 @@
                 console.log(res.filesUploaded[0].url)
                 // $("#pic1").attr("src", res.filesUploaded[0].url);
             },
-
         };
         $();
 
