@@ -28,13 +28,28 @@ body{
 }
 
 /*home page styling*/
-.home.jumbotron{
-    background-image: url(/img/jumbo-min.jpg);
+/* Medium devices (desktops, 992px and up) */
+.home.jumbotron {
+    background-image: url(/img/jumbo-op.jpg);
     background-size: cover;
     background-position: center 20%;
-    !important;
 
 }
+@media screen and (min-width:992px) {
+
+    .home.jumbotron {
+        background-image: url(/img/jumbo-min.jpg);
+        background-size: cover;
+        background-position: center 20%;
+
+    }
+}
+
+
+
+
+
+
 .home-title, .home-caption{
     background-color: transparent;
     font-family: 'Quicksand', sans-serif;
@@ -101,6 +116,7 @@ div, p, .nav-link{
     background: url(/img/jeans-min.jpg) center no-repeat;
     background-size: cover;
 }
+
 *{
     color: var(--main-text-color);
 !important;
@@ -115,4 +131,4 @@ btn-accent{
 .logo{
     max-height: 75px;
     width: auto;
-}
+
