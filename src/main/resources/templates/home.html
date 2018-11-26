@@ -20,57 +20,76 @@
             <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Snap a Photo</div></div>
         </div>
         <!--<div class="col-6 d-xs-none"></div>-->
-        <div class="card bg-transparent border-0 mb-4">
+        <div class="card bg-transparent border-0">
             <img class="card-img" src="/img/select-category-min.jpg" />
             <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Select a Category</div></div>
         </div>
-        <div class="card bg-transparent border-0 mt-2 mb-4">
+        <div class="card bg-transparent border-0 mt-2">
             <img class="card-img" src="/img/outfit-min.jpg"/>
             <div class="card-img-overlay col-4"><div class="bg-white rounded text-center">Create an Outfit</div></div>
         </div>
         <div class="col-6"></div>
-        <div class="card bg-transparent mt-3 border-0">
+        <div class="card bg-transparent mt-2 border-0">
             <img class="card-img" src="/img/group-photo-min.jpg"/>
             <div class="card-img-overlay col-5"><div class="bg-white rounded text-center">Share with Friends</div></div>
         </div>
     </div>
     <div class="container bg-transparent h-100 d-none d-md-block">
         <div class="row">
-            <div class="col-sm-6" id="col-1">
+            <div class="col-sm-6 pl-0">
                 <!--first card: take a photo-->
-                <div class="card home-card1 border-0 bg-transparent">
+                <div class="card home-card1 border-0 bg-transparent mb-2">
                     <img class="card-img mx-sm-auto my-sm-auto" src="/img/taking-pic-min.jpg" />
-                        <div class="card-img-overlay">
-                            <div class="card-text"><div class="textBackground1 text-center">Snap a Photo</div></div>
-                        </div>
-                </div>
-                <!--third card: create an outfit-->
-                <div class="card home-card3 border-0 bg-transparent mx-sm-auto">
-                    <img class="card-img mx-sm-auto my-sm-auto" src="/img/outfit-min.jpg"/>
                     <div class="card-img-overlay">
-                        <div class="card-text"><div class="textBackground1 text-center">Create an Outfit</div></div>
+                        <div class="card-text"><div class="textBackground1 text-center">Snap a Photo</div></div>
                     </div>
+
+
+
                 </div>
             </div>
-            <div class="col-sm-6 mb-10" id="col-2">
+
+            <div class="col-sm-6 pr-0">
                 <!--second card: select a category-->
-                <div class="card home-card2 border-0 bg-transparent">
+                <div class="card home-card2 border-0 bg-transparent mb-2">
                     <img class="card-img mx-sm-auto my-sm-auto" src="/img/select-category-min.jpg" />
                     <div class="card-img-overlay">
                         <div class="card-text"><div class="textBackground2 text-center">Select a Category</div></div>
                     </div>
                 </div>
-                <!--fourth card: share with friends-->
-                <div class="card home-card4 border-0 bg-transparent">
-                    <img class="card-img mx-sm-auto my-sm-auto" src="/img/group-photo-min.jpg"/>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <!--third card: create an outfit-->
+            <div class="col-sm-6 pl-0">
+                <div class="card home-card3 border-0 bg-transparent mx-sm-auto">
+                    <img class="card-img mx-sm-auto my-sm-auto" src="/img/outfit-min.jpg" style="height: 393px;"/>
                     <div class="card-img-overlay">
-                        <div class="card-text"><div class="textBackground2 text-center shareText">Share with Friends</div></div>
+                        <div class="card-text">
+                            <div class="textBackground1 text-center">Create an Outfit</div>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+                <!--fourth card: share with friends-->
+            <div class="col-sm-6 pr-0">
+
+                <div class="card home-card4 border-0 bg-transparent">
+                        <img class="card-img mx-sm-auto my-sm-auto" src="/img/group-photo-min.jpg"/>
+                        <div class="card-img-overlay">
+                            <div class="card-text">
+                                <div class="textBackground2 text-center shareText">Share with Friends</div>
+                            </div>
+                        </div>
                 </div>
                 <!--<bottom th:replace="fragments/pratials :: bottom"></bottom>-->
             </div>
         </div>
     </div>
+
 </div>
 <footer th:replace="fragments/partials :: footer"></footer>
 <script>
@@ -81,7 +100,7 @@
     "Give that man a Closetry Corner", "The joy of Closetry Corner", "Closetry Corner does a body good", "Don't leave home without Closetry Corner", "Say it with Closetry Corner",
     "The more Closetry Corner the better", "Closetry Corner lasts longer", "Everything is simple with Closetry Corner", "Closetry Corner forever", "When only the best will do; Closetry Corner",
     "Closetry Corner. It just works.", "8 out of 10 owners who expressed a preference said their cats preferred Closetry Corner", "4 out of 5 Dentists with fashion sense probably recommend Closetry Corner",
-    "The magic of Closetry Corner", "Closetry Corner shows good taste", "I trust Closetry Corner", "Long live Closetry Corner", "We built this city on Closetry Corner", "I wish I was Closetry Corner"]
+    "The magic of Closetry Corner", "Closetry Corner shows good taste", "I trust Closetry Corner", "Long live Closetry Corner", "We built this city on Closetry Corner", "I wish I was Closetry Corner", "All of my 11 children love Closetry Corner"]
     $(document).ready(function(){
         $("#slogan").text(sloganArray[Math.floor(Math.random()*sloganArray.length)])
     });
