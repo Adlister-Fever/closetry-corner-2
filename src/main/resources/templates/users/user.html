@@ -58,7 +58,6 @@
         <!--search-->
         <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()"
                placeholder="Search..."/>
-
         <!--nav tabs-->
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -71,7 +70,6 @@
                 <div class="row">
                     <!--//do not remove garment-card class. essential for search-->
                     <div class="garment-card card mx-auto col-lg-3 col-sm-6 p-3 float-left" th:each="garment:${garments}">
-
                         <a th:href="@{/closet/{id}(id=${garment.id})}">
                             <img class="card-img-top float-left m-auto" th:id="${garment.id}" th:value="${garment.id}"
                                  th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
@@ -90,7 +88,7 @@
                                 <div>
                                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Check out these duds..." data-url="https://closetrycorner.me" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
-                                <div>
+                                <div class="mt-sm-3">
                                     <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
                                           th:object="${garment}">
                                         <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
@@ -101,19 +99,17 @@
                     </div>
                 </div>
             </div>
-
             <div class="tab-pane fade" id="outfits" role="tabpanel" aria-labelledby="outfits-tab">
                 <div class="row">
-                    <div class="card-body mx-auto my-5 col-lg-3 col-sm-6" th:each="outfit:${outfits}">
-                        <div th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark"
-                                                                           th:text="${outfit.description}"></h3></div>
-
-                        <span class="p-0" th:each="garment:${outfit.garments}">
-                        <img class="oufitPreview" th:src="${garment.image}"/>
+                    <div class="card mx-auto my-5 col-lg-3 col-sm-6" th:each="outfit:${outfits}">
+                        <div th:href="@{/outfits/{id}(id=${outfit.id})}">
+                            <h3 class="card-header text-dark bg-transparent" th:text="${outfit.description}"></h3>
+                        </div>
+                        <span class="p-0 ml-4" th:each="garment:${outfit.garments}">
+                            <img class="oufitPreview" th:src="${garment.image}"/>
                         </span>
-                        <div class="mr-1 mb-1 p-0 card-footer justify-content-center">
-                            <form th:action="@{/outfits/{id}/delete(id=${outfit.id})}" method="POST"
-                                  th:object="${outfit}">
+                        <div class="mr-1 mb-1 p-0 card-footer d-flex justify-content-center bg-transparent">
+                            <form th:action="@{/outfits/{id}/delete(id=${outfit.id})}" method="POST" th:object="${outfit}">
                                 <button type="submit" class="btn btn-outline-danger btn-sm my-3">Delete Outfit</button>
                             </form>
                         </div>

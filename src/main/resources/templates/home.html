@@ -13,7 +13,7 @@
         <p class="lead"><em id="slogan"></em></p>
     </div>
 </div>
-<div class="mt-5">
+<div class="mt-5 mb-5 pb-5">
     <div class="row d-flex justify-content-center d-block d-md-none">
         <div class="card bg-transparent border-0 mb-2">
             <img class="card-img" src="/img/taking-pic-min.jpg"/>
@@ -34,42 +34,43 @@
             <div class="card-img-overlay col-5"><div class="bg-white rounded text-center">Share with Friends</div></div>
         </div>
     </div>
-<div class="container bg-transparent h-100 d-none d-md-block">
-    <div class="row">
-        <div class="col-sm-6" id="col-1">
-            <!--first card: take a photo-->
-            <div class="card home-card1 border-0 bg-transparent">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/taking-pic-min.jpg" />
+    <div class="container bg-transparent h-100 d-none d-md-block">
+        <div class="row">
+            <div class="col-sm-6" id="col-1">
+                <!--first card: take a photo-->
+                <div class="card home-card1 border-0 bg-transparent">
+                    <img class="card-img mx-sm-auto my-sm-auto" src="/img/taking-pic-min.jpg" />
+                        <div class="card-img-overlay">
+                            <div class="card-text"><div class="textBackground1 text-center">Snap a Photo</div></div>
+                        </div>
+                </div>
+                <!--third card: create an outfit-->
+                <div class="card home-card3 border-0 bg-transparent mx-sm-auto">
+                    <img class="card-img mx-sm-auto my-sm-auto" src="/img/outfit-min.jpg"/>
                     <div class="card-img-overlay">
-                        <div class="card-text"><div class="textBackground1 text-center">Snap a Photo</div></div>
+                        <div class="card-text"><div class="textBackground1 text-center">Create an Outfit</div></div>
                     </div>
-            </div>
-            <!--third card: create an outfit-->
-            <div class="card home-card3 border-0 bg-transparent mx-sm-auto">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/outfit-min.jpg"/>
-                <div class="card-img-overlay">
-                    <div class="card-text"><div class="textBackground1 text-center">Create an Outfit</div></div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 mb-10" id="col-2">
-            <!--second card: select a category-->
-            <div class="card home-card2 border-0 bg-transparent">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/select-category-min.jpg" />
-                <div class="card-img-overlay">
-                    <div class="card-text"><div class="textBackground2 text-center">Select a Category</div></div>
+            <div class="col-sm-6 mb-10" id="col-2">
+                <!--second card: select a category-->
+                <div class="card home-card2 border-0 bg-transparent">
+                    <img class="card-img mx-sm-auto my-sm-auto" src="/img/select-category-min.jpg" />
+                    <div class="card-img-overlay">
+                        <div class="card-text"><div class="textBackground2 text-center">Select a Category</div></div>
+                    </div>
                 </div>
-            </div>
-            <!--fourth card: share with friends-->
-            <div class="card home-card4 border-0 bg-transparent">
-                <img class="card-img mx-sm-auto my-sm-auto" src="/img/group-photo-min.jpg"/>
-                <div class="card-img-overlay">
-                    <div class="card-text"><div class="textBackground2 text-center shareText">Share with Friends</div></div>
+                <!--fourth card: share with friends-->
+                <div class="card home-card4 border-0 bg-transparent">
+                    <img class="card-img mx-sm-auto my-sm-auto" src="/img/group-photo-min.jpg"/>
+                    <div class="card-img-overlay">
+                        <div class="card-text"><div class="textBackground2 text-center shareText">Share with Friends</div></div>
+                    </div>
                 </div>
+                <!--<bottom th:replace="fragments/pratials :: bottom"></bottom>-->
             </div>
         </div>
     </div>
-</div>
 </div>
 <footer th:replace="fragments/partials :: footer"></footer>
 <script>
