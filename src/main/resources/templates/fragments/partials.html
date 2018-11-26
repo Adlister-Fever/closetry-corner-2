@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="shortcut icon" href="https://img.icons8.com/ultraviolet/100/000000/hanger.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/icons/icons8-hanger-50.png" type="image/x-icon"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="/css/checkbox.scss"/>
@@ -26,6 +26,7 @@
         }
     </style>
     <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.6.1/uploadcare.full.min.js"></script>
+    <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.min.js" charset="utf-8"></script>
     <!--google font-->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
     <title>Closetry Corner</title>
@@ -52,10 +53,16 @@
                     <a class="nav-link" href="/user">My Closet</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item border p-1 mr-2">
-                    <a class="nav-link" href="/upload">Add a Garment</a>
+                    <a class="nav-link" href="/upload">
+                       <div>
+                           <div class="pb-1"><img src="/icons/icons8-upload-50-white.png"
+                                     alt="icon" class="pr-2" style="width: 20%; height: 20%;"/>
+                               <span>Add Garment</span>
+                           </div>
+                       </div></a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item navy border p-1 mr-2">
-                    <a class="nav-link" href="/outfits/create">Create an Outfit</a>
+                    <a class="nav-link" href="/outfits/create">Create Outfit</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item navy border p-1 mr-2">
                     <a class="nav-link" href="/user/edit">Edit Profile</a>

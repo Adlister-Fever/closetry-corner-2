@@ -54,7 +54,7 @@
             <div id="weather-box" style="margin: 8px; width: 100%; height: 80px;"></div>
         </div>
     </div>
-    <div class="container-fluid bg-light h-100 mt-4">
+    <div class="container-fluid bg-light h-100 mt-4 pt-3">
         <!--search-->
         <input type="search" class="form-control w-100 mt-2 mb-2" id="search-selection" onkeyup="searchCats()"
                placeholder="Search..."/>
@@ -91,7 +91,9 @@
                                 <div class="mt-sm-3">
                                     <form th:action="@{/user/garment/delete/{id}(id=${garment.id})}" method="POST"
                                           th:object="${garment}">
-                                        <button type="submit" class="btn btn-outline-danger btn-sm mt-3">Delete</button>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm pl-0 pr-0 mt-3">
+                                            <img src="/icons/icons8-trash-50.png"
+                                                 alt="icon" style="width: 40%; height: 40%;"/></button>
                                     </form>
                                 </div>
                             </div>
