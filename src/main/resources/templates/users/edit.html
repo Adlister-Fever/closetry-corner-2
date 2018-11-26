@@ -6,8 +6,8 @@
 </head>
 <body class="container">
 <nav th:replace="fragments/partials :: nav"></nav>
-<div class="card border mx-auto my-auto p-3">
-    <h1>Create an account</h1>
+<div class=" edit-card card border mx-auto my-auto p-3">
+    <h1>Edit your Profile</h1>
     <form th:action="@{/user/edit/{id}(id=${user.id})}" th:method="POST" th:object="${user}">
         <div class="col-md-12 mb-3">
             <label for="username">Username</label>
@@ -19,13 +19,13 @@
                 <input type="text" class="form-control" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" th:field="*{username}" th:disabled="true"/>
                 </fieldset>
             </div>
-            <div><small class="red">To edit username a new account must be created.</small></div>
+            <div><small class="red">To change username a new account must be created.</small></div>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col mb-3">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Email" th:required="true"/>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col mb-3">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Password" th:required="true"/>
         </div>
@@ -33,12 +33,12 @@
         <!--<label for="confirm-password">Confirm Password</label>-->
         <!--<input id="confirm-password" type="password" th:field="*{password}" />-->
 
-        <div class="col pr-sm-4"><button class="btn btn-outline-primary float-right" type="submit">Update Profile</button></div>
+        <button class="btn btn-outline-primary ml-3" type="submit">Update Profile</button>
     </form>
     <br/>
    <div class="pr-2">
        <form th:action="@{/user/{id}/delete(id=${user.id})}" th:method="POST">
-           <div class="col"><button class="btn btn-outline-danger float-lg-left float-sm-right" type="submit">Delete Profile</button></div>
+           <button class="btn btn-outline-danger ml-3" type="submit">Delete Profile</button>
        </form>
    </div>
 </div>
