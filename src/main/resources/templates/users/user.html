@@ -79,12 +79,14 @@
                                          alt="icon" style="width: 40%; height: 40%;"/></button>
                             </form>
                         </div>
+                        <a th:href="@{/closet/{id}(id=${garment.id})}">
                         <div class="garment-image">
 
                             <img class="card-img-top float-left m-auto" th:id="${garment.id}"
                                  th:value="${garment.id}"
                                  th:src="${garment.image}" draggable="true" ondragstart="drag(event)"/>
                         </div>
+                        </a>
                         <div class="card-footer bg-transparent border-0 p-3">
                             <!--//do not remove span. essential for search-->
                             <span th:each="cat:${garment.categories}" th:object="${cats}">
