@@ -45,7 +45,10 @@ body{
 }
 
 
-
+.devcon{
+    height:50px;
+    width:50px;
+}
 
 
 
@@ -126,12 +129,16 @@ btn-accent{
      max-height: 75px;
      width: auto;
  }
+
 @media screen and (min-width: 1000px) {
     .garment-image {
         height: 350px;
     }
     .garment-categories{
         height: 200px;
+    }
+    .edit-card  {
+        width: 500px;
     }
 }
 
