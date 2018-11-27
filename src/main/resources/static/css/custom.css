@@ -129,6 +129,13 @@ btn-accent{
      max-height: 75px;
      width: auto;
  }
+#smallLogo{
+    height: 45px;
+    width: 45px;
+    margin-left: 0px;
+    margin-right: 5px;
+    padding-left: 0px;
+}
 
 @media screen and (min-width: 1000px) {
     .garment-image {
