@@ -87,12 +87,10 @@
                         </div>
                         <div class="card-footer bg-transparent border-0 p-3">
                             <!--//do not remove span. essential for search-->
-                            <div class="garment-categories">
                             <span th:each="cat:${garment.categories}" th:object="${cats}">
                                 <button type="button" class="badge badge-pill bg-accent catBtn mt-2"
                                         th:text="${cat.name}"></button>
                             </span>
-                            </div>
                             <div class="mr-1 mb-1 p-3 float-right d-flex d-inline-block container row">
                             <div class="fb-share-button pb-2 pr-2"
                                  th:data-href="${garment.image}"
