@@ -136,13 +136,10 @@ btn-accent{
     margin-right: 5px;
     padding-left: 0px;
 }
-/*.singleGarment{*/
-    /*max-width: 400px;*/
-    /*height: auto;*/
-/*}*/
-/*#singleGarmentCard{*/
-    /*height: 675px;*/
-/*}*/
+.tweetBtn{
+    height: 28px;
+    width: 80px;
+}
 
 @media screen and (min-width: 1000px) {
     .garment-image {
