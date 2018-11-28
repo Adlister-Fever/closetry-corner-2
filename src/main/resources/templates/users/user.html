@@ -104,18 +104,9 @@
                                  data-size="large">
                             </div>
                                 <div>
+                                    <a th:href="@{'https://twitter.com/intent/tweet?text=check+out+my+sweet+threads&amp;url=https://closetrycorner.me/closet/' + ${garment.id}}">
                                     <img class="tweetBtn" src="/img/twitterbtn.png"/>
-
-                                <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"-->
-                                   <!--data-size="large" data-text="Check out these duds..."-->
-                                   <!--data-url="https://closetrycorner.me" data-show-count="false">Tweet</a>-->
-                                <!--<script async="" src="https://platform.twitter.com/widgets.js"-->
-                                        <!--charset="utf-8"></script>-->
-                                <a th:href="@{'https://twitter.com/intent/tweet?text=check+out+my+sweet+threads&amp;url=https://closetrycorner.me/closet/' + ${garment.id}}">
-                                    share
-                                </a>
-
-
+                                    </a>
                                 </div>
                             <!--<div>-->
 
@@ -140,9 +131,9 @@
                                 <img src="/icons/icons8-trash-50.png"
                                      alt="icon" style="width: 40%; height: 40%;"/></button>
                         </form>
-                        <div th:href="@{/outfits/{id}(id=${outfit.id})}">
+                        <a th:href="@{/outfits/{id}(id=${outfit.id})}">
                             <h3 class="card-header text-dark bg-transparent" th:text="${outfit.description}"></h3>
-                        </div>
+                        </a>
                         <span class="p-0 ml-4" th:each="garment:${outfit.garments}">
                             <img class="oufitPreview" th:src="${garment.image}"/>
                         </span>
@@ -154,7 +145,9 @@
                                      data-size="large">
                                 </div>
                                 <div>
-                                    <img class="tweetBtn" src="/img/twitterbtn.png"/>
+                                    <a th:href="@{'https://twitter.com/intent/tweet?text=check+out+my+sweet+threads&amp;url=https://closetrycorner.me/outfits/' + ${outfit.id}}">
+                                        <img class="tweetBtn" src="/img/twitterbtn.png"/>
+                                    </a>
 
 
                                 </div>
