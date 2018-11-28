@@ -102,6 +102,15 @@
                                 <div>
                                     <img class="tweetBtn" src="/img/twitterbtn.png"/>
 
+                                <!--<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"-->
+                                   <!--data-size="large" data-text="Check out these duds..."-->
+                                   <!--data-url="https://closetrycorner.me" data-show-count="false">Tweet</a>-->
+                                <!--<script async="" src="https://platform.twitter.com/widgets.js"-->
+                                        <!--charset="utf-8"></script>-->
+                                <a th:href="@{'https://twitter.com/intent/tweet?text=check+out+my+sweet+threads&amp;url=https://closetrycorner.me/closet/' + ${garment.id}}">
+                                    share
+                                </a>
+
 
                                 </div>
                             <!--<div>-->

@@ -11,7 +11,7 @@
             let icon = data.weather[0].icon;
             $('#weather-box').append("<h5><img src='https://openweathermap.org/img/w/" + icon + ".png'/>" + " It is " + currentTemp + " degrees. " + generalWeather + " in " + data.name + "</h5>");
 
-            if(currentTemp < 60){
+            if(currentTemp < 66){
                 $('#weather-box').append("<p>You may need a jacket. Try searching for cold weather</p>");
             } else if(currentTemp >= 80){
                 $('#weather-box').append("<p>You may need a hat or shades. Try searching for hot weather</p>");
