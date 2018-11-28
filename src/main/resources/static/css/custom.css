@@ -137,8 +137,8 @@ btn-accent{
     padding-left: 0px;
 }
 .tweetBtn{
-    height: 28px;
-    width: 70px;
+    height: 30px;
+    width: 75px;
 }
 
 @media screen and (min-width: 1000px) {
