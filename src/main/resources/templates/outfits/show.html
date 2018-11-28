@@ -2,20 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/partials :: header">
     <meta charset="UTF-8"/>
-    <title>Viewing Outfits</title>
+    <title>Viewing Garment</title>
 </head>
 <body>
-<nav th:replace="partials :: nav"></nav>
-<div class="card mx-auto my-5 w-25" th:each="outfit:${outfits}">
-    <a th:href="@{/outfits/{id}(id=${outfit.id})}"><h3 class="card-header text-dark" th:text="${outfit.description}"></h3></a>
-    <p class="card-body" th:each="garment:${outfit.garments}"></p>
-    <div class="card-footer">
-        <p th:text="${outfit.date}"></p>
-
+<nav th:replace="/fragments/partials :: nav"></nav>
+<div class="card bg-transparent border-0">
+    <div class="row">
+        <div class="container-fluid bg-light h-100 mt-4 pt-3 w-50">
+            <!--//do not remove garment-card class. essential for search-->
+            <div class="card mx-auto my-5 col-lg-3 col-sm-6">
+                <div>
+                    <h3 class="card-header text-dark bg-transparent" th:text="${outfit.description}"></h3>
+                </div>
+                <span class="p-0 ml-4" th:each="garment:${outfit.garments}">
+                            <img class="oufitPreview" th:src="${garment.image}"/>
+                        </span>
+                <div class="mr-1 mb-1 p-0 card-footer d-flex justify-content-center bg-transparent">
+                    <div class="mr-1 mb-1 p-3 float-right d-flex d-inline-block container row">
+                        <div class="fb-share-button pb-2 pr-2"
+                             th:data-href="${garment.image}"
+                             data-layout="button"
+                             data-size="large">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
+<footer th:replace="fragments/partials :: footer"></footer>
 </body>
 </html>
-
-
